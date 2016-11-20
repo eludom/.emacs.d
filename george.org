@@ -1,0 +1,1441 @@
+#+TITLE: George Jones' emacs initialization du jour
+#+AUTHOR: George Jones
+#+EMAIL: gmj@pobox.com
+#+DATE: <2016-11-19 09:29:57 Saturday>
+
+<<babel-init>>
+
+#+CAPTION: Text Colored Glasses
+#+BEGIN_EXAMPLE
+
+                                                     __
+                                                    /  \ "I'll see you on __
+                            /\                     /   /  the text side  /  \
+                           /  \                   /       of the moon"  /   /
+            -------R------/    \                _/_____       _______  /
+            -------G-----/    --\-----W------- /       \ / \ /       \/
+            -------B----/        \            |   Org   |   |  Mode   |
+                       /          \            \_______/     \_______/
+                      -------------
+
+#+END_EXAMPLE
+
+* About This File
+** What and why
+   This is George Jones' emacs configuration redux, with heavy
+   borrowings from [[https://github.com/sachac/.emacs.d][Sacha Chua's emacs config]] (thanks !).  It lives
+   here https://github.com/eludom/.
+
+   After something like 30 years (possibly dating back configs on TECO
+   based TOPS20 emacs) I am declaring [[http://www.emacswiki.org/emacs/DotEmacsBankruptcy][dot emacs bankrupcy]] and sarting
+   over.   Too much cruft has accreted.   I'm sure there are things in
+   my config that I've just assumed were defaults for decades (like the
+   "C-x p" I just typed to try to fill this paragraph).   In the era
+   of Melpa and org, this is not your fathers =.emacsrc=.
+
+** Inspirations
+
+  - org mode :: http://orgmode.org/ Org mode has caused me to view the
+                world through text colored glasses.  What started out
+                as a deceptivly simple outliner is now my document
+                authoring system, my code execution environment, my
+                spredsheet, time tracker, planner, etc....
+		
+		
+  - Sacha Chua :: Sacha Chua is putting on an awesome series of 
+                  interviews and [[http://sachachua.com/blog/emacs-chat/][emacs chats]] that create community among the
+                  isolated and dispersed culture of emacs geeks.
+
+  - Xah Lee :: [[https://plus.google.com/+XahLee/posts][Xah Lee]] posts an incessent stream of useful ideas, many
+               drawn from his excellent [[http://ergoemacs.org/emacs/emacs.html][Xah Emacs Tutorial]].  You can
+               [[http://ergoemacs.org/emacs/buy_xah_emacs_tutorial.html][buy the Xah Emacs Tutorial]] to support his fine
+               semi-gratis work.   And if you ever wanted to learn
+               about the ergonomics of keyboards and key bindings, you
+               will never find someone with a deeper knowledge
+               http://xahlee.info/kbd/keyboarding.html or more studied
+               application http://ergoemacs.org/
+
+  - Eric Shulte's org mode examples :: https://eschulte.github.io/org-scraps/
+
+  - Bernt Hansen's org mode tips :: http://doc.norang.ca/org-mode.html
+** Sources
+   - My old .dotfiles :: https://github.com/eludom/dotfiles. Possibly
+       	evolving to the new form by the time you read this. 
+   - Sacha Chua's config ::
+       	http://pages.sachachua.com/.emacs.d/Sacha.html or, from github https://github.com/sachac/.emacs.d
+   - Eric Shulte's emacs starer kit :: From the creator of org-bable
+        http://eschulte.github.io/emacs24-starter-kit/ or
+        https://github.com/eschulte/emacs24-starter-kit 
+   - Arnaud Legrand's emacs init file ::
+       	http://mescal.imag.fr/membres/arnaud.legrand/misc/init.php
+     
+** Goals
+   The goals for my .eamcsrc (well, .emacs.d/init.el) rewwrite are:
+   - Legibility
+   - Modularity
+   - Managability
+   - Understandability
+   - Extensiblity
+   - Framework for continuous updates (eamcs and my config will never be static)
+
+** Approach
+*** General Approach
+   - Start from scratch
+   - Add one thing at a time from old configs, elsewhere, verify that
+     it's working
+   - Move to the next
+*** Specific Approach
+**** Borrow a framework for loading emacs init from .org that works
+     - Sacha Chua's basic framework
+       + minor config in ~/.emacs.d/init.el
+       + loads ~/.emacs.d/george.org
+**** Load packages in a sane, modern way
+     - per
+       http://endlessparentheses.com/new-in-package-el-in-emacs-25-1-user-selected-packages.html
+       it looks like you just need to maintain the list of package you
+       want in the variable 'package-selected-packages, which should be
+       saved in your 'custom-file when you run install-pacakge.  Move
+       to new systems/installs to migrate.
+
+**** CANCELED Framework for commenting config sections
+***** Section Code
+     - [ ] Each block has code (#+BEGIN_SRC) section
+     - [ ] message "Loading FOO done" to *Messages* for debugging
+* Configuration
+  :PROPERTIES:
+  :dateAdded:
+  :dateModified:
+  :source:
+  :END:
+** Prerequisites
+  - A recent version of emacs :: See [[https://raw.githubusercontent.com/eludom/HOWTO/master/emacsFromSrc.org][my instructions for building the
+        latest emacs from xource]] (thanks to Xah lee)
+
+  - A recent version of org mode (8.3.3 at present <2016-01-31 Sun>).
+    Install either from src
+
+    #+begin_example
+    git clone git://orgmode.org/org-mode.git
+    #+end_example
+
+    or a recent version of org-plus-contrib from the archives. Add
+    this and then install:
+
+    #+begin_example
+    (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)    
+    #+end_example
+
+** Conventions: important files and directories
+
+*** Important files and directories
+| What                              | Symlinked to | Why                                         |
+|-----------------------------------+--------------+---------------------------------------------|
+| ~/home/public/.emacs.d/           | $HOME        | standard                                    |
+| ~/home/public/.emacs.d/init.el    | -            | standard, path                              |
+| ~/home/public/.emacs.d/george.org | -            | the bulk of my configs                      |
+| ~/home/public/elisp-public/       | $HOME        | public lisp things I've written or borrowed |
+| ~/home/private/elisp-private/     | $HOME        | non-secret config stuff (blog names, etc)   |
+| ~/home/secret/elisp-secret/       | $HOME        | secrets, keys, etc.                         |
+
+*** Nomenclature
+
+    - public :: anybody can see/have it.
+    - private :: things that, while not secret, are specific to me and
+         likely to be uninteresting to others (mail server names, the
+         names of my org agenda files, names of blogs, etc.)
+    - secret :: authentication materials (keys, passwords, etc).
+
+*** How elisp files are loaded
+
+    - any =.org= file in =~/elisp-*/= that contains emacs-list babel
+      source blocks will be executed.
+
+*** Use the force, Luke
+
+   - I tend to run with the lastet version of Org mode.  See my
+     [[https://raw.githubusercontent.com/eludom/HOWTO/master/getLatestOrg.sh][instructions for building the latest org from source]]
+
+   - I also tend to run with very recent or compiled-from-source
+     versions of emacs.  http://ergoemacs.org/emacs/building_emacs_on_linux.html
+
+** Emacs initialization
+*** Start the server
+    Start the emacs serer so I can use emacsclient
+    http://stuff-things.net/2014/12/16/working-with-emacsclient/
+
+    #+begin_src emacs-lisp
+    (load "server")
+    (unless (server-running-p) (server-start))
+    #+end_src
+
+    #+RESULTS:
+
+*** Add package sources
+
+#+BEGIN_SRC emacs-lisp
+(require 'package)
+(unless (assoc-default "melpa" package-archives)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)    
+;  (package-refresh-contents)
+)
+#+END_SRC
+
+#+RESULTS:
+
+Use =M-x package-refresh-contents= to reload the list of packages
+after adding these for the first time.
+
+
+#+BEGIN_SRC emacs-lisp
+;(desktop-save-mode 1)
+(winner-mode 1)
+#+END_SRC
+
+#+RESULTS:
+: t
+
+*** Set up use-package to install other stuff
+# #+BEGIN_SRC emacs-lisp
+  (setq load-prefer-newer t)
+# #+END_SRC
+ 
+Use =M-x package-refresh-contents= to reload the list of packages
+after adding these for the first time.
+
+*** Exit Emacs
+
+    \C-x\C-c is just to easy to type.   And, I mean, really, who wants
+    to exit Emacs?  Keep calm.  Think it over before taking any rash
+    action. 
+    
+        #+BEGIN_SRC emacs-lisp :exports code 
+	(defun dont-kill-emacs ()
+	  (interactive)
+	  (error (substitute-command-keys "I'm sorry, Dave.  I'm afraid I can't do that. To exit emacs: \\[save-buffers-kill-terminal].  Bound to C-X \"")))
+
+	(global-set-key "\C-x\C-c" 'dont-kill-emacs)
+	(global-set-key "\C-x\"" 'save-buffers-kill-terminal)
+
+	#+END_SRC
+
+        #+RESULTS:
+	: save-buffers-kill-terminal
+*** My keybindings from eons past
+
+      Some of these may date to TECO based TOPS20 emacs, Multics emacs, FINE (Tops 10), mg or similar museum pieces.
+
+      As a note, you can get a Free TOPS20 account and run the original (TECO based) Emacs at http://twenex.org/~eludom
+      I find I can still edit files in it, but it is mostly unrecognizable to the modern GNU Emacs user....
+     
+      #+BEGIN_SRC emacs-lisp :exports code 
+      ;(global-set-key "\C-Xd" 'insert-date)
+      ; (global-set-key "\C-\\" 'compile)
+      ;(global-set-key "\C-XP" 'plan)
+      ;(global-set-key "\C-XW" 'w3m)
+      (global-set-key "\C-]" 'call-last-kbd-macro)
+      (global-set-key "\eq" 'query-replace)
+      (global-set-key "\er" 'replace-string)
+      (global-set-key "\em" 'set-mark-command)
+      ;(global-set-key "\e " 'set-mark-command)
+      (global-set-key "\e#" 'what-line)
+      (global-set-key "\eg" 'goto-line)
+      (global-set-key "\ei" 'ispell-buffer)
+      ;(global-set-key "\C-X\C-K" 'bury-buffer)
+      (global-set-key "\C-he" 'emacs-version)
+      (global-set-key "\C-hg" 'org-version); OK, so this one is not acient as of 
+      (global-set-key "\ep" 'set-fill-prefix)
+      (global-set-key "\C-Xp" 'fill-paragraph)
+      (global-set-key "\C-Xc" 'copy-region-as-kill)
+      ;(global-set-key "\C-X!" 'compile)
+      ;(global-unset-key "\C-X\C-l")
+ #+END_SRC
+
+*** Define function to start a shell named *shell*<HOSTNAME> for current files
+
+    #+BEGIN_SRC emacs-lisp :exports code 
+      (defun gmj-shell (arg)
+        "Start a shell in a buffer named *shell*<HOSTNAME>
+
+       An attempt is made to parse HOSTNAME out of the
+      filename of tramp buffers such as /ssh:FOO@HOSTNAME:/path/path...
+
+      When preceded with 1 `universal-argument' (^u),
+      try to create *shell*<HOSTNAME#>a
+      where # in 1,2,3,4
+
+      When preceded with 2 `universal-argument' (^u^u),
+      prompt for BUFFER name and try to create *shell*<HOSTNAME#>
+
+      "
+        (interactive "p")
+        (progn
+        (message "in gmj-shell")
+
+          ;
+          ; get the hostname
+          ;
+
+          (setq hostname (system-name))
+          (if (string-prefix-p "/ssh:" (buffer-file-name))
+          (progn
+        (setq file-name (buffer-file-name))
+        (setq hostname (replace-regexp-in-string "/ssh:" "" file-name))
+        (setq hostname (replace-regexp-in-string ":.*" "" hostname))))
+
+          ;
+          ; determine the shell buffer name
+          ;
+
+
+          ; if arg is 1, just create (or jump to) *shell*<HOSTNAME>
+          (if (= arg 1)
+          (setq shell-name (format "*shell*<%s>" hostname))
+
+          ; if arg > 4, prompt for buffer name
+        (if (> arg 4)
+        (setq shell-name (concat "*shell*<" (read-string (format "shell name (%s):" "shell4foo") nil nil "shell4foo") ">"))
+
+        ; if arg is 4 (one universal arg)
+        ; try creating new numbered shell "*<shell>*<HOSTNAME#> for # in 1,2,3,4
+          (progn
+
+        (let ((x 1) (lookingForUnusedBuffer t))
+                  (while (and (<= x 4) lookingForUnusedBuffer)
+        	    (setq tryThis (format "*shell*<%s-%d>" hostname x))
+        	    (unless (get-buffer tryThis)
+                  (progn
+    		(setq lookingForUnusedBuffer nil)
+    		(setq shell-name tryThis)))
+        	    (setq x (+ x 1)))))))
+          ;
+          ; Try to create the shell
+          ;
+
+          (message (concat "shell name: " shell-name))
+          (shell shell-name)))
+
+      (global-set-key (kbd "<f5>") 'gmj-shell)
+    #+END_SRC 
+
+    #+RESULTS:
+    : gmj-shell
+
+*** Add USER@HOSTNAME to mode line
+    #+begin_src emacs-lisp
+      (let ((pos (memq 'mode-line-modes mode-line-format)))
+        (setcdr pos (cons (concat (getenv "USER") "@" (getenv "HOSTNAME") " ") (cdr pos))))
+    #+end_src
+
+    #+RESULTS:
+    | gmj@vi | gmj@vi | vi | mode-line-misc-info | mode-line-end-spaces |
+
+*** New Keybindings
+**** Advice from Xah Lee on bindings
+    And, taking advice from the Xah Lee, the master of keybindings...
+
+     - Which keybindings /should/ I use ? :: From http://ergoemacs.org/emacs/emacs_keybinding_overview.html
+ #+BEGIN_EXAMPLE
+ • 【Alt+x】 is to call a command by name.
+
+ • 【Ctrl+letter】 is for frequently used editing commands. ⁖ cursor movement, Paste C-y, mark C-SPC, Cancel C-g, Search C-s, ….
+
+ • 【Alt+letter】 is for somewhat less frequently used operations, often complement to Ctrl. ⁖ move by words {M-f, M-b}, Copy M-w, comment-dwim M-;, ….
+
+ • 【Ctrl+x …】 is for commands that are useful globally. ⁖ dired C-x d, switch-to-buffer C-x b, string-rectangle C-x r t, bookmark-bmenu-list C-x r l, ….
+
+ • 【Ctrl+c …】 is for major-mode specific commands. ⁖ in org-mode, org-time-stamp C-c . inserts date.
+
+ • 【Ctrl+h …】 or 【F1 …】 is for help or getting info. ⁖ describe-function C-h f, apropos-command C-h a, info C-h i.
+
+ • 【Ctrl+Alt+key】 is for lisp coding related commands. ⁖ backward-sexp <C-M-left>. (Tutorial: How to Edit Lisp Code with Emacs.)
+ #+END_EXAMPLE           
+
+     - /How/ to define keys ::  See http://ergoemacs.org/emacs/keyboard_shortcuts.html        
+
+     - Some examples ::
+          http://ergoemacs.org/emacs/emacs_useful_user_keybinding.html
+
+     - For tips on adding "menu key" to OSX, see https://ergoemacs.github.io/faq.html	  
+
+**** Keybindings for navigation
+
+      #+BEGIN_SRC emacs-lisp :exports code
+      (global-set-key "\C-X\C-j" 'dired-jump)  ; <2015-05-05 Tue>
+      #+END_SRC
+
+
+**** f8 open file or URL at point
+
+      #+BEGIN_SRC emacs-lisp :exports code 
+      (global-set-key (kbd "<f8>") 'xah-open-file-at-cursor)
+      #+END_SRC
+
+      #+RESULTS:
+      : xah-open-file-at-cursor
+
+**** f9 Key bindings to open shells
+
+     Use f9 as a prefix for opening SSH buffers on frequently accesses
+     systems.  Here is an example:
+
+     #+BEGIN_SRC emacs-lisp :exports code :tangle no
+     (global-set-key (kbd "<f9> <f9>") (lambda () (interactive) (shell)))
+     (global-set-key (kbd "<f9> <f8>") (lambda () (interactive) (gmjShell)))
+     #+END_SRC
+
+**** Misc things from Xah Lee
+      #+BEGIN_SRC emacs-lisp :exports code 
+      (global-set-key (kbd "<f7>") 'xah-open-in-external-app)
+      #+END_SRC
+
+      #+RESULTS:
+      : xah-open-in-external-app
+
+*** Load up various external code snippits
+
+    Load up any .el or .org files in ~/elisp*:
+
+    #+BEGIN_SRC emacs-lisp :exports code 
+
+    ; Load up all .org files in ~/elisp*
+
+    (dolist (word  (directory-files (expand-file-name "~/") t "^elisp*"))
+      (if (file-exists-p word)    
+        (progn
+          (setq elisp-dir word)
+          (add-to-list 'load-path word)
+	  (message (format "org-bable-load directory: %s"  elisp-dir))
+          (mapc #'org-babel-load-file (directory-files elisp-dir t "\\.org$"))
+      
+           ; Load up everything in the ~/elisp
+      
+           ; http://stackoverflow.com/questions/18706250/emacs-require-all-files-in-a-directory
+      
+           (let ((loaded  (mapcar #'car load-history)))
+             (dolist (file  (directory-files elisp-dir t ".+\\.elc?$"))
+               (unless (catch 'foo
+                         (dolist (done  loaded)
+                           (when (equal file done) (throw 'foo t)))
+                         nil)
+                 (load (file-name-sans-extension file))
+                 (push file loaded))))
+	       )))
+    #+END_SRC 
+
+    #+RESULTS:
+*** random cusotmizations
+#+BEGIN_SRC emacs-lisp :exports code 
+;(tool-bar-mode -1)
+(setq visible-bell t)
+(setq require-final-newline t
+      default-major-mode 'text-mode
+      text-mode-hook 'turn-on-auto-fill
+      describe-function-show-arglist t)
+#+END_SRC 
+
+*** Aliases
+**** Aliases from Xah Lee
+    Aliases, mostly from http://ergoemacs.org/emacs/emacs_alias.html.
+    Never type common long command names again...
+
+    Reading other people's aliases can point to incredibly useful
+    features (e.g. if someone else uses something often enough to
+    define an alias, it may be useful...).   Thanks Xah !!!
+
+    Also, on Linux "Menu" (single key) is, by default, a shortcut for
+    M-x (more keystrokes, somewhat awkward)
+
+    #+BEGIN_SRC emacs-lisp :exports code 
+    (defalias 'yes-or-no-p 'y-or-n-p) ; y or n is enough
+    (defalias 'list-buffers 'ibuffer) ; always use ibuffer
+    ;(defalias 'perl-mode 'cperl-mode) ; always use cperl-mode
+
+    ;; make frequently used commands short
+    (defalias 'qrr 'query-replace-regexp)
+    (defalias 'lml 'list-matching-lines)
+    (defalias 'dml 'delete-matching-lines)
+    (defalias 'dnml 'delete-non-matching-lines)
+    (defalias 'dtw 'delete-trailing-whitespace)
+    (defalias 'sl 'sort-lines)
+    (defalias 'rr 'reverse-region)
+    (defalias 'rs 'replace-string)
+    
+    (defalias 'g 'grep)
+    (defalias 'gf 'grep-find)
+    (defalias 'fd 'find-dired)
+    
+    (defalias 'rb 'revert-buffer)
+    
+    (defalias 'sh 'shell)
+    ;(defalias 'ps 'powershell)
+    (defalias 'fb 'flyspell-buffer)
+    (defalias 'sbc 'set-background-color)
+    (defalias 'rof 'recentf-open-files)
+    (defalias 'lcd 'list-colors-display)
+    (defalias 'cc 'calc)
+    
+    ; elisp
+    (defalias 'eb 'eval-buffer)
+    (defalias 'er 'eval-region)
+    (defalias 'ed 'eval-defun)
+    (defalias 'eis 'elisp-index-search)
+    (defalias 'lf 'load-file)
+
+    ; major modes
+    (defalias 'hm 'html-mode)
+    (defalias 'tm 'text-mode)
+    (defalias 'elm 'emacs-lisp-mode)
+    (defalias 'om 'org-mode)
+    (defalias 'gm 'go-mode)
+    ;(defalias 'ssm 'shell-script-mode)
+    ;(defalias 'html6-mode 'xah-html6-mode)
+
+    ; minor modes
+    (defalias 'wsm 'whitespace-mode)
+    (defalias 'gwsm 'global-whitespace-mode)
+    (defalias 'dsm 'desktop-save-mode)
+    (defalias 'acm 'auto-complete-mode)
+    (defalias 'vlm 'visual-line-mode)
+    (defalias 'glm 'global-linum-mode)
+
+    ;; major modes, use easy-to-remember names
+    ;(defalias 'ahk-mode 'xahk-mode)
+    ;(defalias 'bbcode-mode 'xbbcode-mode)
+    ;(defalias 'lsl-mode 'xlsl-mode)
+    ;(defalias 'ocaml-mode 'tuareg-mode)
+    ;(defalias 'math-symbol-input-mode 'xmsi-mode)
+        #+END_SRC
+
+    #+RESULTS:
+    : glm
+
+**** My aliaes
+    #+BEGIN_SRC emacs-lisp :exports code 
+      (defalias 'ib 'ispell-buffer)
+      (defalias 'nm 'notmuch)
+      (defalias 'mbo 'menu-bar-open) ; why use the mouse if it's not necessary?
+      (defalias 'ms 'magit-status)
+      (defalias 'of 'xah-open-file-at-cursor)
+      (defalias 'w 'eww) ; Because sometimes, you just want to open that URL as mostly text...
+
+      (defalias 'pscp 'password-store-copy)
+      (defalias 'psed 'password-store-edit) 	
+      (defalias 'psge 'password-store-generate) 	
+      (defalias 'psin 'password-store-insert) 	
+      (defalias 'psrm 'password-store-remove) 	
+      (defalias 'psmv 'password-store-rename) 	
+      (defalias 'psur 'password-store-url) 	
+
+    #+END_SRC 
+
+    #+RESULTS:
+    : w
+
+
+*** IDO Mode
+
+    See http://www.masteringemacs.org/articles/2010/10/10/introduction-to-ido-mode/
+
+#+BEGIN_SRC emacs-lisp :exports code 
+;  (setq ido-enable-flex-matching t)
+;  (setq ido-everywhere t)
+;  (ido-mode 1) 
+
+;  (setq ido-use-filename-at-point 'guess)
+;  (setq ido-create-new-buffer 'always) ; not working?  Still prompts
+;  (setq ido-file-extensions-order '(".org" ".txt" ".py" ".log" ".el" ))
+;  (setq ido-separator "\n")
+#+END_SRC
+
+*** Keyboard macros
+    :PROPERTIES:
+    :dateAdded:<2015-05-05 Tue>
+    :END:
+**** Description
+    Save keyboard macros.  Adapted form From  http://draketo.de/light/english/emacs/babcore
+
+**** Code
+    #+BEGIN_SRC emacs-lisp :exports code 
+    (setq elisp-dir "~/elisp/")
+    (setq saved-keyboard-marcos-file (format "%s/%s" elisp-dir "gmj-savedKeyboardMacros.org"))
+
+    (defun save-current-kbd-macro (name)
+      "Save the current macro as named function definition inside
+your initialization file so you can reuse it anytime in the
+future."
+      (interactive "SSave Macro as: ")
+      (name-last-kbd-macro name)
+      (save-excursion
+        (find-file-literally saved-keyboard-marcos-file)
+	(goto-char (point-max))
+	(insert "\n\n;; Saved macro\n")
+	(insert "#+BEGIN_SRC emacs-lisp\n")
+	(insert-kbd-macro name)
+	(insert "\n")
+	(insert "#+END_SRC\n")
+	))
+
+;     see /usr/local/share/emacs/25.0.50/lisp/kmacro.el.gz, trying to avoid conflicts
+      (global-set-key "\C-X\C-kv" 'save-current-kbd-macro)  ; <2015-05-05 Tue>
+
+
+    #+END_SRC
+
+    #+RESULTS:
+    : save-current-kbd-macro
+
+**** TO DO Items
+***** TODO Prefix all saved macros names with "gmj-kbd-"
+      - Involves messing with symbol name "name"
+      - See http://ergoemacs.org/emacs/elisp_symbol.html
+*** Setup browser(s) for links
+   Set default browswer.  See http://stackoverflow.com/questions/4506249/how-to-make-emacs-org-mode-open-links-to-sites-in-google-chrome
+   Can still run eww by hand (or via alias) to open most links.
+
+   For now, default to google-chrome. eww may be a good choice too.
+
+   #+begin_src emacs-lisp
+
+
+;   (setq browse-url-browser-function 'browse-url-generic  
+;     browse-url-generic-program "google-chrome")  
+
+
+;   (setq browse-url-browser-function 'eww-browse-url
+;     browse-url-generic-program "firefox")  
+
+   (setq browse-url-browser-function 'eww-browse-url
+     browse-url-generic-program "google-chrome")  
+
+;   (setq browse-url-browser-function 'browse-url-generic  
+;     browse-url-generic-program "chromium-browser")  
+
+;   (setq browse-url-browser-function 'browse-url-generic  
+;     browse-url-generic-program "firefox")  
+
+   #+end_src
+
+   
+*** Searching
+; http://ergoemacs.org/emacs/emacs_isearch_by_arrow_keys.html?_utm_source=1-2-2
+
+    #+BEGIN_SRC emacs-lisp :exports code 
+(progn
+  ;; set arrow keys in isearch. left/right is backward/forward, up/down is history. press Return to exit
+  (define-key isearch-mode-map (kbd "<up>") 'isearch-ring-retreat )
+  (define-key isearch-mode-map (kbd "<down>") 'isearch-ring-advance )
+
+  (define-key isearch-mode-map (kbd "<left>") 'isearch-repeat-backward)
+  (define-key isearch-mode-map (kbd "<right>") 'isearch-repeat-forward)
+
+  (define-key minibuffer-local-isearch-map (kbd "<left>") 'isearch-reverse-exit-minibuffer)
+  (define-key minibuffer-local-isearch-map (kbd "<right>") 'isearch-forward-exit-minibuffer))
+    #+END_SRC
+
+    #+RESULTS:
+    : isearch-forward-exit-minibuffer
+
+*** DONE My old config snippets
+*** Other misc settings
+    #+BEGIN_SRC emacs-lisp :exports code 
+    ; https://www.masteringemacs.org/article/disabling-prompts-emacs
+    (setq inhibit-startup-echo-area-message "george")
+    (setq inhibit-startup-message t)
+    (eval-after-load "startup" '(fset 'display-startup-echo-area-message (lambda ())))
+    (defun display-startup-echo-area-message ()
+      (message (yow)))
+     #+END_SRC
+
+    #+RESULTS:
+    : display-startup-echo-area-message
+
+** General configuration
+*** Backups
+
+This is one of the things people usually want to change right away. By default, Emacs saves backup files in the current directory. These are the files ending in =~= that are cluttering up your directory lists. The following code stashes them all in =~/.emacs.d/backups=, where I can find them with =C-x C-f= (=find-file=) if I really need to.
+
+#+BEGIN_SRC emacs-lisp :exports code 
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+#+END_SRC
+
+#+RESULTS:
+: ((. . ~/.emacs.d/backups))
+
+Disk space is cheap. Save lots.
+
+#+BEGIN_SRC emacs-lisp :exports code 
+(setq delete-old-versions -1)
+(setq version-control t)
+(setq vc-make-backup-files t)
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
+#+END_SRC
+
+#+RESULTS:
+| .* | ~/.emacs.d/auto-save-list/ | t |
+
+*** Misc functions
+#+BEGIN_SRC emacs-lisp :exports code 
+(setq display-time-day-and-date t
+      display-time-24hr-format t)
+;(display-time)
+(display-time-mode 0)
+(defun gmj-insert-date (arg)
+  "Insert current date and time in buffer
+With no argument, insert <YYYY-MM-DD>
+With one arg, insert YYYYMMDDHHMM
+With two args, insert Tue Aug 23 07:38:56 2016
+"
+  (interactive "p")
+    (progn
+      (if (= arg 1)
+  	  (insert (format-time-string "<%Y-%m-%d>"))
+    	(if (> arg 4)
+            (insert-string (current-time-string))
+          (insert (format-time-string "%Y%m%d%H%M"))))))
+          ; if arg > 4, prompt for buffer name
+  (global-set-key "\C-X." 'gmj-insert-date)
+#+END_SRC
+
+#+RESULTS:
+: gmj-insert-date
+
+*** Refile
+    Refiling.  Mostly from http://doc.norang.ca/org-mode.org
+#+begin_src emacs-lisp
+  ; Targets include this file and any file contributing to the agenda - up to 9 levels deep
+  (setq org-refile-targets (quote ((nil :maxlevel . 3)
+                                   (org-agenda-files :maxlevel . 3))))
+
+  ; Use full outline paths for refile targets - we file directly with IDO
+  (setq org-refile-use-outline-path t)
+
+  ;; ; Targets complete directly with IDO
+  ;; (setq org-outline-path-complete-in-steps nil)
+
+  ;; ; Allow refile to create parent tasks with confirmation
+  ;; (setq org-refile-allow-creating-parent-nodes (quote confirm))
+
+  ;; ; Use IDO for both buffer and file completion and ido-everywhere to t
+  ;; (setq org-completion-use-ido t)
+  ;; (setq ido-everywhere t)
+  ;; (setq ido-max-directory-size 100000)
+  ;; (ido-mode (quote both))
+  ;; ; Use the current window when visiting files and buffers with ido
+  ;; (setq ido-default-file-method 'selected-window)
+  ;; (setq ido-default-buffer-method 'selected-window)
+  ;; ; Use the current window for indirect buffer display
+  (setq org-indirect-buffer-display 'current-window)
+
+  ;;;; Refile settings
+  ; Exclude DONE state tasks from refile targets
+  (defun bh/verify-refile-target ()
+    "Exclude todo keywords with a done state from refile targets"
+    (not (member (nth 2 (org-heading-components)) org-done-keywords)))
+
+  (setq org-refile-target-verify-function 'bh/verify-refile-target)
+#+end_src
+
+#+RESULTS:
+: bh/verify-refile-target
+
+*** Agenda
+    #+begin_src emacs-lisp
+    (global-set-key "\C-ca" 'org-agenda)
+    #+end_src
+**** Agenda TODO Items
+***** DONE Figure out how to stop C-c C-[ from adding to init.el
+      I want to keep private information out of init.el.
+      org-agenda-file-to-front adds files there.  I want them in a
+      separate file.
+
+      I added this to init.el
+      #+begin_example
+      ; because junk I don't want to share in git keeps showing up here
+      (setq custom-file "~/secrets/emacs-custom.el")
+      (load custom-file)
+
+      #+end_example
+
+***** TODO Set up agenda time summary and formatting the way I like it
+      - See
+        http://emacs.stackexchange.com/questions/13793/how-to-add-a-column-in-org-mode-agenda-clockreport-to-show-percentage-of-time-fo
+        for How to add a column in org-mode agenda clockreport to show
+        percentage of time for each group of activities? 
+      - See http://comments.gmane.org/gmane.emacs.orgmode/77120 to
+        have percentages sum correctly when total is larger than a
+        day. 
+
+#+begin_src emacs-lisp
+(setq org-time-clocksum-format "%d:%02d")
+(setq org-agenda-clockreport-parameter-plist
+      (quote (:link t :maxlevel 2 :fileskip0 t :stepskip0 t :narrow 35  :formula %)))
+
+; http://emacs.stackexchange.com/questions/8093/how-can-i-get-the-tags-for-a-headline-in-a-clock-report-formula
+; see ALLTAGS
+; not quite sure what I want here.
+
+;      (quote (:link t :maxlevel 2 :fileskip0 t :stepskip0 t :narrow 35  :properties ("ALLTAGS") :formula %)))
+#+end_src
+
+#+RESULTS:
+| :link | t | :maxlevel | 2 | :fileskip0 | t | :stepskip0 | t | :narrow | 35 | :formula | % |
+
+** Navigation
+   #+begin_src emacs-lisp
+     (global-set-key (kbd "<f3>") 'other-window)   
+   #+end_src
+
+   #+RESULTS:
+   : other-window
+
+*** Dired
+
+; Rename buffer in dired with "R"
+;
+; From: http://www.emacswiki.org/emacs/BufferMenu
+;
+; What i really want is something that sets the buffer name
+; of tramp ssh sessions to the hostname (or IP address) of the host 
+; they are logged in to, e.g. *shell*<hostname> or *shell*<1.2.3.4>
+
+#+BEGIN_SRC emacs-lisp :exports code 
+(defun Buffer-menu-rename-buffer (newname)
+  "Rename buffer at line in window."
+  (interactive
+   (list (read-buffer "Rename buffer (to new name): "
+		      (buffer-name (Buffer-menu-buffer t)))))
+  (with-current-buffer (Buffer-menu-buffer t)
+    (rename-buffer newname))
+  (revert-buffer))
+
+(define-key Buffer-menu-mode-map "R" 'Buffer-menu-rename-buffer)
+#+END_SRC
+
+
+From http://www.masteringemacs.org/articles/2011/03/25/working-multiple-files-dired/
+
+#+BEGIN_SRC emacs-lisp :exports code 
+(require 'find-dired)
+; http://emacs.stackexchange.com/questions/2722/dired-listing-switches-time-style-format-with-a-space
+
+; This format messes up dired on tramp
+;(setq dired-listing-switches (concat "-alt --time-style=+%Y-%m-%d" (string ?\u2008) "%H:%M:%S"))
+
+; so we use this, which gives no year/month in "recent" times
+(setq dired-listing-switches "-alt")
+
+;(setq find-ls-option '("-print0 | xargs -0 ls -ldt" . "-ldt"))
+#+END_SRC
+
+#+RESULTS:
+: -alt
+
+#+BEGIN_SRC emacs-lisp :exports code 
+(defun xah-open-in-external-app ()
+  "Open the current file or dired marked files in external app.
+The app is chosen from your OS's preference.
+
+URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
+Version 2015-01-26"
+  (interactive)
+  (let* (
+         (ξfile-list
+          (if (string-equal major-mode "dired-mode")
+              (dired-get-marked-files)
+            (list (buffer-file-name))))
+         (ξdo-it-p (if (<= (length ξfile-list) 5)
+                       t
+                     (y-or-n-p "Open more than 5 files? "))))
+
+    (when ξdo-it-p
+      (cond
+       ((string-equal system-type "windows-nt")
+        (mapc
+         (lambda (fPath)
+           (w32-shell-execute "open" (replace-regexp-in-string "/" "\\" fPath t t))) ξfile-list))
+       ((string-equal system-type "darwin")
+        (mapc
+         (lambda (fPath) (shell-command (format "open \"%s\"" fPath)))  ξfile-list))
+       ((string-equal system-type "gnu/linux")
+        (mapc
+         (lambda (fPath) (let ((process-connection-type nil)) (start-process "" nil "xdg-open" fPath))) ξfile-list))))))
+#+END_SRC
+
+; http://superuser.com/questions/462079/how-can-i-display-folder-sizes-in-emacs-dired
+#+begin_src emacs-lisp :exports code
+ (defun dired-get-size ()
+  (interactive)
+  (let ((files (dired-get-marked-files)))
+    (with-temp-buffer
+      (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
+      (message "Size of all marked files: %s"
+               (progn 
+                 (re-search-backward "\\(^[0-9.,]+[A-Za-z]+\\).*total$")
+                  (match-string 1))))))
+
+ (define-key dired-mode-map (kbd "?") 'dired-get-size)
+#+end_src
+
+#+RESULTS:
+: xah-open-in-external-app
+
+** Reading
+*** Set up to pull some RSS and Atom feeds
+    :LOGBOOK:
+    CLOCK: [2016-02-17 Wed 05:08]--[2016-02-17 Wed 05:40] =>  0:32
+    :END:
+    [2016-02-17 Wed 05:08]
+    - See [[info:org#RSS%20feeds][info:org#RSS feeds]]
+    - This is here as an example.  The actual subscriptions are
+      environment specific had have moved to private configs.
+
+      #+begin_src emacs-lisp  :exports code :tangle no
+	(setq org-feed-alist
+         '(("Slashdot"
+            "http://rss.slashdot.org/Slashdot/slashdot"
+            "~/txt/org/feeds.org" "Slashdot Entries")
+           ("Sacha"
+            "http://sachachua.com/blog/feed/"
+            "~/txt/org/feeds.org" "Sacha Chua")
+           ("Emacs News"
+            "http://sachachua.com/blog/category/emacs-news/feed"
+            "~/txt/org/feeds.org" "Emacs News")
+           ("Tech Crunch"
+            "http://feeds.feedburner.com/Techcrunch"
+            "~/txt/org/feeds.org" "Tech Crunch")
+           ("Reddit orgmode"
+            "https://www.reddit.com/r/orgmode/.rss"
+            "~/txt/org/feeds.org" "r/orgmode"
+            :parse-entry org-feed-parse-atom-entry
+            :parse-feed org-feed-parse-atom-feed)
+           )
+         )
+
+      #+end_src
+
+	 #+RESULTS:
+	 | Slashdot       | http://rss.slashdot.org/Slashdot/slashdot          | ~/txt/org/feeds.org | Slashdot Entries |              |                           |             |                          |
+	 | Sacha          | http://sachachua.com/blog/feed/                    | ~/txt/org/feeds.org | Sacha Chua       |              |                           |             |                          |
+	 | Emacs News     | http://sachachua.com/blog/category/emacs-news/feed | ~/txt/org/feeds.org | Emacs News       |              |                           |             |                          |
+	 | Tech Crunch    | http://feeds.feedburner.com/Techcrunch             | ~/txt/org/feeds.org | Tech Crunch      |              |                           |             |                          |
+	 | Reddit orgmode | https://www.reddit.com/r/orgmode/.rss              | ~/txt/org/feeds.org | r/orgmode        | :parse-entry | org-feed-parse-atom-entry | :parse-feed | org-feed-parse-atom-feed |
+
+*** Twitter Setup
+
+    #+begin_src emacs-lisp :exports code
+    (setq twittering-use-master-password t)
+    #+end_src
+
+    #+RESULTS:
+    : t
+
+** Writing
+*** Flyspell
+    :PROPERTIES:
+    :dateAdded: <2015-05-03 Sun>
+    :dateModified: <2015-05-03 Sun>
+    :END:
+**** Description
+    Check spelling on the fly.
+**** Code
+#+BEGIN_SRC emacs-lisp :exports code 
+    (dolist (hook '(text-mode-hook))
+      (add-hook hook (lambda () (flyspell-mode 1))))     
+#+END_SRC
+**** TO DO Items
+*** Recent files
+
+    See http://stackoverflow.com/questions/3527150/open-recent-in-emacs
+
+#+BEGIN_SRC emacs-lisp :exports code  :output none
+(require 'recentf)
+(recentf-mode 1)
+(global-set-key "\C-xf" 'recentf-open-files)
+(setq recentf-auto-cleanup 'never)
+#+END_SRC
+
+*** Unfill paragraph
+
+I unfill paragraphs a lot because Wordpress likes adding extra =<br>= tags if I don't. (I should probably just tweak my Wordpress installation.)
+
+#+BEGIN_SRC emacs-lisp :exports code 
+  (defun my/unfill-paragraph (&optional region)
+    "Takes a multi-line paragraph and makes it into a single line of text."
+    (interactive (progn
+                   (barf-if-buffer-read-only)
+                   (list t)))
+    (let ((fill-column (point-max)))
+      (fill-paragraph nil region)))
+(global-set-key "\M-Q" 'my/unfill-paragraph)
+#+END_SRC
+
+#+RESULTS:
+: my/unfill-paragraph
+
+Also, =visual-line-mode= is so much better than =auto-fill-mode=. It doesn't actually break the text into multiple lines - it only looks that way.
+
+#+BEGIN_SRC emacs-lisp :exports code 
+;(remove-hook 'text-mode-hook #'turn-on-auto-fill)
+;(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+#+END_SRC
+
+#+RESULTS:
+| turn-on-visual-line-mode | text-mode-hook-identify |
+
+*** Unicode
+
+#+BEGIN_SRC emacs-lisp :exports code 
+(defmacro my/insert-unicode (unicode-name)
+  `(lambda () (interactive)
+     (insert-char (cdr (assoc-string ,unicode-name (ucs-names))))))
+(global-set-key (kbd "C-x 8 s") (my/insert-unicode "ZERO WIDTH SPACE"))
+(global-set-key (kbd "C-x 8 S") (my/insert-unicode "SNOWMAN"))
+#+END_SRC
+*** Clean up spaces
+#+BEGIN_SRC emacs-lisp :exports code 
+ (global-set-key (kbd "M-SPC") 'cycle-spacing) 
+#+END_SRC
+*** Untabify python on save
+; http://stackoverflow.com/questions/3313210/converting-this-untabify-on-save-hook-for-emacs-to-work-with-espresso-mode-or-a
+
+#+BEGIN_SRC emacs-lisp :exports code 
+;; untabify some modes
+(setq alexott/untabify-modes '(python-mode emacs-lisp-mode lisp-mode))
+(defun alexott/untabify-hook ()
+  (when (member major-mode alexott/untabify-modes)
+     (untabify (point-min) (point-max))))
+(add-hook 'before-save-hook 'alexott/untabify-hook)
+#+END_SRC
+
+#+RESULTS:
+| alexott/untabify-hook | time-stamp |
+
+    
+*** Expand
+#+BEGIN_SRC emacs-lisp :exports code 
+(global-set-key (kbd "M-/") 'hippie-expand) 
+#+END_SRC
+
+#+RESULTS:
+: hippie-expand
+
+From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el - Exclude very large buffers from dabbrev
+#+BEGIN_SRC emacs-lisp :exports code 
+(defun sanityinc/dabbrev-friend-buffer (other-buffer)
+  (< (buffer-size other-buffer) (* 1 1024 1024)))
+(setq dabbrev-friend-buffer-function 'sanityinc/dabbrev-friend-buffer)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :exports code 
+(setq hippie-expand-try-functions-list
+      '(yas-hippie-try-expand
+        try-expand-all-abbrevs
+        try-complete-file-name-partially
+        try-complete-file-name
+        try-expand-dabbrev
+        try-expand-dabbrev-from-kill
+        try-expand-dabbrev-all-buffers
+        try-expand-list
+        try-expand-line
+        try-complete-lisp-symbol-partially
+        try-complete-lisp-symbol))
+#+END_SRC
+
+*** Abbrevs
+    Load abbrevs common to all environments here.
+    Abbrevs for specific environments (eg. work email addreses, etc) are loaded via
+`    ~/config/*.{el,org} if neede.
+**** Load Xah Lee's example abbrevs
+    See http://ergoemacs.org/emacs/emacs_abbrev_mode.html
+
+    Put xah_emacs_abbrev.el somewhere in your laod path.
+
+    I will adopt Xah's convention of prefxing abbrevs with 8.
+
+    #+begin_src emacs-lisp
+    (load "xah_emacs_abbrev")    
+    #+end_src
+
+    #+RESULTS:
+    : t
+
+**** Define a few abbrevs the hard way
+
+     #+begin_src emacs-lisp
+     (define-global-abbrev "8gj" "George Jones")
+     (define-global-abbrev "8foo" "8bar")
+     (define-global-abbrev "8foo" "8bar")
+     (define-global-abbrev "8M" "@@html:FOO@@")
+     (define-global-abbrev "8tgj" "Thanks,
+---George Jones")
+     (define-global-abbrev "8tg" "Thanks,
+---George")
+     (define-global-abbrev "8cgj" "Curious,
+---George Jones")
+     (define-global-abbrev "8cg" "Curious,
+---George")
+     (define-global-abbrev "8gf" "find . -name \\*.org -mtime -14 -type f -exec grep -i --color -nH -e  {} +")
+
+     #+end_src
+
+     #+RESULTS:
+     : 8gf
+
+*** Timestamps
+#+BEGIN_SRC emacs-lisp
+;
+; Update Org mode DATE timestamps on write
+;
+; See http://www.emacswiki.org/TimeStamp
+;(setq time-stamp-pattern  "8/Time-stamp:[ \t]+\\\\?[\"<]+%:y-%02m-%02d %02H:%02M:%02S %u\\\\?[\">]")
+(setq time-stamp-pattern  "8/DATE:[ \t]+\\\\?[\"<]+%:y-%02m-%02d %02H:%02M:%02S %:a\\\\?[\">]")
+(add-hook 'before-save-hook 'time-stamp)
+#+END_SRC
+*** JSON formatting
+# https://coderwall.com/p/2vnxaw/beautify-json-in-emacs
+
+#+BEGIN_SRC emacs-lisp
+(defun beautify-json ()
+  (interactive)
+  (let ((b (if mark-active (min (point) (mark)) (point-min)))
+        (e (if mark-active (max (point) (mark)) (point-max))))
+    (shell-command-on-region b e
+     "python -mjson.tool" (current-buffer) t)))
+#+END_SRC emacs-lisp
+
+
+   This section contains configs rleated to org mode.  Org mode is my
+   note talking system, my authoring system, time tracking, spread
+   sheet, code execution environment, etc   
+*** General Org settings
+#+BEGIN_SRC emacs-lisp :exports code 
+; gneral org mode settings
+
+(setq org-directory "~/Org")
+;(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(setq org-return-follows-link t)
+(setq org-use-property-inheritance t)
+(global-set-key "\C-cl" 'org-store-link)
+#+END_SRC
+
+*** Agenda and tasks related
+#+BEGIN_SRC emacs-lisp :exports code 
+(setq org-agenda-include-diary t)
+(setq org-todo-keywords '((sequence "TODO" "IN-PROGRESS"  "|" "DONE" "WAITING" "DELEGATED" "CANCELED")))
+#+END_SRC
+
+*** Templates
+**** Structure templates
+
+ Org makes it easy to insert blocks by typing =<s[TAB]=, etc.
+ I hardly ever use LaTeX, but I insert a lot of Emacs Lisp blocks, so I
+ redefine =<l= to insert a Lisp block instead.
+
+ #+begin_src emacs-lisp :results silent
+   (setq org-structure-template-alist
+         '(("s" "#+begin_src ?\n\n#+end_src" "<src lang=\"?\">\n\n</src>")
+	   ("S" "#+begin_src shell  :results output :exports both\nexec 2>&1;date;set -e; set -u; set -x\n\necho hello world?\n#+end_src" "<src lang=\"?\">\n\n</src>")	   
+	   ("W" "* What\n  ?\n* Why  \n\n* Who  \n\n* When  \n\n* Where  \n\n* How  \n\n")
+	   ("m" "#+TITLE: Meeting about \n#+DATE:\n#+AUTHOR: George Jones\n#+EMAIL: gmj@pobox.com\n\n* Attending\n  ?\n* Goals  \n\n* Agenda  \n\n* Discussion  \n\n* Action Items \n\n")
+           ("e" "#+begin_example\n?\n#+end_example" "<example>\n?\n</example>")
+           ("q" "#+begin_quote\n?\n#+end_quote" "<quote>\n?\n</quote>")
+           ("v" "#+BEGIN_VERSE\n?\n#+END_VERSE" "<verse>\n?\n</verse>")
+           ("c" "#+BEGIN_COMMENT\n?\n#+END_COMMENT")
+           ("p" "#+BEGIN_PRACTICE\n?\n#+END_PRACTICE")
+           ("l" "#+begin_src emacs-lisp\n?\n#+end_src" "<src lang=\"emacs-lisp\">\n?\n</src>")
+           ("L" "#+latex: " "<literal style=\"latex\">?</literal>")
+           ("h" "#+begin_html\n?\n#+end_html" "<literal style=\"html\">\n?\n</literal>")
+           ("H" "#+html: " "<literal style=\"html\">?</literal>")
+           ("M" "@@html:?@@" "<literal style=\"html\">?</literal>")
+           ("a" "#+begin_ascii\n?\n#+end_ascii")
+           ("A" "#+ascii: ")
+           ("i" "#+index: ?" "#+index: ?")
+           ("I" "#+include %file ?" "<include file=%file markup=\"?\">")))
+
+   (add-to-list 'org-structure-template-alist '("Q" "#+BEGIN_QUOTE\n?\"...\"\n#+END_QUOTE" "<quote>\n?\"...\"\n</quote>"))
+
+   (add-to-list 'org-structure-template-alist (list "m" (concat "#+TITLE: Meeting about \n#+DATE: " (current-time-string) "\n#+AUTHOR: George Jones\n#+EMAIL: " user-mail-address "\n\n* Attending\n  ?\n* Goals  \n\n* Agenda  \n\n* Discussion  \n\n* Action Items \n\n")))
+
+   (global-set-key (kbd "\C-cc") 'org-capture) 
+
+   ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, and org-protocol
+   (setq org-capture-templates
+      (quote (("t" "todo" entry (file "~/Org/refile.org")
+               "* TODO %?\n  %U\n  %a\n" :clock-in t :clock-resume t)
+	       ("d" "daily todo" entry (file+datetree "~/Org/daily.org")
+               "* TODO %?\n  %U\n  %a\n")
+              ("s" "Schedule" entry (file+datetree "~/Org/schedule.org")
+               "*  %?\n%(format-time-string \"<%Y-%m-%d %H:00-%H:00>\")\n")
+              ("r" "respond" entry (file "~/Org/refile.org")
+               "* TODO Respond to %:from on %:subject\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
+              ("n" "note" entry (file "~/Org/refile.org")
+               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("j" "Journal" entry (file+datetree "~/Org/diary.org")
+               "* %?\n     %U\n     %a\n")
+              ("w" "org-protocol" entry (file "~/Org/refile.org")
+               "* TODO Review %c\n%U\n" :immediate-finish t)
+              ("p" "Phone call" entry (file "~/Org/refile.org")
+               "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
+;              ("m" "Meeting" entry (file "~/git/org/refile.org")
+;               "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
+              ("h" "Habit" entry (file "~/Org/refile.org")
+               "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"<%Y-%m-%d %a .+1d/3d>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n")
+	       )))
+
+(add-to-list 'org-capture-templates
+             '("c" "Contacts" entry (file "~/Org/contacts.org")
+             "* %(org-contacts-template-name)
+  :PROPERTIES:
+  :EMAIL: %(org-contacts-template-email)
+  :END:"))
+
+(add-to-list 'org-capture-templates
+             '("m" "Meeting" entry (file "~/Org/refile.org")
+             "* MEETING with %?FOO about BAR on %t	:MEETING:
+  %U
+  %a
+"  :clock-in t :clock-resume t))
+
+ #+end_src
+
+
+
+#+begin_src emacs-lisp
+(defun gmj/org-example-region (start end)
+  "Insert org example markup #+BEGIN_EXAMPLE ... #+END_EXAMPLE around a region."
+  (interactive "r")
+  (save-excursion
+    (goto-char end) (insert "\n#+END_EXAMPLE\n")
+    (goto-char start) (insert "#+BEGIN_EXAMPLE\n")
+    ))
+;(local-set-key "\C-c\C-c" 'gmj/org-example-region)  ; <2015-05-05 Tue>
+#+end_src
+
+#+RESULTS:
+: gmj/org-example-region
+
+*** Babel settings
+
+#+BEGIN_SRC emacs-lisp :exports code 
+;
+; R has issues...
+;
+;    http://irreal.org/blog/?p=4295
+
+;(org-babel-do-load-languages
+;    'org-babel-load-languages '((python . t) (sh . t) (lisp . t) (R . t) (ditaa . t)))
+; 
+; Don't use R in babel for now
+;
+
+; s/sh/shell/ for newer versions of org: https://lists.gnu.org/archive/html/emacs-orgmode/2015-11/msg00736.html
+
+(org-babel-do-load-languages
+    'org-babel-load-languages '((python . t) (shell . t) (lisp . t) (ditaa . t)))
+ 
+;(load-library "ob-shell") ; why do I have to do this?  Not pulling in right org-mode ?
+
+(setq org-export-babel-evaluate nil)
+(setq org-confirm-babel-evaluate nil)
+;(setq org-babel-sh-command "bash")
+
+; Don't re-run a code block unless it changed.
+; for blocks that read external data sources, use :cache no
+;(setq org-babel-default-header-args
+;           (cons '(:cache . "yes")
+;                 (assq-delete-all :noweb org-babel-default-header-args)))
+
+#+END_SRC
+
+*** Org email and contacts settings
+
+#+BEGIN_SRC emacs-lisp :exports code
+
+(require 'org-mime)
+(setq org-mime-library 'mml)
+(add-hook 'message-mode-hook
+          (lambda ()
+            (local-set-key "\C-c\M-o" 'org-mime-htmlize)))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (local-set-key "\C-c\M-o" 'org-mime-org-buffer-htmlize)))
+
+(add-hook 'org-mime-html-hook
+          (lambda ()
+            (org-mime-change-element-style
+             "blockquote" "border-left: 2px solid gray; padding-left: 4px;")))  
+
+(add-hook 'org-mime-html-hook
+          (lambda ()
+            (org-mime-change-element-style
+             "pre" (format "color: %s; background-color: %s; padding: 0.5em;"
+                           "#E6E1DC" "#232323"))))
+
+(require 'org-contacts)
+(setq org-contacts-files '("~/Org/contacts.org"))
+(add-hook 'message-mode-hook 'turn-on-orgstruct++)
+#+END_SRC
+
+*** Publishing
+Timestamps and section numbers make my published files look more
+complicated than they are. Let's turn them off by default.
+
+#+begin_src emacs-lisp
+(setq org-export-with-section-numbers 2)
+(setq org-html-include-timestamps nil)
+(setq org-export-with-sub-superscripts nil)
+(setq org-export-with-toc t)
+(setq org-html-toplevel-hlevel 2)
+(setq org-export-htmlize-output-type 'css)
+#+end_src
+
+#+RESULTS:
+: css
+
+*** org2blog setup
+#+begin_src emacs-lisp
+
+(setq org2blog/wp-buffer-template
+      "-----------------------
+#+TITLE: %s
+#+DATE: %s
+#+CATEGORY: useful
+#+TAGS: 
+#+DESCRIPTION:
+-----------------------\n")
+(defun my-format-function (format-string)
+  (format format-string
+          org2blog/wp-default-title
+          (format-time-string "%Y-%m-%d %a %T" (current-time))))
+(setq org2blog/wp-buffer-format-function 'my-format-function)
+
+(message "org2blog setup finished.")
+#+end_src
+
+
+#+END_SRC
+
+#+RESULTS:
+| sequence | TODO | IN-PROGRESS |   |   | DONE | WAITING | DELEGATED | CANCELED |
+
+** Programming
+   #+begin_src emacs-lisp 
+   (setq org-src-tab-acts-natively t)
+
+   (defun gmj-linum-hook ()(linum-mode))
+   (add-hook 'xah-elisp-mode-hook 'gmj-linum-hook)
+
+   ; go stuff
+   (add-hook 'go-mode-hook #'linum-on)
+   ;(add-hook 'go-mode-hook 'gmj-linum-hook)
+   (add-to-list 'auto-mode-alist '("\\.go$" . go-mode))
+   (add-to-list 'auto-mode-alist '("\\.g$" . go-mode)) ; fool the build system but still syntax highight
+   (add-to-list 'auto-mode-alist '("\\.el$" . xah-elisp-mode))
+
+   (show-paren-mode 1)
+   ;(setq show-paren-style 'parenthesis)
+   (setq show-paren-style 'expression)
+   ;(setq show-paren-style 'mixed)
+   (electric-pair-mode 1)
+   #+end_src
+
+   #+RESULTS:
+   : t
+
+** Email Config
+*** Message mode for sending mail
+#+BEGIN_SRC emacs-lisp
+(setq mm-discouraged-alternatives '("text/html" "text/richtext"))
+(global-set-key "\C-Xm" 'compose-mail-other-window)
+#+END_SRC
+*** Notmuch for reading mail
+
+;  #+begin_src emacs-lisp
+;  (require 'notmuch)  
+;  (require 'org-notmuch)  
+;  #+end_src
+
+  #+RESULTS:
+  : org-notmuch
+
+;   #+begin_src emacs-lisp
+;     (when (require 'notmuch nil 'noerror)
+;        (message "require notmuch succeeded))
+;     (when (require 'org-notmuch nil 'noerror)
+;        (message "require notmuch succeeded))
+     ;(autoload 'gnus-alias-determine-identity "gnus-alias" "" t)
+     ;(add-hook 'message-setup-hook 'gnus-alias-determine-identity)
+   #+end_src
+
+   #+RESULTS:
+
+
+
+* Games
+  :PROPERTIES:
+  :dateAdded:
+  :dateModified:
+  :source:
+  :END:
+** Yow !!!
+   :PROPERTIES:
+   :dateAdded: <2015-05-03 Sun>
+   :source:   https://github.com/emacs-mirror/emacs/blob/master/lisp/obsolete/yow.el
+   :END:
+*** Description
+   Because, well, you've got to be able to M-x psychoanalyze-pinhead
+   to fill a buffer and pass the time....
+
+   Discussion of the demise of zippy in Emacs here:
+    - http://emacs.1067599.n5.nabble.com/obsoleting-yow-el-td278461.html
+    - http://forums.fedoraforum.org/showthread.php?t=302313
+
+*** Setup
+   Pull the original yow.lines here:
+     - https://github.com/shentonfreude/dot-emacs/blob/master/yow.lines
+
+   Pull yow.el from emacs/lisp/obsolete/yow.el and put it somewhere
+   it will load (~/elisp/ for me)
+
+   Need to set yow-file, probably something like this in init.el
+
+
+*** Code    
+   #+BEGIN_SRC emacs-lisp :exports code 
+
+   ; The old way
+   (setq yow-file "~/.emacs.d/etc/yow.lines")
+   ;(load "yow") ; Copy in my ~/elisp directory from disro emacs/lisp/obsolete/yow.el
+   (global-set-key "\ey" 'yow)
+   (yow)
+   #+END_SRC
+
+   #+RESULTS:
+   : The PINK SOCKS were ORIGINALLY from 1952!!
+   :  But they went to MARS around 1953!!
+
+   #+BEGIN_SRC emacs-lisp :exports code 
+   ; The new way
+   (setq cookie-file "~/.emacs.d/etc/quotes.lines")
+
+   #+END_SRC
+
+   #+BEGIN_SRC emacs-lisp :exports code 
+   ; The old way
+   ;(psychoanalyze-pinhead) ; this never ends, and fills a buffer fast....
+   #+END_SRC
+
+   #+RESULTS:
+* All done, YOW !!!
+  #+BEGIN_SRC emacs-lisp :exports both
+  (message (yow))
+  
+  #+END_SRC
+
+  #+RESULTS:
+  : OMNIVERSAL AWARENESS??  Oh, YEH!!  First you need 4 GALLONS of JELL-O
+  :  and a BIG WRENCH!!...  I think you drop th'WRENCH in the JELL-O as if
+  :  it was a FLAVOR, or an INGREDIENT...  ...or...I...um...  WHERE'S the
+  :  WASHING MACHINES?
+

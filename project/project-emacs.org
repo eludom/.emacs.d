@@ -1,0 +1,216 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:3 p:nil pri:nil prop:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t title:t toc:3
+#+OPTIONS: todo:t |:t
+#+TITLE: Emacs project agenda file
+#+DATE: <2016-07-25 07:33:43 Monday>
+#+AUTHOR: George M Jones
+#+EMAIL: gmj@pobox.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.3beta)
+
+* Emacs Action Items
+** DONE learn to use refile
+   :LOGBOOK:
+   CLOCK: [2015-05-09 Sat 10:08]--[2015-05-09 Sat 10:08] =>  0:00
+   :END:
+   [2015-05-09 Sat 10:08]
+ [[file:~/git/github.com/eludom/elisp/examples/org-mode_bernt-hansen.org]]
+** DONE steal sacha's <s for elisp-src and other things
+   :LOGBOOK:
+   CLOCK: [2015-05-11 Mon 04:34]--[2015-05-11 Mon 04:35] =>  0:01
+   :END:
+ [2015-05-11 Mon 04:34]
+ [[file:~/elisp/testing/org-dropbox-notes.org]]
+** DONE Figure out how use different init.el files in different places
+   :LOGBOOK:
+   CLOCK: [2015-06-06 Sat 04:13]--[2015-06-06 Sat 04:17] =>  0:04
+   :END:
+   [2015-06-06 Sat 04:13]
+
+
+*** Problems
+   [[file:~/.emacs.d/init.el::;;%20installed%20packages.%20Don't%20delete%20this%20line.%20If%20you%20don't%20want%20it,][file:~/.emacs.d/init.el::;; installed packages. Don't delete this line. If you don't want it,]]
+   - Problem is set-custom-vars: in particular agenda files which will
+     differ from home to work.
+   - Simply work on a branch all the time (e.g. at home, work on the
+     "home" branch)? and be careful about merges ?
+*** Solutions
+    See =(setq custom-file ..)=
+
+** IN-PROGRESS Unify org and trello task management for home
+   :LOGBOOK:
+   CLOCK: [2015-06-06 Sat 06:07]--[2015-06-06 Sat 06:07] =>  0:00
+   :END:
+   [2015-06-06 Sat 06:07]
+** DONE Learn about org clocktable  mode		       :emacs:cogita:
+   :LOGBOOK:
+   CLOCK: [2015-10-02 Fri 05:55]--[2015-10-02 Fri 06:21] =>  0:26
+   CLOCK: [2015-10-02 Fri 05:34]--[2015-10-02 Fri 05:53] =>  0:19
+   :END:
+   [2015-10-02 Fri 05:49]
+   http://orgmode.org/manual/The-clock-table.html
+   - Active timestamps are shown by default
+   - "v [" includes inactive timestamps
+   - "v c" see (clockcheck) seems to be what I want
+   - "v l" and "v L" seem to be the hyper-bose modes
+
+** TODO Fix Org Default Export Options
+   <2016-07-25 Mon>
+  - Default to toc:t num2
+
+* Emacs Meetings
+** IN-PROGRESS [5/6] Write up some possible stuff to talk about during Emacs Chat 2015-10-14 :emacs:orgmode:git:orgbabel:
+   :PROPERTIES:
+   :BLOG:     rawfoo
+   :CATEGORY:     emacs
+   :ID:       o2b:843e9cf3-0fb0-448e-b1ab-6852b0a8ec53
+   :POSTID:   156
+   :END:
+   SCHEDULED: <2015-10-10 Sat>
+   :LOGBOOK:
+   CLOCK: [2015-10-10 Sat 08:13]--[2015-10-10 Sat 08:18] =>  0:05
+   :END:
+   [2015-10-10 Sat 08:13]
+
+   The raw source for this file is here: https://github.com/eludom/.emacs.d/blob/master/project/emacs-project.org
+
+   - What :: Possible stuff to talk about during Emacs Chat
+        2015-10-14, mostly things I've done in/to my configs recently
+   - Why :: I think some of it /might/ be interesting to others, I'm
+        pretty sure I'll get useful feedback, I'm not very good at
+        talking extemporaneously, sometimes sharing things live
+        creates problems (things you did not mean to share), org mode
+        (and git) work pretty well to organize and share config
+        snippits.
+   - How :: Mostly links to git commit/diffs of my emacs configs
+   - When :: Posted online now <2015-10-10 Sat>, possible fodder for
+        discussion at 2015-10-14 emacs chat
+        https://plus.google.com/u/0/events/cav8n9cv887nfjdtog483flar2c
+   - Who :: Anybody that shows up to the chat or cares to read this info.
+   - Caveat :: After [[https://usefulfoo.wordpress.com/2014/10/17/of-keys-and-trees/][~36 years of using various emacsen]] I'm still a piker...
+
+*** Questions
+**** How to do error handling in babel bash scripts?
+     - e.g. work round the =|| true= hack to get stdout
+     - and how do you explicitly =exit= after an error is caught
+       ... seems to exit the subprocess
+**** How do I install/override the default texinfo pages for org mode when I install from source
+     See [[*Pulling/installing latest org mode with babel][Pulling/installing latest org mode with babel]]
+     
+**** How would I call =(defun jabber-join-slack-room (jc group nickname)= ?
+
+
+    I want to automatically join a list of slack (jabber) rooms when I
+    start emacs.  The jabber-join-slack-room  function defined here
+
+       http://emacs.stackexchange.com/questions/13899/connecting-to-slack-channels-with-jabber
+
+    does that interactively, but I'm not sure how to call it from
+    .init.el or whatever.   What is jc?  How do you pass it in ?
+
+
+
+*** Stuff to share
+**** DONE org-babel-git-utils.org
+     - What :: Move all the things into .git.   The actions listed
+          below will currently do the following:
+	  + find all repos under BASEDIR
+          + list the remotes (or lack of them) for each repo
+          + Add .dir-locals.el to each repo for use with https://github.com/ryuslash/git-auto-commit-mode
+          + Find recently modified files (last RECENT days) that are not in a
+            git repo or not in a directory listed to be ignored (IGNOREDIRS)
+          + List the need to push or pull repos (after =git fetch --all=)
+     - Why :: I'm moving my existence into git.  I have hap-hazard
+          repos of some of my stuff spread across github, aws code
+          commit, bare repos on shared hosting, local backup drives and
+          a lot of stuff that's not in git that needs to be there).
+          This will give me visibility and let me make decisions about
+          where to commit stuff, what's in now, what needs to be added, etc.
+     - How :: Org babel stuff calling git: https://github.com/eludom/org-babel-git-utils
+     - When :: Code on github now.  Gitificatation of all the things in progress.
+     - Who ::  Me.
+    
+**** DONE gmjShell function
+
+     - What :: function to start a shell on remote system when remote file open (tramp)
+     - Why :: I work on a lot of remote systems and need shells there quickly.
+     - How :: https://github.com/eludom/.emacs.d/commit/37139219b0e85dd6f157b3e0564b4166279cc58f#diff-6a73c0e841a9f9a9040d37f2f832b710
+     - When :: Done.
+     - Who ::  Me.
+    
+**** DONE Move custom-set-variables out of ~/.emacs.d/init.el
+     - what :: Move custom-set-variables out of ~/.emacs.d/init.el
+     - why :: I want to share most of my emacs config, but
+          custom-set-variables keeps saving things I don't want in
+          public git repos.
+     - How :: Put this in =~/.emacs.d/init.el= (or wherever):
+	  #+begin_src emacs-lisp
+	  ; because junk I don't want to share in git keeps showing up here
+	  (setq custom-file "~/secrets/emacs-custom.el")
+	  (load custom-file)
+    	  #+end_src
+     - When :: Now.
+     - Who ::  Me.
+**** DONE building Emacs from src with org babel
+     - What :: Build emacs from source using org babel
+     - Why :: Things are fixed in the latest source release.
+     - How :: Org babel version
+          https://github.com/eludom/HOWTO/blob/master/emacsFromSrc.org
+          of of Xah Lee's http://ergoemacs.org/emacs/building_emacs_from_git_repository.html 
+     - When :: As needed.
+     - Who ::  Me.
+**** IN-PROGRESS Pulling/installing latest org mode with babel
+     - What :: Install latest org mode from source.
+     - Why :: Because stuff is getting fixed and added all the time.
+     - How :: For now, this:
+          https://github.com/eludom/HOWTO/blob/master/getLatestOrg.sh.
+          In the future, an org babel version.
+     - When :: See "How"
+     - Who ::  Me.
+**** DONE git-autocommit
+     - What :: Make every save a git commit because, really, what
+          changes should NOT be saved?
+     - Why :: Lightning talk from SF Emacs conference mentioned it.
+          Thought it sounded like a good idea.
+     - How :: Do this:
+	  + Install git-auto-commit-mode
+	  + Add =.dir-locals.el= with this =((nil . ((eval
+            git-auto-commit-mode 1))))= in it to directories you want
+            to autocommit
+
+	  + Consider adding the following or similar to your .init.el
+            (or org startup):
+
+	    #+begin_example
+	   (setq gac-automatically-push-p t)
+	   (setq gac-ask-for-summary-p t)
+	   (add-hook 'certain-hook 'git-auto-commit-mode)
+	   (setq enable-remote-dir-locals t)
+	   #+end_example
+
+	   See [[http://chris.beams.io/posts/git-commit/][How to Write a Git Commit Message]] for great advice on
+           writing commit messages.
+
+	   In truth, after several days of using it, I'm not sure.  I
+           save far to often for trivial reasons (like 30 years of
+           muscle memory and paranoia telling me I must hit ^X^S every
+           few seconds).
+
+	   The git commit/log model seems to be geared around each
+           commit being a minimally useful improvement that can be
+           described briefly and thoughtfully. Autosave does not play
+           into that model.
+ 
+	   The source is here
+           https://github.com/ryuslash/git-auto-commit-mode and,
+           tellingly, the [[https://github.com/ryuslash/git-auto-commit-mode/commits/master][commit history]] looks like it was done
+           thoughtfully.
+
+    - When :: Every save.  
+    - Who ::  Me.
+
+* Emacs Info

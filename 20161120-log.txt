@@ -1,0 +1,1157 @@
+commit af60f78d0600b9b8c356af677c0ba81be9db1f03
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Nov 20 15:36:10 2016 -0500
+
+    twitter and rss setup
+
+commit fcbdf8c868ee7045482ed6d90a943ae284fdb669
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Nov 19 10:08:40 2016 -0500
+
+    bind f8 to xah-open-file-at-cursor
+
+commit 1bd7713b654392aa08f46d38ae1e6971f76dbed0
+Merge: 2139426 e0d23b5
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Nov 10 07:13:24 2016 -0500
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 213942693ea5390260d4d2324733201db6ba6132
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Nov 10 07:12:47 2016 -0500
+
+    no time in modeline to save space.
+
+commit e0d23b5dc5163de750936e1c8dfe1df93959c837
+Merge: fbfefe5 3a0cba9
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Nov 7 06:09:03 2016 -0500
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit fbfefe5bf4ce0a1b25447bbdf2849ae4c239587d
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Nov 7 06:06:15 2016 -0500
+
+    sync
+
+commit 3a0cba9731152d7968bdbca00ecb769a71f37b5a
+Merge: 060acf6 52eff69
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Nov 7 05:55:56 2016 -0500
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 060acf6b1dfad50296a4a3be9dffd564dfd0267c
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Nov 7 05:53:29 2016 -0500
+
+    Out with the GNUS, in with ... notmuch
+
+commit 7b5ebdf44bcd6f74fcfb5a8243f0c5dc754b2a09
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Nov 6 13:24:40 2016 -0500
+
+    gmj-insert-date defaults to <YYYY-MM-DD>
+
+commit 52eff69ca1dbbe503e7141e20f58ce2a418f31f0
+Merge: 763b210 855c792
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Nov 6 08:55:03 2016 -0500
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 855c792883f6a40506f28443196dcf176c4bc06b
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Nov 6 08:50:02 2016 -0500
+
+    added aliases for pass. Set chrome as default browser
+
+commit 763b210b7aa5c916a6049407bf95f67b58ef559c
+Merge: 4d7f4e5 a03f28e
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Nov 5 07:27:26 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 4d7f4e5625c42183938a53af8131968b775c472e
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Nov 5 07:25:00 2016 -0400
+
+    Add alias for menu bar open
+
+commit a03f28eadb3717ceeda802eba03dbad7d06c8afe
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Nov 5 07:15:48 2016 -0400
+
+    Modernize package loading s/gnus/notmuch/, cleanup.
+
+commit 6e1ce4b9a7430cf8606f41c1150a6e6fe0e70ea6
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Nov 5 04:29:03 2016 -0400
+
+    Add USER@HOSTNAME to modeline
+
+commit 09c42ce14f9416ee2377b5ddd8ba05e4c788b212
+Merge: 0004bfd 3832135
+Author: George Jones <gmj@amazon.com>
+Date:   Fri Oct 28 07:14:56 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 0004bfd69da8ab174354120a11bbb52b549b5030
+Author: George Jones <gmj@amazon.com>
+Date:   Fri Oct 28 07:04:29 2016 -0400
+
+    Add schedule template
+
+commit 3832135389d87a3b5779d8643c7035f7dafd9c37
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Oct 13 09:46:18 2016 +0000
+
+    Use package versions of org
+
+commit fa283ed708d269f94266525f89cb723748f8d94e
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Oct 11 06:54:22 2016 -0400
+
+    merge
+
+commit 973ca007f0d6b5215f9f8676a36cb15e0d8085fa
+Merge: 11b70cb 23a19cd
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Oct 11 06:54:07 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 11b70cb1d67214cd77685b0313f13b65f36ffeec
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Oct 11 06:49:35 2016 -0400
+
+    reorganize emacs-lisp dir locaction
+
+commit 23a19cd946e41e5dd6d2821b879a1a68b661d520
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Sep 20 12:21:36 2016 +0000
+
+    Use emacs25 package management.
+
+commit 84d83e8381f84f13fb4145e8466db0b06517660d
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Sep 20 12:20:47 2016 +0000
+
+    Use emacs25 package management
+
+commit 45fcd85bed4d12be5885408a3dd455e759ad4d41
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Sep 13 12:26:26 2016 +0000
+
+    sync
+
+commit 5f4a71fe219de799dd0fb3bfb4bf3bb76f7b865d
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Sep 13 12:23:35 2016 +0000
+
+    set programming configs
+
+commit 2f43d07c366b043e7a2d12ec29ff7bd548e93189
+Merge: 46bc680 c83d1a8
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Sep 8 07:53:31 2016 -0400
+
+    premerge
+
+commit 46bc6802c0b9daf70a8c059e395212e5ff0ee5af
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Sep 8 07:44:34 2016 -0400
+
+    pre merge
+
+commit c83d1a88fab4f4e2707731846cb44e673e40cbc4
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Sep 4 11:36:52 2016 +0000
+
+    gmj-org-timetamp inserts org active timestamps
+
+commit 8a0cda40c6526bbfca67dac8db8c3dcb93566f3a
+Author: George Jones <gmj@pobox.com>
+Date:   Wed Aug 31 23:38:01 2016 +0000
+
+    Execute .or and .el from ~/elisp*
+
+commit 64688f64be3ada1020bd89b1e9a28e7567292263
+Merge: b2717d2 574eed7
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Aug 27 14:28:12 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 574eed75d327c17d8b77db911d17a6b9bc9f25c7
+Merge: 5baf1e4 932a96c
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Aug 27 14:20:42 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 5baf1e4af32ee8dda8c6282a6dbffd62e2244e05
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Aug 27 14:17:40 2016 -0400
+
+    Add "-" to additional shell names
+
+commit b2717d26da1038771dd5222a7dc2c68cba67327c
+Merge: 3934bc7 c368bc7
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Aug 27 13:55:23 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 3934bc7eee3a27b669e7abb1ae58039f6bc3a171
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Aug 27 13:54:12 2016 -0400
+
+    checkpoint.
+
+commit 932a96cd4982f7201ba717363e74499957ca0048
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Aug 23 08:02:29 2016 -0400
+
+    Only load notmuch if available
+
+commit a822f2af4ba666f6d564f49fa3eb325358578c5f
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Aug 23 08:01:26 2016 -0400
+
+    Added gmj-insert-date, ^x. binding
+
+commit 72d4451d12b164780cb6d478845c806be7db9480
+Merge: 1cb229a c368bc7
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Aug 23 07:01:01 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 1cb229a08a74188c6813e800b95f04bb5eb51e08
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Aug 23 07:00:16 2016 -0400
+
+    tab indents source
+
+commit c368bc751637c5277906d5183cf467c18292f490
+Merge: fd46316 606a562
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Aug 22 05:45:34 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit fd46316a5b831c68aad9c0141bfb97aac56f8e38
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Aug 22 05:44:18 2016 -0400
+
+    Refile org targets to a depth of 3
+
+commit 5e27bfc3af96cddbc4ffe77c8beb08eae55d66b9
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Aug 22 05:43:39 2016 -0400
+
+    Use winner mode (save/restore window confgs)
+
+commit 9aa41686c450c2aeee2f454849b12c646d6b5733
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Aug 22 05:42:58 2016 -0400
+
+    Start emacs as a server if not started
+
+commit 606a5628b7c2a6bdeb1501a3d5736cc96ead02cb
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Aug 21 14:02:15 2016 -0400
+
+    f3 to switch windows, tabs indent code
+
+commit 516cc93aabb0224ac85f0d83acb5e93174b4899d
+Merge: ed630ef 1cf64eb
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Aug 8 07:28:30 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 1cf64eb7ddd05e18b995e22595c8989b2a2c71b4
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Aug 8 07:25:34 2016 -0400
+
+    Bind f5 to gmj-shell
+
+commit ed630ef80624db73ec61427596eda9c212867910
+Merge: 23179a4 7a42012
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Aug 6 19:51:15 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+    
+    Conflicts:
+            george.org
+
+commit 23179a46acd574ffbaec3db6731d9ce1069177ac
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Aug 6 19:49:40 2016 -0400
+
+    local hacks
+
+commit 7a420120e50088568d762e3372ec906abda9b2b2
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Aug 6 17:18:08 2016 -0400
+
+    gmj-shell starts multiple shells via universal arg
+
+commit 20565ed295d8c9a62daebfb8a6ebba71f83d4f05
+Author: George Jones <gmj@pobox.com>
+Date:   Fri Aug 5 16:49:45 2016 -0400
+
+    minor tweaks
+
+commit ecb6068d93c3ee565ae3094322c33464274d8cba
+Author: George Jones <gmj@pobox.com>
+Date:   Fri Aug 5 06:55:36 2016 -0400
+
+    gmj-shell correectly determines system name
+
+commit 4b747a142f267153280e22c8684a5ed414cbabcd
+Author: George Jones <gmj@pobox.com>
+Date:   Wed Aug 3 05:53:08 2016 -0400
+
+    browse-url-broser-function to be set in configs
+
+commit 3b7c0249f4bfd80c4ddaa412aee54ccc25422ed6
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Aug 1 13:56:54 2016 -0400
+
+    dired time format full date.
+
+commit c853892c9bf8d8e4b4285fd75474a7d71483da5d
+Merge: f3b5a08 46ba143
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Aug 1 07:01:01 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 46ba1430002113af3fd68f90ca32635ea35ea030
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Aug 1 06:57:41 2016 -0400
+
+    TOC changes, native tab function in src blocks
+
+commit f3b5a08b3bdea72cab336d2cb1647f7fb2d4f666
+Merge: 8c5f54e 16971a9
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Aug 1 06:47:10 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 8c5f54e543298c1809ba5f788498815798d2cb99
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Aug 1 06:43:09 2016 -0400
+
+    notmuchmail abbrevs, move org to ~/public/...
+
+commit e46f5d65c832a1c7f980570580c02149f8401b1d
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Jul 30 10:15:11 2016 -0400
+
+    Parameterize meeting template
+
+commit 16971a974991837f6f8acbcf1c1f50099a6a6990
+Merge: caf64ae 06d80cd
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Jul 30 06:24:57 2016 -0400
+
+    Merge branch 'master' of ... eludom/.emacs.d
+
+commit caf64aef729b51679fb46191e4818611c5801c51
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Jul 30 06:20:54 2016 -0400
+
+    Hacks for notmuch mail
+
+commit 06d80cd19c49bf69ea375705ebbab7fc8346e429
+Merge: e1e2ed2 eb49904
+Author: George Jones <gmj@pobox.com>
+Date:   Wed Jul 27 06:54:06 2016 -0400
+
+    merge
+
+commit e1e2ed2ba030eeeaf95fc743894bca320d6a3058
+Author: George Jones <gmj@pobox.com>
+Date:   Wed Jul 27 06:52:21 2016 -0400
+
+    Add go support
+
+commit eb49904a05ef7d54680b740c990b5a7cf5c9e61e
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Jun 25 18:52:47 2016 -0400
+
+    set arrow keys in isearch
+
+commit ae290fc87f2a2c5918f9354afc8468b66174757f
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Jun 23 07:05:36 2016 -0400
+
+    Add arrow key bindings in isearch from Xah
+
+commit 8a59dae107e1e51740949fe9ab5079013274ca4a
+Merge: c093d96 2dcd58f
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Mar 24 11:20:35 2016 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit c093d9668f0546159e606dd5858804f9de601f84
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Mar 24 11:18:50 2016 -0400
+
+    Fix python untabify on save
+
+commit 2dcd58fdf0ae95e800c061ccc9427b5a4f2045ea
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Mar 20 07:59:11 2016 -0400
+
+    Use knesis keyboard
+
+commit 9afbfca9d1cc245eebc0a2f1384ae1121b304f58
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Mar 20 07:58:06 2016 -0400
+
+    Use kenesis keyboard to solve emacs pinky issues
+
+commit ba6a1333e8a78856f89cab14b43fc99a18729c7d
+Merge: 6a9a39b 21fe4a4
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Mar 3 07:32:06 2016 -0500
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 21fe4a44266b2bb8f863163ce8998743dd1e9e60
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Mar 3 07:24:03 2016 -0500
+
+    Use keyfreq.el to log command frequency
+
+commit 3dd25a2b06be41c0279d57caacc90ba97ea13276
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Mar 3 03:57:52 2016 -0500
+
+    update orb-babel-load-languages to allow shell
+
+commit 6a9a39b2f3e920f93bef7304668ddba9dcb27e7d
+Merge: 0868856 40e1c79
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Mar 1 07:24:05 2016 -0500
+
+    merge
+
+commit 0868856f6945d3954120c24e01824388f307cc40
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Mar 1 07:22:44 2016 -0500
+
+    Update meeting templates
+
+commit 4f2d721fb7e9233fcccc58dea8371bc802993a63
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Feb 27 06:14:22 2016 -0500
+
+    Moved TODOs to project-emacs-dot-d.org
+
+commit adc3f69a21d6e51e97bb41cc4afa1d3948957032
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Feb 25 08:14:00 2016 -0500
+
+    Add meeting template ("<m")
+
+commit 40e1c79b559d41248cdd571ea2e57d2134328e19
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Feb 23 06:27:05 2016 -0500
+
+    Move TODOs to project-*.org file, update README
+
+commit 62eaed42c0872394b0fce10a8e7be47438bc73b9
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Feb 22 04:15:24 2016 -0500
+
+    rename makelinks install.sh
+
+commit 863a5f789d37779acab11b2cf8e3cb86bf33fc9b
+Merge: 12bb5db acb5dd5
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Feb 22 03:52:52 2016 -0500
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit 12bb5db7981e4154a4e892ebdb93388391d25578
+Author: George Jones <gmj@pobox.com>
+Date:   Mon Feb 22 03:50:39 2016 -0500
+
+    Note problems with babel sh to shell transition.
+
+commit acb5dd56d08b5520e0abc5cb394f9f3f90b198fa
+Merge: 8bf6501 ba86f9b
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Feb 18 05:24:12 2016 -0800
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+    
+    Conflicts:
+            george.org
+
+commit 8bf6501eec65480755837b7978cef3c5c5d2aecb
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Feb 18 05:20:42 2016 -0800
+
+    Add RSS and ATOM feed reading examples.
+
+commit ba86f9b8f373abc791725ade95f74e69e101fe98
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Feb 14 06:29:28 2016 -0500
+
+    s/sh/shell/ for newer versions of org babel
+
+commit 22532fe2acd0fcc19aa2f265eefcb81d8993d9e2
+Merge: bc124dd 12ba4b5
+Author: George Jones <gmj@pobox.com>
+Date:   Fri Feb 12 08:09:54 2016 -0500
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+    
+    Conflicts:
+            george.org
+
+commit bc124ddcc7e34598cecb1ff6ba11f34ff6636c16
+Author: George Jones <gmj@pobox.com>
+Date:   Fri Feb 12 08:00:34 2016 -0500
+
+    Add attribution  and date to mail replies
+
+commit 789e892627a55a96fd888b6b4c1ca12a5fa17368
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Feb 9 12:13:45 2016 -0500
+
+    Fix agenda levels
+
+commit 12ba4b56d9a18df54a8b36ed01de672d85cd48da
+Author: George Jones <gmj@pobox.com>
+Date:   Tue Feb 9 10:45:08 2016 +0000
+
+    Remove old links if they exist.
+
+commit 12ae652bb77ab7894f9609fa0eb9f8e8d6a6e838
+Merge: 4d21f11 a525902
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Feb 7 09:05:57 2016 +0000
+
+    Merge branch 'master' github.com:eludom/.emacs.d
+
+commit 4d21f11be42a58b696ad896ec3bd0f959644aa06
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Feb 7 09:00:13 2016 +0000
+
+    Only go one level deep in refiling.
+
+commit a5259028112858c7086c096b70cf957b43529d45
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Feb 6 02:59:21 2016 -0500
+
+    Add orgmode.org/elpa to get org-plus-contrib
+
+commit b1b68ccf8cdce93c09ef956af5692273d1be90c3
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Feb 6 02:53:06 2016 -0500
+
+    Add Info on installing latest git (magit wants it)
+
+commit 152a66443f3e2f8df6770c8d0fd057d4f1b2b434
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jan 31 06:28:24 2016 -0500
+
+    Get rid of git-auto-commit.  Too annoying.
+
+commit 2d223549c63e8d58b1e708750fe4c8540efdb5a5
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jan 31 04:22:46 2016 -0500
+
+    Major fixups to package loading.
+
+commit 02fd87d0cad5e27b111d35defd7814ff471898a5
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jan 31 02:45:07 2016 -0500
+
+    Simplified abbrevs.
+
+commit 138a02b06e0aba74d1ef86cf1b590f1a4d42467d
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Jan 30 12:55:35 2016 +0000
+
+    tool-bar-mode causing errors (test for X ?)
+
+commit e2fcc3f764a7c97819878777e6a5996cc7dd0958
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Jan 30 12:55:11 2016 +0000
+
+    Make package loading work.
+
+commit 345b5b87f3f20de4ac2febe3e346fda6dcf0441a
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Jan 30 12:53:32 2016 +0000
+
+    Remove R from babel languages evaled. Errors.
+
+commit 065c9f7ccca48db5d076779db5521bfe6964d877
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Jan 30 12:50:24 2016 +0000
+
+    Create custom-file if it does not exist.
+
+commit 8af535a6bafbc48f9cf5f5c08895e6117f3bf95f
+Author: George Jones <gmj@pobox.com>
+Date:   Fri Jan 29 08:32:10 2016 -0500
+
+    Rename project file
+
+commit 3499b9d366dc9f7b066e2c03c1b1a284c73e596a
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jan 24 18:22:39 2016 -0500
+
+    Abbrev cleanup.
+
+commit cc281142de1164e2a114438bb37cd2d0510880ad
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jan 24 18:01:01 2016 -0500
+
+    Turn off more ido features.
+
+commit 71fef9275d37c400a34ce6b28fce541aa0d861ea
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jan 24 17:58:12 2016 -0500
+
+    Try life without ido for a bit.
+
+commit a76950d160f3641a95bf1db7993d0d85c90c7c28
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jan 24 17:54:39 2016 -0500
+
+    Get rid of toolbar.  It eats real-estate.
+
+commit f35ae9dbc2e23ce2a0c67785cba8ccc140238269
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jan 24 17:51:30 2016 -0500
+
+    f7 keybinding for xah-open-in-external-app
+
+commit 4a726cf2e1d36388cc839f57e9c708709579a1df
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jan 24 17:21:16 2016 -0500
+
+    Added melpa to archives
+
+commit 758ed17fa53567488287efa37c24f26c547b0f4e
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jan 24 17:13:21 2016 -0500
+
+    init.el cleanup
+
+commit a4d9f6b1a7d1370ace433ae7f2610c3264961e21
+Merge: 7ab685f 4811a11
+Author: George Jones <gmj@pobox.com>
+Date:   Wed Dec 23 09:57:35 2015 -0500
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+    
+    Conflicts:
+            george.org
+
+commit 7ab685fb66b9a2d963a3b669a96a7591da55ada3
+Author: George Jones <gmj@pobox.com>
+Date:   Wed Dec 23 09:54:19 2015 -0500
+
+    Add description, makelinks
+
+commit 4811a114580e49f8c757792f04a6cfa2bea344e7
+Author: George Jones <george.jones@teamaol.com>
+Date:   Mon Dec 7 12:14:24 2015 -0500
+
+    Add function to pretty print JSON
+
+commit 5d40c093baa577e7d5490243f6905f99318a4fc6
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Oct 31 09:03:22 2015 -0400
+
+    Untabify python files on save.
+
+commit 5a3b81472a35682401e8f01bbbc039aaad09181a
+Author: George Jones <george.jones@teamaol.com>
+Date:   Thu Oct 29 07:36:16 2015 -0400
+
+    Added link about using tramp multi-hop
+
+commit a184b34a89637407540045e600f8474454de7fbc
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Oct 17 04:13:56 2015 -0400
+
+    Added questions for emacs chat.
+
+commit efb04d0c30c24312d1817074db595b801f11ad93
+Author: George Jones <george.jones@teamaol.com>
+Date:   Wed Oct 14 08:54:59 2015 -0400
+
+    Add % to clocktable output
+
+commit 9f2797c9e851894690c96d695cf0367f85a0904a
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Oct 11 19:16:04 2015 -0400
+
+    Update ideas for 2015-10-14 emacs chat.
+
+commit 282c7df77a930962ed4771d82ecf71f930aada36
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Oct 11 12:44:38 2015 -0400
+
+    Reorganize file and shell opening keys
+
+commit 7b9558f341329dd41430938a7ae2f10470c14d32
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Oct 10 08:33:40 2015 -0400
+
+    Move custom-file out of .init.el, public git.
+
+commit 2c3db483d7390f438a0b0067cd47dd89578abf94
+Merge: 948bed7 7e75bf8
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Oct 10 08:07:59 2015 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+    
+    Conflicts:
+            george.org
+            init.el
+
+commit 948bed7647644cbf36762118fc1d04a340d59415
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Oct 10 07:58:13 2015 -0400
+
+    george.org
+
+commit 7e75bf86008cec3a8f6e639ccc67808d631b537f
+Author: George Jones <george.jones@teamaol.com>
+Date:   Sat Oct 10 07:51:16 2015 -0400
+
+    Read .dir-locals.el on remote dirs.
+
+commit 3ebce5a531df79081cdd05b8c50b20a6ee2ff22b
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Oct 8 10:16:24 2015 -0400
+
+    init.el
+
+commit 74457d60035777063e0633d59a38269e8de952a9
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Oct 8 10:13:13 2015 -0400
+
+    init.el
+
+commit 23035f3fa08fef04636a532ad5e38d75a352e278
+Author: George Jones <gmj@pobox.com>
+Date:   Thu Oct 8 09:44:15 2015 -0400
+
+    init.el
+
+commit af45239bef3d6b9aad9906918dffc774506a80d1
+Author: George Jones <george.jones@teamaol.com>
+Date:   Thu Oct 1 06:18:00 2015 -0400
+
+    Set custom-file. Keep private stuff out of init.el
+
+commit 31293d2c6b8e0522bc37ee0a78ca4bb3e1b03215
+Author: George Jones <george.jones@teamaol.com>
+Date:   Thu Oct 1 06:17:29 2015 -0400
+
+    Setup for git-autocommit-mode
+
+commit aee641ee6803b2ea6ebcc774f8218c982a2aa5be
+Merge: eb7b472 9781008
+Author: George Jones <george.jones@teamaol.com>
+Date:   Thu Oct 1 05:34:43 2015 -0400
+
+    Merge branch 'master' of https://github.com/eludom/.emacs.d
+    
+    Conflicts:
+            george.org
+            init.el
+
+commit eb7b472b22ee3881d0b9a07f21d7573534cef76d
+Author: George Jones <george.jones@teamaol.com>
+Date:   Thu Oct 1 05:32:49 2015 -0400
+
+    Add gmjShell
+
+commit 9781008c03e15643c90c55b00d7217a4eba43f9e
+Author: George Jones <gmj@pobox.com>
+Date:   Wed Sep 30 20:28:29 2015 -0400
+
+    Add git-autocommit-mode settings
+
+commit cb57253ca0ebd76aafb9c4244766daa5f119bc01
+Author: George Jones <gmj@pobox.com>
+Date:   Wed Sep 30 20:27:28 2015 -0400
+
+    home/george/.emacs.d/george.org
+
+commit 0adad076d63e6a6f810fea404d2b07e474b09c74
+Merge: 4a2b13d 3297408
+Author: George Jones <gmj@pobox.com>
+Date:   Wed Sep 30 20:07:47 2015 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+    
+    Conflicts:
+            init.el
+
+commit 4a2b13dcf43fa8b89e6b33fc8781da4cde6ed4e8
+Author: George Jones <gmj@pobox.com>
+Date:   Wed Sep 30 20:02:27 2015 -0400
+
+    pre-merge commit.
+
+commit 37139219b0e85dd6f157b3e0564b4166279cc58f
+Author: George Jones <george.jones@teamaol.com>
+Date:   Fri Aug 28 07:55:26 2015 -0400
+
+    Added gmjShell, bound to F5
+
+commit 32974083d39c26d6e1ede5e4a5719f6bef2d985d
+Merge: 2b4d4b3 c3d91ac
+Author: George Jones <george.jones@teamaol.com>
+Date:   Wed Aug 26 07:39:18 2015 -0400
+
+    Merge branch 'master' of https://github.com/eludom/.emacs.d
+    
+    Conflicts:
+            george.org
+            init.el
+
+commit 2b4d4b351b7dbbb369b566e5202ca4ae049b08e8
+Author: George Jones <george.jones@teamaol.com>
+Date:   Wed Aug 26 07:32:35 2015 -0400
+
+    Add jaber configs.
+
+commit c3d91acdc24017cfef6bb68e39eb32655fa04712
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Aug 15 18:28:38 2015 -0400
+
+    Added xah's xah-open-in-external-app function.
+
+commit 4a3965ae95d225558af35355cb6736b2be1b4454
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Aug 15 11:01:35 2015 -0400
+
+    Added Xah Lee's unicode template.
+
+commit fc4b7fddecee1fb523432ee489c7c89c5aa95092
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jul 26 05:56:49 2015 -0400
+
+    Set babel default ":cache yes"
+
+commit 7f500294109f9a5f2306167ce7461b72c7141d53
+Merge: b551caa 9577059
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Jul 25 08:54:05 2015 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+
+commit b551caa9cfee89abf5c8b6c42a47de6c0391a2ca
+Author: George Jones <gmj@pobox.com>
+Date:   Sat Jul 25 08:47:29 2015 -0400
+
+    Update org-agenda-files.
+
+commit 9577059a50a98b17f79edd0df16c1acb9c6512ee
+Author: George Jones <george.jones@teamaol.com>
+Date:   Fri Jul 17 06:07:16 2015 -0400
+
+    Tweeks to meeting template.
+
+commit 58365613dac42e8abdaea3efdc73611f93ce2859
+Author: George Jones <gmj@pobox.com>
+Date:   Sun Jun 14 06:27:50 2015 -0400
+
+    Use link2 for install of .emacs.d
+
+commit 02c8d8aa14d84f7a0dcdeabbe53000c8aed8be75
+Author: George Jones <gmj@pobox.com>
+Date:   Fri Jun 5 03:21:20 2015 -0700
+
+    install.sh links to ~, saves old version
+
+commit 6a1127ea9de4829461594120a7ccaf273b1d13e7
+Author: George Jones <gmj@pobox.com>
+Date:   Fri Jun 5 03:08:34 2015 -0700
+
+    chmod
+
+commit 081155206367c0f4cbae18a6f48920c5265eadff
+Author: George Jones <gmj@pobox.com>
+Date:   Sun May 31 15:48:21 2015 -0400
+
+    Add yaml mode.
+
+commit 21bfb6f5dd181598c38064bd84748cd90d68eaf0
+Author: George Jones <george.jones@teamaol.com>
+Date:   Wed May 20 11:41:59 2015 -0400
+
+    Add right version of org scraps.
+
+commit 9c1fcc77130e5695dda231daa98ac4f71bf02506
+Author: George Jones <george.jones@teamaol.com>
+Date:   Wed May 20 11:40:52 2015 -0400
+
+    Add Eric Shulte's org scraps.
+
+commit dfc7fe2aca659399e39bc93d716a10d642d454e6
+Author: George Jones <gmj@pobox.com>
+Date:   Wed May 20 07:59:29 2015 -0400
+
+    Added open file func, tweek meeting template
+
+commit beab153e93addfcde11efe1e4d75502e8a4fb32b
+Author: George Jones <gmj@pobox.com>
+Date:   Sat May 16 14:43:41 2015 -0400
+
+    org2bog refactoring.
+
+commit fba8ef3589bdc04c27a20b8dbec235b40081c680
+Author: George Jones <gmj@pobox.com>
+Date:   Sat May 16 11:43:17 2015 -0400
+
+    Moved personal configs to ~/configs, ~/secrets
+
+commit 1db413a08a1ec9029c8f260c2ce72328e12b8e12
+Author: George Jones <gmj@pobox.com>
+Date:   Sat May 16 06:56:43 2015 -0400
+
+    Add my usual sh hacks to <S org-structure-template
+
+commit c703e0308cac95d90b97c75004518ebde1480bf4
+Author: George Jones <gmj@pobox.com>
+Date:   Fri May 15 07:41:57 2015 -0400
+
+    Move org-agenda-files out of init.el
+
+commit c74cd573279e889d6eff16c7cc6085bdd7c7410f
+Author: George Jones <gmj@pobox.com>
+Date:   Fri May 15 07:19:20 2015 -0400
+
+    Added refiling setup.
+
+commit 9abfbaa61cf99b8bc1e29bf5f015e7be30bb4e6f
+Merge: 06eadd6 124ac96
+Author: George Jones <gmj@pobox.com>
+Date:   Thu May 14 05:26:50 2015 -0400
+
+    Merge branch 'master' of github-as-eludom:eludom/.emacs.d
+    
+    Conflicts:
+            george.org
+
+commit 06eadd6d31e7c87ea5d02cb5651371489c31693f
+Author: George Jones <gmj@pobox.com>
+Date:   Wed May 13 21:24:37 2015 -0400
+
+    merge
+
+commit 124ac9652b91b8dda734e4e23f42c47ff8322a87
+Merge: 9c3902e f12644f
+Author: George Jones <george.jones@teamaol.com>
+Date:   Mon May 11 12:42:50 2015 -0400
+
+    fixed dates
+
+commit 9c3902eec4d04c9528374471452a45d90cacda93
+Author: George Jones <george.jones@teamaol.com>
+Date:   Mon May 11 11:27:53 2015 -0400
+
+    local changes.
+
+commit f12644f037655d679070f551028491798782a348
+Author: George Jones <george.jones@teamaol.com>
+Date:   Sun May 10 08:57:46 2015 -0400
+
+    Added templates for meetings and "W" questions.
+
+commit 89c0c7afdaa5e063c3dc080f766121d8f82efb86
+Author: George Jones <gmj@pobox.com>
+Date:   Sun May 10 07:30:35 2015 -0400
+
+    merge.
+
+commit 75cce42acc79a6ac9dedd4eacb15ec38d7dc506c
+Merge: c9101ce f38b5ec
+Author: George Jones <gmj@pobox.com>
+Date:   Sun May 10 07:22:50 2015 -0400
+
+    merge
+
+commit c9101ce71218e006d728988b7b6887acf81e3820
+Author: George Jones <gmj@pobox.com>
+Date:   Sun May 10 07:16:21 2015 -0400
+
+    testing org-agenda-files and refiling.
+
+commit f38b5eca68dfeed4db69babfb79f5d4e07720695
+Author: George Jones <george.jones@teamaol.com>
+Date:   Sun May 10 06:53:20 2015 -0400
+
+    Added example org-init files form which to pilfer.
+
+commit 917da96e8dfef02438e9680874e8fab40c78cb2f
+Author: George Jones <george.jones@teamaol.com>
+Date:   Sun May 10 06:49:30 2015 -0400
+
+    Added magit-ls-files function and hook.
+
+commit 2750e7f52eaa10d3b748014d76f30c9faf643f26
+Author: George Jones <george.jones@teamaol.com>
+Date:   Sun May 10 05:54:24 2015 -0400
+
+    move examples to examples/
+
+commit 87527b85eec0b1f79b0580a32fa4be22df5a5710
+Author: George Jones <gmj@pobox.com>
+Date:   Fri May 8 06:00:10 2015 -0400
+
+    Added template; experiments with ob-shell err code
+
+commit 26b354bc24ea2fbce7bbe859a8ac53cfa0fb4888
+Author: George Jones <george.jones@teamaol.com>
+Date:   Thu May 7 10:34:52 2015 -0400
+
+    Display time and date in mode line.
+
+commit 2ec4e7bdcc0f70f9a42aef1077d61a7554e88ac5
+Author: George Jones <george.jones@teamaol.com>
+Date:   Thu May 7 07:36:48 2015 -0400
+
+    Added external browser functionality for links.
+
+commit 7686a9e4abaffb135a99c26a39659a3181706607
+Author: George Jones <george.jones@teamaol.com>
+Date:   Thu May 7 07:15:59 2015 -0400
+
+    Added install.sh
+
+commit 3bd4d0120689dac993e3c42f4b482f288e0ba72d
+Merge: 346e7e2 4124cd5
+Author: George Jones <gmj@pobox.com>
+Date:   Thu May 7 02:13:18 2015 -0400
+
+    Merge.  No real changes.
+
+commit 346e7e283a7d00d4826cf93ef21a236e60c4714d
+Author: George Jones <gmj@pobox.com>
+Date:   Thu May 7 02:09:33 2015 -0400
+
+    Added gnus back; most everything else functional.
+
+commit 4124cd57fbaf0d29b2a95f3be10d2ffecb8651ab
+Author: George Jones <george.jones@teamaol.com>
+Date:   Wed May 6 11:18:09 2015 -0400
+
+    Minor path and keybinding fixes.
+
+commit d0fb9aa3c8c74e7d42c8d37f6b6e7761285db06b
+Author: George Jones <gmj@pobox.com>
+Date:   Wed May 6 06:30:57 2015 -0400
+
+    Added gnus back; most everything else functional.
+
+commit 0959c4631edd19bdfd6c8112db8e66a424602139
+Author: George Jones <gmj@pobox.com>
+Date:   Tue May 5 20:21:20 2015 -0400
+
+    Added functions back
+
+commit bdb719a68adb6913595d5d61fa434394d1943ab6
+Author: George Jones <george.jones@teamaol.com>
+Date:   Tue May 5 17:22:23 2015 -0400
+
+    Added Things to Hack section
+
+commit 02cbb689c6357c7bdfb194b055c602b0d8538cef
+Author: George Jones <gmj@pobox.com>
+Date:   Tue May 5 07:41:12 2015 -0400
+
+    Binding for dired-jump; Add save-current-kbd-macro
+
+commit 80c6513ea05e72248e95a59afee1efe78449ed5d
+Author: George Jones <gmj@pobox.com>
+Date:   Mon May 4 07:35:00 2015 -0400
+
+    Added pointer to defining OSX menu key.
+
+commit b8372e959345c0db085e9c6f1bd3f58d62e81a82
+Author: George Jones <gmj@pobox.com>
+Date:   Mon May 4 04:10:52 2015 -0400
+
+    Broke identity out into ~/secrets-and/lies/ file.
+
+commit 3f706ebd39bbf37fdc5ffd18e7b99b784a4fd7c0
+Author: George Jones <gmj@pobox.com>
+Date:   Sun May 3 20:51:45 2015 -0400
+
+    Document directories; load secrets if present
+
+commit 7077d2b73649a438a5d1ed92cc98d36d15bf00c9
+Author: George Jones <gmj@pobox.com>
+Date:   Sun May 3 17:49:52 2015 -0400
+
+    Autoload ~/elisp/*.org (orgify all the things !)
+
+commit f7268c39d003cbf7c6a7d76c19fcfac8a29ae02e
+Author: George Jones <gmj@pobox.com>
+Date:   Sun May 3 17:31:44 2015 -0400
+
+    Autoload ~/elisp/*.el; Browse with ess;
+
+commit 310bb554f736cb3ba50b0694b8f2b5705d19cf4a
+Author: George Jones <gmj@pobox.com>
+Date:   Sun May 3 09:08:26 2015 -0400
+
+    Added aliases, mostly from Xah Lee.  Useful.
+
+commit 0387cb11d0c94f8e477f974633de645d691daec4
+Author: George Jones <gmj@pobox.com>
+Date:   Sat May 2 19:51:51 2015 -0400
+
+    Added back flyspell,ido,etc
+
+commit f1277d05fb55e1c05e09557685a1a5d5b44460a0
+Author: George Jones <gmj@pobox.com>
+Date:   Sat May 2 19:10:58 2015 -0400
+
+    Yow !!! Am I CONSING yet?...
+
+commit 404c1166a19bdf0bb20f7b1b83b49dc5bafa307f
+Author: George Jones <gmj@pobox.com>
+Date:   Sat May 2 10:25:56 2015 -0400
+
+    Remove old README.md
+
+commit 60cbf2ee5dd9de496bffbe024186e2195e0949cb
+Author: George Jones <gmj@pobox.com>
+Date:   Sat May 2 10:19:44 2015 -0400
+
+    Initial version of new .emacs.d
+
+commit 5264a0ec06db85986e817d45b98fb75c5910bd23
+Author: George Jones <gmj@pobox.com>
+Date:   Sat May 2 10:13:55 2015 -0400
+
+    Initial commit

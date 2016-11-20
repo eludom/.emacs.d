@@ -1,0 +1,466 @@
+* emacs - minor tweaks to do 
+** TODO move auto-save-list and backups out of ~/.emacs.d
+   :LOGBOOK:
+   CLOCK: [2016-08-28 Sun 15:21]--[2016-08-28 Sun 15:21] =>  0:00
+   :END:
+   [2016-08-28 Sun 15:21]
+   [[file:~/.emacs.d/auto-save-list][file:~/.emacs.d/auto-save-list]]
+
+** TODO bind f to eww-forward-url in eww
+   :LOGBOOK:
+   CLOCK: [2016-11-20 Sun 06:36]--[2016-11-20 Sun 06:37] =>  0:01
+   :END:
+   [2016-11-20 Sun 06:36]
+** TODO move bookmarks and eww-history out of ~/.emacs.d
+   :LOGBOOK:
+   CLOCK: [2016-11-20 Sun 06:40]--[2016-11-20 Sun 06:41] =>  0:01
+   :END:
+   [2016-11-20 Sun 06:40]
+   - move to elisp-private or elisp-secret
+* emacs-dot-d - project info
+  - [[file:~/.emacs.d/][file:~/.emacs.d/]]
+  - [[file:~/elisp-public/][file:~/elisp-public/]]
+  - [[file:~/elisp-private/][file:~/elisp-private/]]
+  - [[file:~/elisp-secret/][file:~/elisp-secret/]]
+** TODO report bug in org9 - not honoring ":exports"
+   :LOGBOOK:
+   CLOCK: [2016-11-16 Wed 06:43]--[2016-11-16 Wed 06:45] =>  0:02
+   CLOCK: [2016-11-16 Wed 06:24]--[2016-11-16 Wed 06:42] =>  0:18
+   CLOCK: [2016-11-16 Wed 06:22]--[2016-11-16 Wed 06:23] =>  0:01
+   CLOCK: [2016-11-16 Wed 06:22]--[2016-11-16 Wed 06:22] =>  0:00
+   :END:
+   [2016-11-16 Wed 06:22]
+   [[file:~/home/secret/money/mint/testExports.org]]
+* emacs - Debugbing
+** TODO fix org code evaluation issues
+   :LOGBOOK:
+   CLOCK: [2016-11-06 Sun 10:32]--[2016-11-06 Sun 10:33] =>  0:01
+   :END:
+   [2016-11-06 Sun 10:32]
+   Why am I getting this:
+   =Evaluation of this emacs-lisp code-blockis disabled.=
+
+   http://emacs.stackexchange.com/questions/28441/org-mode-9-unable-to-eval-code-blocks
+
+* emacs - functions to write
+** TODO write function to prompt for string, do show-binding and then occur on the string
+   :LOGBOOK:
+   :END:
+   [2016-08-27 Sat 09:10]
+   - e.g. so you can quickly find all the bindings that have
+     "rectangle"
+   - Possibly just front-end existing describe-bindings, but allow
+     prefix to indicate that we should do the prompt/occur version.
+     Otherwise, just call normal describe-bindings
+   - appropos (^Ha) does part of this, but is too verbose.
+** DONE Write wikipeida link inserter for word under point if URL exists
+   SCHEDULED: <2016-09-10 Sat>
+   :LOGBOOK:
+   CLOCK: [2016-09-10 Sat 08:35]--[2016-09-10 Sat 08:36] =>  0:01
+   :END:
+   [2016-09-10 Sat 08:35]
+   [[file:/usr/local/share/emacs/25.1.50/lisp/url/url-http.el.gz::(defun%20url-http-file-exists-p%20(url)]]
+* emacs - config hacks to do 
+** TODO set up emacs server so I can ssh in and connect
+   :LOGBOOK:
+   CLOCK: [2016-02-29 Mon 10:05]--[2016-02-29 Mon 10:05] =>  0:00
+   :END:
+   [2016-02-29 Mon 10:05]
+   [[file:~/Org/refile.org]]
+** DONE Figure out a way to stop leaning on CTRL
+   SCHEDULED: <2016-03-03 Thu>
+   :LOGBOOK:
+   CLOCK: [2016-03-03 Thu 04:28]--[2016-03-03 Thu 04:44] =>  0:16
+   :END:
+   [2016-03-03 Thu 04:28]
+   [[file:~/elisp/keyfreq.el][file:~/elisp/keyfreq.el]]
+   - I'm starting to get emacs pinky
+   - Try using sticky keys http://xahlee.info/kbd/banish_key_chords.html
+   - See http://ergoemacs.org/emacs/emacs_pinky.html
+   - Consider http://ergoemacs.org/misc/ergoemacs_vi_mode.html
+   - got two Kensis Advantage MPC/USB keyboard
+** TODO explore ways to always open files in readonly
+   :LOGBOOK:
+   CLOCK: [2016-08-30 Tue 09:49]--[2016-08-30 Tue 09:51] =>  0:02
+   :END:
+   [2016-08-30 Tue 09:49]
+   I usually only edit one file at a time, but have 10s open.
+   I want to have to explicity toggle read-only-mode.
+** TODO figure out how to turn on linum-mode for source files
+   :LOGBOOK:
+   CLOCK: [2016-08-30 Tue 10:08]--[2016-08-30 Tue 10:08] =>  0:00
+   :END:
+   [2016-08-30 Tue 10:08]
+** DONE explore ways to always open files in readonly
+  - C-x C-r 
+* emacs - hacks to core org
+  - Consider contributing back
+** TODO add prefix to org-date-from-calendar to insert inactive timestamp
+   :LOGBOOK:
+   CLOCK: [2016-11-16 Wed 06:42]--[2016-11-16 Wed 06:43] =>  0:01
+   :END:
+   [2016-11-16 Wed 06:42]
+   [[file:~/home/public/.emacs.d/elpa/org-plus-contrib-20161102/org.el::(defun%20org-date-from-calendar%20()]]
+** TODO add prefix to org-date-from-calendar to insert inactive timestamp
+   :LOGBOOK:
+   CLOCK: [2016-11-16 Wed 06:42]--[2016-11-16 Wed 06:43] =>  0:01
+   :END:
+   [2016-11-16 Wed 06:42]
+   [[file:~/home/public/.emacs.d/elpa/org-plus-contrib-20161102/org.el::(defun%20org-date-from-calendar%20()]]
+* emacs - backlog - emacs.d 
+** CANCELED Start syncning to trllo
+   SCHEDULED: <2016-02-28 Sun>
+   :LOGBOOK:
+   CLOCK: [2016-02-23 Tue 06:13]--[2016-02-23 Tue 06:14] =>  0:01
+   :END:
+   [2016-02-23 Tue 06:13]
+
+   https://org-trello.github.io/install.html
+   [[file:~/trello/honeyDo.org]]** TODO Figure out where to bind gmj/org-example-region		       :keys:
+   [2016-02-23 Tue]
+** TODO Figure out how to keep elpa from pulling in org-mode when I insall org2blog :org:
+   [2016-02-23 Tue]
+   - I want to stay with direct git pulls of org
+   - When I install the org2blog package, it also pulls down org,
+     creating confusion and load order problems.
+** TODO Paramaterize .gnus setting				       :gnus:
+     - user name, servers, ports
+** DONE Look at ~/authinfo					       :gnus:
+     - [X] Encrypt with gpg
+       + just save as ~/.authinfo.gpg, select key and it does the rest.
+     - [X] Move to ~/secrets with a symlink?
+** TODO Support reading multiple imap boxes in one session	       :gnus:
+     - Probably separate .gnus settings
+** TODO Figure out how to initiate sending of mail when not in gnus already :gnus:
+     - e.g. not "m" in *Group* buffer 
+** TODO Re-implement offline IMAP				       :gnus:
+** TODO Set up some search mechanism for mail			       :gnus:
+
+** TODO Add my ancient quotes file				      :games:
+     - as cookie-file, leave yow alone
+** TODO Add some random Latin quotes				      :games:
+
+** DONE Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/00-packageStuff.org :init:
+** DONE Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/05-misc-startup-stuff.org :init:
+** DONE Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/10-ifdef.org :init:
+** DONE Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/10-usefulFunctions.org :init:
+** DONE Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/15-locationLocationLocation.org :init:
+** DONE Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/20-acientKeybinding.org :init:
+** DONE Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/20-dired.org :init:
+** DONE Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/20-gnusSettings.org :init:
+** DONE Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/20-orgModeStuff.org :init:
+** DONE Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/20-savedKeyboardMacros.org :init:
+** TODO Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/30-blogging.org :init:
+** TODO Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/80-appearance.org :init:
+** TODO Review https://raw.githubusercontent.com/eludom/dotfiles/master/.emacs.d/orgified-init/99-runLast.org :init:
+
+** DONE Restore package.el and use-package loading packages	       :init:
+   - In init.el
+** DONE Move my custom install of org to ~/elisp/org-mode	       :init:
+** DONE Magit mode						       :init:
+
+   May need to get latest version of git.  For ubuntu see:
+   http://askubuntu.com/questions/500090/upgrading-to-the-last-version-of-git-from-the-source-repository-or-ppa
+
+   #+begin_example
+   sudo apt-get install python-software-properties
+   sudo add-apt-repository ppa:git-core/ppa
+   sudo apt-get update
+   sudo apt-get install git
+   #+end_example
+
+#+begin_example
+
+#+BEGIN_SRC emacs-lisp :exports code
+(use-package magit
+  :ensure t
+  :defer t
+  :config
+  (defun magit-ls-files ()
+  "List tracked files of current repository."
+  (interactive)
+  (if (derived-mode-p 'magit-mode)
+      (magit-git-command "ls-files" default-directory)
+    (message "Not in a Magit buffer.")))
+  )
+
+; http://stackoverflow.com/questions/24993868/how-do-you-list-tracked-files-git-ls-files-in-magit
+(add-hook 'magit-mode-hook (lambda () (define-key magit-mode-map (kbd "K") 'magit-ls-files)))
+
+(setq magit-last-seen-setup-instructions "1.4.0")
+#+END_SRC
+#+end_example
+
+** DONE move my custom lisp to ~/elisp				       :init:
+** DONE My Keybinding from eons past				       :init:
+** DONE Autocompletion stuff					       :init:
+   - current ido stuff borrowed from xah or possibly whatever sacha is
+     using
+     IDO
+** DONE [4/4] GNUS for email 					       :gnus:
+   - [X] Put generic stuff in main config
+   - [X] Put identity stuff in ~/configs/
+   - [X] Use gpg for ~/.authinfo
+   - [X] Make org-mime-htmlize work again
+** TODO Figure out how to use org mode for composing mail by default   :gnus:
+   - with org-mime-htmlize
+** IN-PROGRESS [2/4] org2Blog
+   - [X] Basics work
+   - [X] Figure out how to keep all posts local an publish tree
+     + Just keep them in a single .org file and post the subtree
+       o thanks to tip from Sacha Chua
+** TODO Figure out how to do quick org2blog posts
+** IN-PROGRESS Figure out how to sync ~/Org/{contacts, diary, refile, etc.}
+   - Experimenting with git
+** TODO Look at Xah's Key bindings
+   https://gist.github.com/xahlee/db6cf2c841f3f6f931b1
+   - [ ] Figure out what prefix use to use
+** TODO trello
+** DONE dired hacks
+** TODO latex export of PDFs
+** TODO ffap
+** DONE "sensible-browser" functionality
+   - eww pops up most things now.  Can copy link ("w") to throw into browser
+** DONE My automatic date updater when editing .org files
+** DONE My org mode indenting code
+** DONE Flyspell
+   - Tweek to not require GUI popups.
+** DONE date in modeline
+
+** TODO Key bindings to add
+*** Write code or config to start shell for system in current window
+    - ssh or local
+    - Fix tramp problem that forces me to edit out extra /bin/bash
+** TODO Prefix all saved macros names with "gmj-kbd-"
+   - Involves messing with symbol name "name"
+   - See http://ergoemacs.org/emacs/elisp_symbol.html
+
+** Things to tweek
+*** TODO Make org default template export less verbose
+
+    Currently looks like this
+
+ #+BEGIN_EXAMPLE
+ #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline
+ #+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+ #+OPTIONS: email:nil f:t inline:t num:nil p:nil pri:nil prop:nil
+ #+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t title:t toc:nil
+ #+OPTIONS: todo:t |:t
+ #+TITLE: titleOfFile
+ #+DATE: <2015-05-08 Fri>
+ #+AUTHOR: George M Jones
+ #+EMAIL: gmj@pobox.com
+ #+LANGUAGE: en
+ #+SELECT_TAGS: export
+ #+EXCLUDE_TAGS: noexport
+ #+CREATOR: Emacs 25.0.50.1 (Org mode 8.3beta)
+ #+END_EXAMPLE
+
+ #+BEGIN_EXAMPLE
+ #+TITLE: title of file
+ #+DATE: <2015-05-08 07:36:26 Friday>
+ #+AUTHOR: George M Jones
+ #+EMAIL: gmj@pobox.com
+ #+END_EXAMPLE
+    
+  
+*** TODO [0/2] Make new default template
+    - [ ] Make new default template for meetings
+    - [ ] Make new default template for what-why-who-when-where-how
+*** TODO Figure out shell ERR handling
+       I want to trap errors, output a warning, and quit.
+       The following will trap errors, output a warning and continue.
+       If I exit the trap function, I get no output in babel.
+
+       Ask the org mailing list/eric shulte ?
+
+ #+BEGIN_EXAMPLE
+ #+begin_src sh  :results output
+ exec 2>&1; set -u; date; # set -x
+ function errTrap {
+   echo errTrap AT `date`
+   # exit 1 # how should I exit a trap function to stop execution?  Babel does not give any ouput
+ }
+ trap errTrap ERR
+
+ echo $basf
+ echo foo
+ echo bar
+ adsf bad command, we should see the error for this
+ echo baz we should not get this far
+ #+end_src
+ #+END_EXAMPLE
+
+** Things to hack
+*** TODO Add a function to create dated org files
+   Add a function to create dated org files with template, e.g. prompt
+   for name, create with date prefix, e.g.
+
+   #+BEGIN_EXAMPLE
+   20150505_${name}.org
+   #+END_EXAMPLE
+
+   See saved-keyboard-marcos-file() definition for start.
+
+   Template should be something like
+
+   #+BEGIN_EXAMPLE
+   #+TITLE: foo
+   #+AUTHOR: me
+   #+EMAIL: me@there.com
+   #+DATE: ${today}
+
+   * What is this
+
+   ...
+
+   #+END_EXAMPLE
+
+   Maybe separate ones for meetings, documents, org-babel, etc.
+** Things try
+*** TODO Try out Helm
+*** TODO Sacha's capture templates
+*** DONE Posting tree from blog
+*** TODO Yasnippit
+*** TODO Bookmarks
+*** TODO Skeleton Mode http://www.emacswiki.org/emacs/SkeletonMode
+    - Also look at templates in Sacha's config
+    - skeletons for meetings
+    - skeletons for documents
+    - skeletons for sh (shell)
+*** TODO IDO Vertical Mode
+    http://emacswiki.org/emacs/InteractivelyDoThings#toc23
+ #+BEGIN_EXAMPLE
+ Display Completions Vertically
+ It’s a lot easier to scan long path names if they’re displayed
+ vertically, instead of horizontally. Run this to achieve just that: 
+
+ This can be achieved by installing package ido-vertical-mode, which (presumably), does the following, below.
+
+   ;; Display ido results vertically, rather than horizontally
+   (setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+   (defun ido-disable-line-truncation () (set (make-local-variable 'truncate-lines) nil))
+   (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-truncation)
+   (defun ido-define-keys () ;; C-n/p is more intuitive in vertical layout
+     (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+     (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
+   (add-hook 'ido-setup-hook 'ido-define-keys)
+ – timcharper, jpkotta
+ #+END_EXAMPLE   
+*** TODO aliaes
+    #+BEGIN_EXAMPLE
+   
+    #+END_EXAMPLE
+   
+    #+BEGIN_SRC emacs-lisp :exports code 
+    (defalias 'sh 'shell)
+    #+END_SRC
+
+    #+RESULTS:
+    : sh
+
+*** TODO Storing files on dropbox
+    - .org files
+    - blog postings
+*** TODO pydoc mode
+    http://draketo.de/light/english/free-software/read-your-python-module-documentation-emacs
+*** TODO Visual/Audible Alarms
+    [2016-02-13 Sat]
+    - https://lists.gnu.org/archive/html/emacs-orgmode/2009-11/msg00217.html
+    - Others?
+** Things to fix
+*** TODO Tramp default shell
+   Tramp default shell .. comes up /bin/bash/bin/bash, have to edit
+   out 2nd /bin/bash (IDO completion problem?)  
+*** TODO babel sh vs. shell, passing arrays as vars changed
+
+    Assignment of configNames (below)  worked with "sh" c.a. org 8.2, but fails with "shell" c.a. 8.3
+
+    #+begin_example
+
+     #+name: config
+     | WHERE_TO | /big2/backups/octo/                     |
+     | LOGDIR   | /home/george/projects/current/backups   |
+     | EXCLUDE  | ${LOGDIR}/rsync.exclude                 |
+     | LOGFILE  | ${LOGDIR}/rsync-octo-to-big2-${NOW}.log |
+     | RUNFROM  | "/"                                     |
+
+    #+name: backups.<2016-02-21 Sun>
+    #+begin_src sh :var names=config[,0] values=config[,1] :results output prepend :dir /sudo:: :exports both 
+    exec 2>&1;set -e; set -u; set +x; echo '#' `date;`
+
+    # pull the org variables into arrays
+    configNames=($names)  
+    #+end_example
+*** 
+** Things to try more
+   I've tried that I need to understand better
+*** TODO Dired
+    - since it is becoming my interface to the world
+*** TODO Org clock-in, clock-out
+    - How do I manually edit ** TODO Org tables
+    - Need to make peace with the arcane formla syntax
+** Things to try again
+*** DONE Tramp multihop
+    <2015-04-30 Thu>
+    https://www.google.com/search?client=ubuntu&channel=fs&q=emacs+tramp+multihop&ie=utf-8&oe=utf-8
+
+    #+begin_example
+    C-x C-f /ssh:bird@bastion|ssh:you@remotehost:/path
+    #+end_example
+
+*** DONE Agenda mode
+*** TODO eshell
+    - Weirdness with I/O redirects before
+** Things to find out
+*** TODO Can I publish files directly to Google Drive a la sshfs? 
+
+ge** TODO Write code or config to start shell for system in current window :bindings:
+      - ssh or local
+      - Fix tramp problem that forces me to edit out extra /bin/bash
+** TODO Prefix all saved macros names with "gmj-kbd-"		     :macros:
+      - Involves messing with symbol name "name"
+      - See http://ergoemacs.org/emacs/elisp_symbol.html
+** DONE Figure out how to stop C-c C-[ from adding to init.el	     :agenda:
+      I want to keep private information out of init.el.
+      org-agenda-file-to-front adds files there.  I want them in a
+      separate file.
+
+      I added this to init.el
+      #+begin_example
+      ; because junk I don't want to share in git keeps showing up here
+      (setq custom-file "~/secrets/emacs-custom.el")
+      (load custom-file)
+
+      #+end_example
+
+** TODO Set up agenda time summary and formatting the way I like it  :agenda:
+      - See
+        http://emacs.stackexchange.com/questions/13793/how-to-add-a-column-in-org-mode-agenda-clockreport-to-show-percentage-of-time-fo
+        for How to add a column in org-mode agenda clockreport to show
+        percentage of time for each group of activities? 
+      - See http://comments.gmane.org/gmane.emacs.orgmode/77120 to
+        have percentages sum correctly when total is larger than a
+        day. 
+
+
+
+
+#+BEGIN_SRC emacs-lisp :exports both
+; This is here to keep org-bable-load-file from complaining about no .el file existing
+#+END_SRC
+
+** TODO Clean up, fix notmuch config for gmail
+   :LOGBOOK:
+   CLOCK: [2016-11-07 Mon 05:13]--[2016-11-07 Mon 05:15] =>  0:02
+   :END:
+   [2016-11-07 Mon 05:13]
+   [[file:~/.emacs.d/george.org::*Email%20Config][Email Config]]
+   - Set up offline-imap for gmail
+   - Clean up george.org configs for notmuch
+     + load consistently
+     + install latest package
+   - install offline imap
+* emacs - meetings
+* emacs - info
+
