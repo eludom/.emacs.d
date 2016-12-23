@@ -1,7 +1,7 @@
 #+TITLE: George Jones' emacs initialization du jour
 #+AUTHOR: George Jones
 #+EMAIL: gmj@pobox.com
-#+DATE: <2016-11-19 09:29:57 Saturday>
+#+DATE: <2016-12-17 12:16:30 Saturday>
 
 <<babel-init>>
 
@@ -108,23 +108,10 @@
   :source:
   :END:
 ** Prerequisites
-  - A recent version of emacs :: See [[https://raw.githubusercontent.com/eludom/HOWTO/master/emacsFromSrc.org][my instructions for building the
-        latest emacs from xource]] (thanks to Xah lee)
-
-  - A recent version of org mode (8.3.3 at present <2016-01-31 Sun>).
-    Install either from src
-
-    #+begin_example
-    git clone git://orgmode.org/org-mode.git
-    #+end_example
-
-    or a recent version of org-plus-contrib from the archives. Add
-    this and then install:
-
-    #+begin_example
-    (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)    
-    #+end_example
-
+*** A recent version of emacs
+    See [[https://raw.githubusercontent.com/eludom/HOWTO/master/emacsFromSrc.org][my instructions for building the latest emacs from xource]] (thanks to Xah lee)
+*** A recent version of org-mode 
+    Use package-install to get the latest org-plus-contrib
 ** Conventions: important files and directories
 
 *** Important files and directories
@@ -203,8 +190,7 @@ after adding these for the first time.
 Use =M-x package-refresh-contents= to reload the list of packages
 after adding these for the first time.
 
-*** Exit Emacs
-
+*** Exit Emacs.  Don't do this casually !!!
     \C-x\C-c is just to easy to type.   And, I mean, really, who wants
     to exit Emacs?  Keep calm.  Think it over before taking any rash
     action. 
@@ -358,12 +344,12 @@ after adding these for the first time.
 
      - For tips on adding "menu key" to OSX, see https://ergoemacs.github.io/faq.html	  
 
-**** Keybindings for navigation
+**** Misc keybindings
 
       #+BEGIN_SRC emacs-lisp :exports code
-      (global-set-key "\C-X\C-j" 'dired-jump)  ; <2015-05-05 Tue>
+        (global-set-key (kbd "C-x k") 'kill-this-buffer)
+      	(global-set-key "\C-X\C-j" 'dired-jump)  ; <2015-05-05 Tue>
       #+END_SRC
-
 
 **** f8 open file or URL at point
 
@@ -433,7 +419,6 @@ after adding these for the first time.
       text-mode-hook 'turn-on-auto-fill
       describe-function-show-arglist t)
 #+END_SRC 
-
 *** Aliases
 **** Aliases from Xah Lee
     Aliases, mostly from http://ergoemacs.org/emacs/emacs_alias.html.
@@ -510,7 +495,7 @@ after adding these for the first time.
     #+RESULTS:
     : glm
 
-**** My aliaes
+*** My alias
     #+BEGIN_SRC emacs-lisp :exports code 
       (defalias 'ib 'ispell-buffer)
       (defalias 'nm 'notmuch)
@@ -1167,6 +1152,8 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
                "* TODO %?\n  %U\n  %a\n")
               ("s" "Schedule" entry (file+datetree "~/Org/schedule.org")
                "*  %?\n%(format-time-string \"<%Y-%m-%d %H:00-%H:00>\")\n")
+              ("f" "emacsFoo" entry (file+datetree "~/Org/emacsFoo.org")
+               "* %?\n     %U\n     %a\n")
               ("r" "respond" entry (file "~/Org/refile.org")
                "* TODO Respond to %:from on %:subject\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
               ("n" "note" entry (file "~/Org/refile.org")
@@ -1326,6 +1313,9 @@ complicated than they are. Let's turn them off by default.
    (defun gmj-linum-hook ()(linum-mode))
    (add-hook 'xah-elisp-mode-hook 'gmj-linum-hook)
 
+   ; python stuff
+   (add-hook 'python-mode-hook #'linum-on)
+
    ; go stuff
    (add-hook 'go-mode-hook #'linum-on)
    ;(add-hook 'go-mode-hook 'gmj-linum-hook)
@@ -1352,8 +1342,9 @@ complicated than they are. Let's turn them off by default.
 *** Notmuch for reading mail
 
 ;  #+begin_src emacs-lisp
-;  (require 'notmuch)  
-;  (require 'org-notmuch)  
+
+   (require 'notmuch)  ; default in /usr/local/share/emacs/site-lisp/
+   (require 'org-notmuch)  ; in org-plus-contrib
 ;  #+end_src
 
   #+RESULTS:
@@ -1369,7 +1360,6 @@ complicated than they are. Let's turn them off by default.
    #+end_src
 
    #+RESULTS:
-
 
 
 * Games
@@ -1399,7 +1389,6 @@ complicated than they are. Let's turn them off by default.
    it will load (~/elisp/ for me)
 
    Need to set yow-file, probably something like this in init.el
-
 
 *** Code    
    #+BEGIN_SRC emacs-lisp :exports code 

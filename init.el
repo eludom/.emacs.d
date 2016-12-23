@@ -11,19 +11,11 @@
 
 (setq debug-on-error t) ;; uncomment when there are problems
 
-; This sets up the load path so that we can override it
-;(package-initialize nil)
-;; Override the packages with the git version of Org and other packages
 
-; Install latest org thusly:
+; use install-package to instll latest org-plus-contrib
 ;
-;   mkdir -p ~/git/orgmode.org/
-;   cd ~/git/orgmode.org/
-;   git clone git://orgmode.org/org-mode.git
-                                        ;
-;(add-to-list 'load-path "~/public/orgmode.org/org-mode/lisp")
-;(add-to-list 'load-path "~/public/orgmode.org/org-mode/contrib/lisp")
-
+; then
+;
 ; Load current melpa version of org, not system version
 
 (dolist (word  (directory-files (expand-file-name "~/.emacs.d/elpa/") t "^org-plus-contrib-*"))

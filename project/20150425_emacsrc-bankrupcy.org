@@ -1,0 +1,124 @@
+#+TITLE: Declaring .emacsrc bankrupcy
+#+DATE: <2015-04-25 Sat>
+#+AUTHOR: George Jones
+#+EMAIL: gmj@pobox.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+
+* What and why
+  
+  After something like 30 years (possibly dating back configs on TECO
+  based TOPS20 emacs) I am declaring [[http://www.emacswiki.org/emacs/DotEmacsBankruptcy][dot emacs bankrupcy]] and sarting
+  over.   Too much cruft has accreted.   I'm sure there are things in
+  my config that I've just assumed were defaults for decades (like the
+  "C-x p" I just typed to try to fill this paragraph).  
+
+  One of the precipitating events was org2blog breaking....I'm
+  assuming it was some bad interaction with old cruft in my config.
+
+* Inspirations
+
+  - org mode :: http://orgmode.org/ Org mode has caused me to view the
+                world through text colored glasses.  What started out
+                as a deceptivly simple outliner is now my document
+                authoring system, my code execution environment, my
+                spredsheet, time tracker, planner, etc....
+		
+#+CAPTION: Text Colored Glasses
+#+BEGIN_EXAMPLE
+
+		       	    	                     __
+		       	       	                    /  \ "I'll see you on __
+       	     		    /\	                   /   /  the text side  /  \
+  	       	 	   /  \	                  /       of the moon"  /   /
+       	    -------R------/    \                _/_____       _______  /
+       	    -------G-----/    --\-----W------- /       \ / \ /       \/
+       	    -------B----/	 \            |   Org   |   |  Mode   |
+		       /	  \            \_______/     \_______/
+		      -------------
+
+#+END_EXAMPLE
+		
+  - Sacha Chua :: Sacha Chua is putting on an awesome series of 
+                  interviews and [[http://sachachua.com/blog/emacs-chat/][emacs chats]] that create community among the
+                  isolated and dispersed culture of emacs geeks.
+  - Xah Lee :: [[https://plus.google.com/+XahLee/posts][Xah Lee]] posts an incessent stream of useful ideas, many
+               drawn from his excellent [[http://ergoemacs.org/emacs/emacs.html][Xah Emacs Tutorial]].  You can
+               [[http://ergoemacs.org/emacs/buy_xah_emacs_tutorial.html][buy the Xah Emacs Tutorial]] to support his fine
+               semi-gratis work.   And if you ever wanted to learn
+               about the ergonomics of keyboards and key bindings, you
+               will never find someone with a deeper knowledge
+               http://xahlee.info/kbd/keyboarding.html or more studied
+               application http://ergoemacs.org/
+
+* Sources
+  - My old .dotfiles :: https://github.com/eludom/dotfiles. Possibly
+       evolving to the new form by the time you read this.
+  - Sacha Chua's config ::
+       http://pages.sachachua.com/.emacs.d/Sacha.html or, from github https://github.com/sachac/.emacs.d
+  - Eric Shulte's emacs starer kit :: From the creator of org-bable http://eschulte.github.io/emacs24-starter-kit/ or  https://github.com/eschulte/emacs24-starter-kit
+  - Arnaud Legrand's emacs init file ::
+       http://mescal.imag.fr/membres/arnaud.legrand/misc/init.php
+    
+* Goals
+  The goals for my .eamcsrc (well, .emacs.d/init.el) rewwrite are:
+  - Legibility
+  - Modularity
+  - Managability
+  - Understandability
+  - Extensibility
+
+* Approach
+** General Approach
+  - Start from scratch
+  - Add one thing at a time from old configs, elsewhere, verify that
+    it's working
+  - Move to the next
+** Specific Approach*
+** DONE Borrow a framework for loading emacs init from .org that works
+    - Sacha Chua's basic framework
+      + minor config in ~/.emacs.d/init.el
+      + loads ~/.emacs.d/george.org
+*** TODO Load packages in a sane, modern way
+    - use-package?
+*** TODO Decide on a framework for commenting config sections
+    - See existing .org blocks
+    - Should cover what, why, how, when
+    - Code section
+    - echo "Loading FOO done" to *Messages* for debugging
+*** TODO Decide on framework for modularity
+    - One section per file ?
+    - Some sort of #INCLUDE or all in one file?
+    - enable/diable
+      + based on context/system/network location?
+
+* Things to add back
+** TODO package.el and use-package loading packages
+** TODO Keybinding from eons past
+** TODO Autocompletion stuff
+   - current ido stuff borrowed from xah or possibly whatever sacha is using
+** TODO GNUS for email
+** TODO org2Blog  
+** TODO trello
+** TODO dired hacks
+** TODO latex export of PDFs
+** TODO ffap
+* New things to try
+** TODO Yasnippit
+* Things I've tried that I need to understand better
+** TODO Org clock-in, clock-out
+   - How do I manually edit timestamps?
+** TODO Org tabels
+   - Need to make peace with the arcane formla syntax
+* Things I've tried before that I mgiht revist
+** Agenda mode
+  
+  
