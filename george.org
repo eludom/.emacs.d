@@ -1,8 +1,3 @@
-#+TITLE: George Jones' emacs initialization du jour
-#+AUTHOR: George Jones
-#+EMAIL: gmj@pobox.com
-#+DATE: <2016-12-17 12:16:30 Saturday>
-
 <<babel-init>>
 
 #+CAPTION: Text Colored Glasses
@@ -89,14 +84,6 @@
      - Sacha Chua's basic framework
        + minor config in ~/.emacs.d/init.el
        + loads ~/.emacs.d/george.org
-**** Load packages in a sane, modern way
-     - per
-       http://endlessparentheses.com/new-in-package-el-in-emacs-25-1-user-selected-packages.html
-       it looks like you just need to maintain the list of package you
-       want in the variable 'package-selected-packages, which should be
-       saved in your 'custom-file when you run install-pacakge.  Move
-       to new systems/installs to migrate.
-
 **** CANCELED Framework for commenting config sections
 ***** Section Code
      - [ ] Each block has code (#+BEGIN_SRC) section
@@ -113,7 +100,6 @@
 *** A recent version of org-mode 
     Use package-install to get the latest org-plus-contrib
 ** Conventions: important files and directories
-
 *** Important files and directories
 | What                              | Symlinked to | Why                                         |
 |-----------------------------------+--------------+---------------------------------------------|
@@ -157,21 +143,39 @@
 
     #+RESULTS:
 
-*** Add package sources
-
-#+BEGIN_SRC emacs-lisp
+*** Load packages in a sane, modern way
+**** Do initial package config in in ~/.emacs.d/init.el
+     #+begin_example
 (require 'package)
-(unless (assoc-default "melpa" package-archives)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)    
-;  (package-refresh-contents)
-)
-#+END_SRC
+(setq package-enable-at-startup nil)
+(package-initialize)
 
-#+RESULTS:
+; Make sure we use the right version of org-mode:
+;
+; This has to happen here (not in george.org loaded later in this file)
+; to make sure we load the latest verson of org, not the system/default
+; version.
 
-Use =M-x package-refresh-contents= to reload the list of packages
-after adding these for the first time.
+(dolist (word  (directory-files (expand-file-name "~/.emacs.d/elpa/") t "^org-plus-contrib-*"))
+  ; may not get the right/latest version if there are multiple versions in ~/.emacs.d/elpa/
+  (if (file-exists-p word)
+      (progn
+	(setq elisp-dir word)
+	(add-to-list 'load-path word)
+	(message (format "addeded to load path: %s"  elisp-dir)))))
+
+     #+end_example
+**** Track packages we have installed in package-selected-packages
+**** Where doe we pull packages from?
+    Add the package sources we want to use
+
+    #+BEGIN_SRC emacs-lisp :exports code
+          (unless (assoc-default "melpa" package-archives)
+    	(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+        (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)    
+      ;  (package-refresh-contents)
+      )
+    #+END_SRC
 
 
 #+BEGIN_SRC emacs-lisp
@@ -179,17 +183,11 @@ after adding these for the first time.
 (winner-mode 1)
 #+END_SRC
 
-#+RESULTS:
-: t
-
-*** Set up use-package to install other stuff
+**** Prefer newer packages
 # #+BEGIN_SRC emacs-lisp
   (setq load-prefer-newer t)
 # #+END_SRC
  
-Use =M-x package-refresh-contents= to reload the list of packages
-after adding these for the first time.
-
 *** Exit Emacs.  Don't do this casually !!!
     \C-x\C-c is just to easy to type.   And, I mean, really, who wants
     to exit Emacs?  Keep calm.  Think it over before taking any rash
@@ -379,7 +377,6 @@ after adding these for the first time.
       : xah-open-in-external-app
 
 *** Load up various external code snippits
-
     Load up any .el or .org files in ~/elisp*:
 
     #+BEGIN_SRC emacs-lisp :exports code 
@@ -909,11 +906,14 @@ Version 2015-01-26"
 *** Twitter Setup
 
     #+begin_src emacs-lisp :exports code
-    (setq twittering-use-master-password t)
+      (setq twittering-use-master-password t)
+      (setq twittering-icon-mode t)                ; Show icons
+      (setq twittering-timer-interval 300)         ; Update your timeline each 300 seconds (5 minutes)
+      (setq twittering-url-show-status nil)        ; Keeps the echo area from showing all the http processes
+
     #+end_src
 
     #+RESULTS:
-    : t
 
 ** Writing
 *** Flyspell
@@ -1028,11 +1028,8 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 #+END_SRC
 
 *** Abbrevs
-    Load abbrevs common to all environments here.
-    Abbrevs for specific environments (eg. work email addreses, etc) are loaded via
-`    ~/config/*.{el,org} if neede.
-**** Load Xah Lee's example abbrevs
-    See http://ergoemacs.org/emacs/emacs_abbrev_mode.html
+**** Load Xah Lee's example abbrevs as the base
+    Base abbrevs from Xah Lee, see http://ergoemacs.org/emacs/emacs_abbrev_mode.html
 
     Put xah_emacs_abbrev.el somewhere in your laod path.
 
@@ -1042,30 +1039,25 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
     (load "xah_emacs_abbrev")    
     #+end_src
 
-    #+RESULTS:
-    : t
-
-**** Define a few abbrevs the hard way
+**** Add my own global abbrevs
+     These are for all environments
 
      #+begin_src emacs-lisp
-     (define-global-abbrev "8gj" "George Jones")
-     (define-global-abbrev "8foo" "8bar")
-     (define-global-abbrev "8foo" "8bar")
-     (define-global-abbrev "8M" "@@html:FOO@@")
-     (define-global-abbrev "8tgj" "Thanks,
----George Jones")
-     (define-global-abbrev "8tg" "Thanks,
----George")
-     (define-global-abbrev "8cgj" "Curious,
----George Jones")
-     (define-global-abbrev "8cg" "Curious,
----George")
-     (define-global-abbrev "8gf" "find . -name \\*.org -mtime -14 -type f -exec grep -i --color -nH -e  {} +")
-
+       (define-global-abbrev "8gj" "George Jones")
+       (define-global-abbrev "8gmj" "George M. Jones")
      #+end_src
 
-     #+RESULTS:
-     : 8gf
+**** Add my own context sensitive abbrevs
+    Abbrevs for specific environments (eg. work email addreses, etc) are loaded via
+    ~/elisp-*/*.{el,org} if needed.  For instance, my abbrevs for
+    personal email etc are loaded via
+    =~/elisp-secret/gmj_emacs_abbrev.el=.  Here are a few entries:
+
+    #+begin_example
+       (define-global-abbrev "8me" "gmj@pobox.com")
+       (define-global-abbrev "8met" "@eludom")
+       (define-global-abbrev "8ugj" "http://port111.com/george")
+    #+end_example
 
 *** Timestamps
 #+BEGIN_SRC emacs-lisp
@@ -1361,6 +1353,36 @@ complicated than they are. Let's turn them off by default.
 
    #+RESULTS:
 
+* Experimental/Testing
+** load guide-key
+  #+begin_src emacs-lisp
+  ;
+  ; Guide key testing
+  ; 
+  ;(require 'guide-key)
+
+  (require 'guide-key)
+  (guide-key-mode 1)  ; Enable guide-key-mode
+
+  (defun guide-key/my-hook-function-for-org-mode ()
+    (guide-key/add-local-guide-key-sequence "C-c")
+    (guide-key/add-local-guide-key-sequence "C-c C-x")
+    (guide-key/add-local-highlight-command-regexp "org-"))
+  (add-hook 'org-mode-hook 'guide-key/my-hook-function-for-org-mode)
+
+  ;(setq guide-key/guide-key-sequence '("C-x" "C-c" " "))
+  (setq guide-key/guide-key-sequence t) ; all prefixex
+  #+end_src 
+** xah-fly-keys
+  #+begin_src emacs-lisp
+
+  ;
+  ; xah-fly-keys testing
+  ;
+
+;  (xah-fly-keys 0)
+;  (xah-fly-set-layout "qwerty") ; required if you use qwerty
+  #+end_src
 
 * Games
   :PROPERTIES:
