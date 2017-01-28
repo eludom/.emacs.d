@@ -376,6 +376,12 @@
       #+RESULTS:
       : xah-open-in-external-app
 
+** load which-key - where did I put that key-binding ?
+  #+begin_src emacs-lisp
+    (require 'which-key)
+    (which-key-mode)
+  #+end_src
+
 *** Load up various external code snippits
     Load up any .el or .org files in ~/elisp*:
 
@@ -1354,34 +1360,18 @@ complicated than they are. Let's turn them off by default.
    #+RESULTS:
 
 * Experimental/Testing
-** load guide-key
-  #+begin_src emacs-lisp
-  ;
-  ; Guide key testing
-  ; 
-  ;(require 'guide-key)
-
-  (require 'guide-key)
-  (guide-key-mode 1)  ; Enable guide-key-mode
-
-  (defun guide-key/my-hook-function-for-org-mode ()
-    (guide-key/add-local-guide-key-sequence "C-c")
-    (guide-key/add-local-guide-key-sequence "C-c C-x")
-    (guide-key/add-local-highlight-command-regexp "org-"))
-  (add-hook 'org-mode-hook 'guide-key/my-hook-function-for-org-mode)
-
-  ;(setq guide-key/guide-key-sequence '("C-x" "C-c" " "))
-  (setq guide-key/guide-key-sequence t) ; all prefixex
-  #+end_src 
 ** xah-fly-keys
   #+begin_src emacs-lisp
 
-  ;
-  ; xah-fly-keys testing
-  ;
+    ;
+    ; xah-fly-keys testing
+    ;
 
-;  (xah-fly-keys 0)
-;  (xah-fly-set-layout "qwerty") ; required if you use qwerty
+    ;; (require 'xah-fly-keys)
+    ;; (xah-fly-set-layout "qwerty")
+    ;; (xah-fly-keys 0)
+    ;; (global-set-key (kbd "<home>") 'xah-fly-insert-mode-activate)
+
   #+end_src
 
 * Games
