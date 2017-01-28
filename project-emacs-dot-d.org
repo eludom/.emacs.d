@@ -466,6 +466,13 @@
       + install latest package
     - install offline imap
 
+** TODO Make gmj-* lisp function loading and organization more consistant
+   :LOGBOOK:
+   CLOCK: [2017-01-28 Sat 05:47]--[2017-01-28 Sat 05:48] =>  0:01
+   :END:
+   [2017-01-28 Sat 05:47]
+   [[file:~/.emacs.d/george.org::*Misc%20functions][Misc functions]]
+   Either put them all in george.org or move them all to ~/elisp-*
 * emacs - meetings???
 * emacs - reporting
 *** TODO report bug in org9 - not honoring ":exports"

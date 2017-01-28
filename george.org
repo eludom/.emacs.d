@@ -664,25 +664,25 @@ Disk space is cheap. Save lots.
 
 *** Misc functions
 #+BEGIN_SRC emacs-lisp :exports code 
-(setq display-time-day-and-date t
-      display-time-24hr-format t)
-;(display-time)
-(display-time-mode 0)
-(defun gmj-insert-date (arg)
-  "Insert current date and time in buffer
-With no argument, insert <YYYY-MM-DD>
-With one arg, insert YYYYMMDDHHMM
-With two args, insert Tue Aug 23 07:38:56 2016
-"
-  (interactive "p")
-    (progn
-      (if (= arg 1)
-  	  (insert (format-time-string "<%Y-%m-%d>"))
-    	(if (> arg 4)
-            (insert-string (current-time-string))
-          (insert (format-time-string "%Y%m%d%H%M"))))))
-          ; if arg > 4, prompt for buffer name
-  (global-set-key "\C-X." 'gmj-insert-date)
+  (setq display-time-day-and-date t
+	display-time-24hr-format t)
+  (display-time)
+  (display-time-mode 0)
+  (defun gmj-insert-date (arg)
+    "Insert current date and time in buffer
+  With no argument, insert <YYYY-MM-DD>
+  With one arg, insert YYYYMMDDHHMM
+  With two args, insert Tue Aug 23 07:38:56 2016
+  "
+    (interactive "p")
+      (progn
+	(if (= arg 1)
+  	    (insert (format-time-string "<%Y-%m-%d>"))
+    	  (if (> arg 4)
+              (insert-string (current-time-string))
+            (insert (format-time-string "%Y%m%d%H%M"))))))
+            ; if arg > 4, prompt for buffer name
+    (global-set-key "\C-X." 'gmj-insert-date)
 #+END_SRC
 
 #+RESULTS:
