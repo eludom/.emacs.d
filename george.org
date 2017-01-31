@@ -235,7 +235,19 @@
       ;(global-unset-key "\C-X\C-l")
  #+END_SRC
 
-*** Define function to start a shell named *shell*<HOSTNAME> for current files
+*** Use better-shell
+
+  #+begin_src emacs-lisp
+   (global-set-key (kbd "C-'") 'better-shell-shell)
+   (global-set-key (kbd "C-;") 'better-shell-remote-open)
+  #+end_src
+
+*** OBSOLETE Define function to start a shell named *shell*<HOSTNAME> for current files
+    - better-shell makes this more-less obsolete.  <2017-01-31>
+    - Keeping here in case there is some behavior I want to copy
+      (setting shell buffer names, starting multiple shells on remote
+      hosts), it will probably go away soon.
+
 
     #+BEGIN_SRC emacs-lisp :exports code 
       (defun gmj-shell (arg)
@@ -1309,7 +1321,7 @@ complicated than they are. Let's turn them off by default.
    (setq org-src-tab-acts-natively t)
 
    (defun gmj-linum-hook ()(linum-mode))
-   (add-hook 'xah-elisp-mode-hook 'gmj-linum-hook)
+   ;(add-hook 'xah-elisp-mode-hook 'gmj-linum-hook)
 
    ; python stuff
    (add-hook 'python-mode-hook #'linum-on)
@@ -1319,7 +1331,7 @@ complicated than they are. Let's turn them off by default.
    ;(add-hook 'go-mode-hook 'gmj-linum-hook)
    (add-to-list 'auto-mode-alist '("\\.go$" . go-mode))
    (add-to-list 'auto-mode-alist '("\\.g$" . go-mode)) ; fool the build system but still syntax highight
-   (add-to-list 'auto-mode-alist '("\\.el$" . xah-elisp-mode))
+   ;(add-to-list 'auto-mode-alist '("\\.el$" . xah-elisp-mode))
 
    (show-paren-mode 1)
    ;(setq show-paren-style 'parenthesis)
