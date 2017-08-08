@@ -177,6 +177,8 @@
       )
     #+END_SRC
 
+    #+RESULTS:
+
 
 #+BEGIN_SRC emacs-lisp
 ;(desktop-save-mode 1)
@@ -214,7 +216,7 @@
      
       #+BEGIN_SRC emacs-lisp :exports code 
       ;(global-set-key "\C-Xd" 'insert-date)
-      ; (global-set-key "\C-\\" 'compile)
+      (global-set-key "\C-\\" 'compile) ; normally toggle input method, I mean, I *might* want in input Sumarian script...
       ;(global-set-key "\C-XP" 'plan)
       ;(global-set-key "\C-XW" 'w3m)
       (global-set-key "\C-]" 'call-last-kbd-macro)
@@ -234,7 +236,6 @@
       ;(global-set-key "\C-X!" 'compile)
       ;(global-unset-key "\C-X\C-l")
  #+END_SRC
-
 *** Use better-shell
 
   #+begin_src emacs-lisp
@@ -390,8 +391,8 @@
 
 ** load which-key - where did I put that key-binding ?
   #+begin_src emacs-lisp
-    (require 'which-key)
-    (which-key-mode)
+;    (require 'which-key)
+;    (which-key-mode)
   #+end_src
 
 *** Load up various external code snippits
@@ -557,7 +558,7 @@
 
 **** Code
     #+BEGIN_SRC emacs-lisp :exports code 
-    (setq elisp-dir "~/elisp/")
+    (setq elisp-dir "~/elisp-public/")
     (setq saved-keyboard-marcos-file (format "%s/%s" elisp-dir "gmj-savedKeyboardMacros.org"))
 
     (defun save-current-kbd-macro (name)
@@ -605,8 +606,10 @@ future."
 ;   (setq browse-url-browser-function 'eww-browse-url
 ;     browse-url-generic-program "firefox")  
 
+
    (setq browse-url-browser-function 'eww-browse-url
      browse-url-generic-program "google-chrome")  
+   (setq eww-search-prefix "https://www.google.com/search?q=") 
 
 ;   (setq browse-url-browser-function 'browse-url-generic  
 ;     browse-url-generic-program "chromium-browser")  
@@ -997,7 +1000,8 @@ Also, =visual-line-mode= is so much better than =auto-fill-mode=. It doesn't act
 #+END_SRC
 *** Clean up spaces
 #+BEGIN_SRC emacs-lisp :exports code 
- (global-set-key (kbd "M-SPC") 'cycle-spacing) 
+  (global-set-key (kbd "M-SPC") 'cycle-spacing)
+  (add-hook 'before-save-hook 'whitespace-cleanup)  
 #+END_SRC
 *** Untabify python on save
 ; http://stackoverflow.com/questions/3313210/converting-this-untabify-on-save-hook-for-emacs-to-work-with-espresso-mode-or-a
@@ -1130,7 +1134,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
  #+begin_src emacs-lisp :results silent
    (setq org-structure-template-alist
          '(("s" "#+begin_src ?\n\n#+end_src" "<src lang=\"?\">\n\n</src>")
-	   ("S" "#+begin_src shell  :results output :exports both\nexec 2>&1;date;set -e; set -u; set -x\n\necho hello world?\n#+end_src" "<src lang=\"?\">\n\n</src>")	   
+	   ("S" "#+begin_src shell  :results output :exports both\nexec 2>&1;date;set -e; set -u; # set -x\n\necho hello world?\n#+end_src" "<src lang=\"?\">\n\n</src>")	   
 	   ("W" "* What\n  ?\n* Why  \n\n* Who  \n\n* When  \n\n* Where  \n\n* How  \n\n")
 	   ("m" "#+TITLE: Meeting about \n#+DATE:\n#+AUTHOR: George Jones\n#+EMAIL: gmj@pobox.com\n\n* Attending\n  ?\n* Goals  \n\n* Agenda  \n\n* Discussion  \n\n* Action Items \n\n")
            ("e" "#+begin_example\n?\n#+end_example" "<example>\n?\n</example>")
@@ -1229,7 +1233,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 ; s/sh/shell/ for newer versions of org: https://lists.gnu.org/archive/html/emacs-orgmode/2015-11/msg00736.html
 
 (org-babel-do-load-languages
-    'org-babel-load-languages '((python . t) (shell . t) (lisp . t) (ditaa . t)))
+    'org-babel-load-languages '((python . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
  
 ;(load-library "ob-shell") ; why do I have to do this?  Not pulling in right org-mode ?
 
@@ -1325,13 +1329,23 @@ complicated than they are. Let's turn them off by default.
 
    ; python stuff
    (add-hook 'python-mode-hook #'linum-on)
+   (add-hook 'python-mode-hook 'turn-on-orgstruct)
+   (add-hook 'python-mode-hook 'turn-on-orgstruct++)
+
 
    ; go stuff
    (add-hook 'go-mode-hook #'linum-on)
    ;(add-hook 'go-mode-hook 'gmj-linum-hook)
+
    (add-to-list 'auto-mode-alist '("\\.go$" . go-mode))
    (add-to-list 'auto-mode-alist '("\\.g$" . go-mode)) ; fool the build system but still syntax highight
-   ;(add-to-list 'auto-mode-alist '("\\.el$" . xah-elisp-mode))
+ 
+  ; elisp stuff
+  ;(add-to-list 'auto-mode-alist '("\\.el$" . xah-elisp-mode))
+
+   ; rust stuff
+   (add-hook 'rust-mode-hook #'linum-on)
+
 
    (show-paren-mode 1)
    ;(setq show-paren-style 'parenthesis)
