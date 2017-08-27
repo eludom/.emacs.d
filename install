@@ -1,0 +1,45 @@
+#! /bin/bash
+# Link everthing in '$PWD' to a dir in '~/$PWD'
+#
+# Usage:
+#   install [options]   
+#
+# options from link2home.sh. Default
+#
+#  --remove --debug --verbose
+# 
+
+# Any files listed (one per line) in .install.ignore will be ignored
+
+
+
+ARGC=$#  # Number of args, not counting $0
+
+# get the directory of this script
+WHERE_AM_I="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd ${WHERE_AM_I}
+
+# Extract the directory name of this file
+BASEDIR=`basename $WHERE_AM_I`
+
+
+if [ -e ${HOME}/bin/link2home.sh ]; then
+   LINK2HOME="${HOME}/bin/link2home.sh"
+elif [ -e ${WHERE_AM_I}/link2home.sh ]; then
+   LINK2HOME="${WHERE_AM_I}/link2home.sh"
+else
+   echo "Can't find link2home.sh"
+   exit 1
+fi
+
+echo Linking evertying in "${WHERE_AM_I}"  into "~/""${BASEDIR}"
+
+
+if [[ $ARGC -gt 1  ]]; then
+    echo using args ${LINK2HOME} $*
+else
+    # default args
+    ${LINK2HOME} --verbose --debug --remove --linkdir
+fi
+
+# any directory specific post-processing (permissions, etc) goes here.

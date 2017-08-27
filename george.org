@@ -598,15 +598,15 @@ future."
    #+begin_src emacs-lisp
 
 
-;   (setq browse-url-browser-function 'browse-url-generic  
-;     browse-url-generic-program "google-chrome")  
+   (setq browse-url-browser-function 'browse-url-generic  
+     browse-url-generic-program "google-chrome")  
 
 
 ;   (setq browse-url-browser-function 'eww-browse-url
 ;     browse-url-generic-program "firefox")  
 
-   (setq browse-url-browser-function 'eww-browse-url
-     browse-url-generic-program "google-chrome")  
+;   (setq browse-url-browser-function 'eww-browse-url
+;     browse-url-generic-program "google-chrome")  
 
 ;   (setq browse-url-browser-function 'browse-url-generic  
 ;     browse-url-generic-program "chromium-browser")  
@@ -1324,7 +1324,7 @@ complicated than they are. Let's turn them off by default.
    ;(add-hook 'xah-elisp-mode-hook 'gmj-linum-hook)
 
    ; python stuff
-   (add-hook 'python-mode-hook #'linum-on)
+   ; (add-hook 'python-mode-hook #'linum)
 
    ; go stuff
    (add-hook 'go-mode-hook #'linum-on)

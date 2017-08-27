@@ -111,7 +111,7 @@
     [2016-11-16 Wed 06:42]
     [[file:~/home/public/.emacs.d/elpa/org-plus-contrib-20161102/org.el::(defun%20org-date-from-calendar%20()]]
 ** emacs - backlog - emacs.d 
-*** CANCELED Start syncning to trllo
+*** DONE CANCELED Start syncning to trllo
     SCHEDULED: <2016-02-28 Sun>
     :LOGBOOK:
     CLOCK: [2016-02-23 Tue 06:13]--[2016-02-23 Tue 06:14] =>  0:01
@@ -473,6 +473,22 @@
    [2017-01-28 Sat 05:47]
    [[file:~/.emacs.d/george.org::*Misc%20functions][Misc functions]]
    Either put them all in george.org or move them all to ~/elisp-*
+** TODO Figure out how to transport/auto-install melpa packages across various emacs installs
+   :LOGBOOK:
+   CLOCK: [2017-01-31 Tue 07:13]--[2017-01-31 Tue 07:15] =>  0:02
+   :END:
+   [2017-01-31 Tue 07:13]
+   #+begin_example
+   e.g. set
+
+   package-selected-packages
+
+   to 
+
+   (better-shell which-key xah-fly-keys guide-key password-store org-plus-contrib notmuch magit go-mode twittering-mode htmlize yaml-mode pydoc))))  
+
+   and auto-install/load (out of init.el ?)
+   #+end_example
 * emacs - meetings???
 * emacs - reporting
 *** TODO report bug in org9 - not honoring ":exports"
