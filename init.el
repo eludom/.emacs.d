@@ -23,9 +23,9 @@
   ; may not get the right/latest version if there are multiple versions in ~/.emacs.d/elpa/
   (if (file-exists-p word)
       (progn
-	(setq elisp-dir word)
-	(add-to-list 'load-path word)
-	(message (format "addeded to load path: %s"  elisp-dir)))))
+        (setq elisp-dir word)
+        (add-to-list 'load-path word)
+        (message (format "addeded to load path: %s"  elisp-dir)))))
 
 
 ; pull in my main .org init file.  This is where most of the fun is.
@@ -40,4 +40,3 @@
 (load custom-file)
 
 (message "init.el finished.")
-(put 'downcase-region 'disabled nil)
