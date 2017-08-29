@@ -1097,7 +1097,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
  #+begin_src emacs-lisp :results silent
    (setq org-structure-template-alist
          '(("s" "#+begin_src ?\n\n#+end_src" "<src lang=\"?\">\n\n</src>")
-           ("S" "#+begin_src shell  :results output :eval never-export :exports both\nexec 2>&1;date;set -e; set -u; # set -x\n\necho hello world?\n#+end_src" "<src lang=\"?\">\n\n</src>")
+           ("S" "#+begin_src shell  :results output :exports both\nexec 2>&1;date;set -e; set -u; # set -x\n\necho hello world?\n#+end_src" "<src lang=\"?\">\n\n</src>")
            ("W" "* What\n  ?\n* Why  \n\n* Who  \n\n* When  \n\n* Where  \n\n* How  \n\n")
            ("m" "#+TITLE: Meeting about \n#+DATE:\n#+AUTHOR: George Jones\n#+EMAIL: gmj@pobox.com\n\n* Attending\n  ?\n* Goals  \n\n* Agenda  \n\n* Discussion  \n\n* Action Items \n\n")
            ("e" "#+begin_example\n?\n#+end_example" "<example>\n?\n</example>")
@@ -1188,11 +1188,29 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 
 
 (setq org-confirm-babel-evaluate nil)
-;(setq org-export-babel-evaluate t) ; obsolete? <2017-08-16>
-(setq org-export-babel-evaluate nil)
-(setq org-export-use-babel t); new?  Not defined as of Org 9.0.9
 
-(setq org-confirm-babel-evaluate nil)
+
+(setq org-export-babel-evaluate t)
+
+;; Make
+;;
+;;   :results output :exports code
+;;
+;; and
+;;
+;;  :results output :exports results
+;;
+;; behave as expected in different org versions.
+
+(if (version< org-version "9.1.0")
+    (progn
+      (setq org-export-babel-evaluate t)
+      (setq org-babel-default-header-args
+            (cons '(:eval . "never-export")
+                  (assq-delete-all :eval org-babel-default-header-args)))
+      )
+  (setq org-export-use-babel t))
+
 ;(setq org-babel-sh-command "bash")
 
 ; Don't re-run a code block unless it changed.
