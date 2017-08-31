@@ -359,8 +359,12 @@
 
       #+BEGIN_SRC emacs-lisp :exports code
         (global-set-key (kbd "C-x k") 'kill-this-buffer)
+        (global-set-key (kbd "C-x w") 'delete-trailing-whitespace)
         (global-set-key "\C-X\C-j" 'dired-jump)  ; <2015-05-05 Tue>
       #+END_SRC
+
+      #+RESULTS:
+      : dired-jump
 
 **** f8 open file or URL at point
 
@@ -712,48 +716,6 @@ Disk space is cheap. Save lots.
 #+RESULTS:
 : bh/verify-refile-target
 
-*** Agenda
-    #+begin_src emacs-lisp
-    (global-set-key "\C-ca" 'org-agenda)
-    #+end_src
-**** Agenda TODO Items
-***** DONE Figure out how to stop C-c C-[ from adding to init.el
-      I want to keep private information out of init.el.
-      org-agenda-file-to-front adds files there.  I want them in a
-      separate file.
-
-      I added this to init.el
-      #+begin_example
-      ; because junk I don't want to share in git keeps showing up here
-      (setq custom-file "~/secrets/emacs-custom.el")
-      (load custom-file)
-
-      #+end_example
-
-***** TODO Set up agenda time summary and formatting the way I like it
-      - See
-        http://emacs.stackexchange.com/questions/13793/how-to-add-a-column-in-org-mode-agenda-clockreport-to-show-percentage-of-time-fo
-        for How to add a column in org-mode agenda clockreport to show
-        percentage of time for each group of activities?
-      - See http://comments.gmane.org/gmane.emacs.orgmode/77120 to
-        have percentages sum correctly when total is larger than a
-        day.
-
-#+begin_src emacs-lisp
-(setq org-time-clocksum-format "%d:%02d")
-(setq org-agenda-clockreport-parameter-plist
-      (quote (:link t :maxlevel 2 :fileskip0 t :stepskip0 t :narrow 35  :formula %)))
-
-; http://emacs.stackexchange.com/questions/8093/how-can-i-get-the-tags-for-a-headline-in-a-clock-report-formula
-; see ALLTAGS
-; not quite sure what I want here.
-
-;      (quote (:link t :maxlevel 2 :fileskip0 t :stepskip0 t :narrow 35  :properties ("ALLTAGS") :formula %)))
-#+end_src
-
-#+RESULTS:
-| :link | t | :maxlevel | 2 | :fileskip0 | t | :stepskip0 | t | :narrow | 35 | :formula | % |
-
 ** Navigation
    #+begin_src emacs-lisp
      (global-set-key (kbd "<f3>") 'other-window)
@@ -852,6 +814,63 @@ Version 2015-01-26"
 
 #+RESULTS:
 : xah-open-in-external-app
+
+** Planning
+*** Org Agenda Configs
+#+begin_src emacs-lisp
+(global-set-key "\C-ca" 'org-agenda)
+
+
+;; View of current week with only DONE items
+;; https://emacs.stackexchange.com/questions/8150/show-done-items-in-current-calendar-week
+(add-to-list 'org-agenda-custom-commands
+             '("W" "Weekly review"
+               agenda ""
+               ((org-agenda-span 'week)
+                (org-agenda-start-on-weekday 0)
+                (org-agenda-start-with-log-mode t)
+                (org-agenda-skip-function
+                 '(org-agenda-skip-entry-if 'nottodo 'done))
+                )))
+
+#+end_src
+**** Agenda TODO Items
+***** DONE Figure out how to stop C-c C-[ from adding to init.el
+      I want to keep private information out of init.el.
+      org-agenda-file-to-front adds files there.  I want them in a
+      separate file.
+
+      I added this to init.el
+      #+begin_example
+      ; because junk I don't want to share in git keeps showing up here
+      (setq custom-file "~/secrets/emacs-custom.el")
+      (load custom-file)
+
+      #+end_example
+
+***** TODO Set up agenda time summary and formatting the way I like it
+      - See
+        http://emacs.stackexchange.com/questions/13793/how-to-add-a-column-in-org-mode-agenda-clockreport-to-show-percentage-of-time-fo
+        for How to add a column in org-mode agenda clockreport to show
+        percentage of time for each group of activities?
+      - See http://comments.gmane.org/gmane.emacs.orgmode/77120 to
+        have percentages sum correctly when total is larger than a
+        day.
+
+#+begin_src emacs-lisp
+(setq org-time-clocksum-format "%d:%02d")
+(setq org-agenda-clockreport-parameter-plist
+      (quote (:link t :maxlevel 2 :fileskip0 t :stepskip0 t :narrow 35  :formula %)))
+
+; http://emacs.stackexchange.com/questions/8093/how-can-i-get-the-tags-for-a-headline-in-a-clock-report-formula
+; see ALLTAGS
+; not quite sure what I want here.
+
+;      (quote (:link t :maxlevel 2 :fileskip0 t :stepskip0 t :narrow 35  :properties ("ALLTAGS") :formula %)))
+#+end_src
+
+#+RESULTS:
+| :link | t | :maxlevel | 2 | :fileskip0 | t | :stepskip0 | t | :narrow | 35 | :formula | % |
 
 ** Reading
 *** Set up to pull some RSS and Atom feeds
