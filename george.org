@@ -818,20 +818,20 @@ Version 2015-01-26"
 ** Planning
 *** Org Agenda Configs
 #+begin_src emacs-lisp
-(global-set-key "\C-ca" 'org-agenda)
+  (global-set-key "\C-ca" 'org-agenda)
 
 
-;; View of current week with only DONE items
-;; https://emacs.stackexchange.com/questions/8150/show-done-items-in-current-calendar-week
-(add-to-list 'org-agenda-custom-commands
-             '("W" "Weekly review"
-               agenda ""
-               ((org-agenda-span 'week)
-                (org-agenda-start-on-weekday 0)
-                (org-agenda-start-with-log-mode t)
-                (org-agenda-skip-function
-                 '(org-agenda-skip-entry-if 'nottodo 'done))
-                )))
+  ;; View of current week with only DONE items
+  ;; https://emacs.stackexchange.com/questions/8150/show-done-items-in-current-calendar-week
+  ;; (add-to-list 'org-agenda-custom-commands
+  ;;              '("W" "Weekly review"
+  ;;                agenda ""
+  ;;                ((org-agenda-span 'week)
+  ;;                 (org-agenda-start-on-weekday 0)
+  ;;                 (org-agenda-start-with-log-mode t)
+  ;;                 (org-agenda-skip-function
+  ;;                  '(org-agenda-skip-entry-if 'nottodo 'done))
+  ;;                 )))
 
 #+end_src
 **** Agenda TODO Items
@@ -1380,11 +1380,13 @@ complicated than they are. Let's turn them off by default.
 #+END_SRC
 *** Notmuch for reading mail
 
-;  #+begin_src emacs-lisp
+  #+begin_src emacs-lisp
+    (autoload 'notmuch "notmuch" "Notmuch mail" t)
 
-   (require 'notmuch)  ; default in /usr/local/share/emacs/site-lisp/
+   ;(require 'notmuch)  ; default in /usr/local/share/emacs/site-lisp/
    (require 'org-notmuch)  ; in org-plus-contrib
-;  #+end_src
+
+  #+end_src
 
   #+RESULTS:
   : org-notmuch

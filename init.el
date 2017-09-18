@@ -7,7 +7,7 @@
 ; https://www.emacswiki.org/emacs/ELPA
 
 ;   it could be easier just to move package-initialize to another point
-;   during startup so you can (require) ELPA packages; 
+;   during startup so you can (require) ELPA packages;
 
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -27,6 +27,7 @@
         (add-to-list 'load-path word)
         (message (format "addeded to load path: %s"  elisp-dir)))))
 
+;(add-to-list 'load-path "/home/gmj/public/ob-ipython")
 
 ; pull in my main .org init file.  This is where most of the fun is.
 (org-babel-load-file "~/.emacs.d/george.org")
@@ -40,3 +41,4 @@
 (load custom-file)
 
 (message "init.el finished.")
+(put 'downcase-region 'disabled nil)
