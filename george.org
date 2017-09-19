@@ -359,8 +359,12 @@
 
       #+BEGIN_SRC emacs-lisp :exports code
         (global-set-key (kbd "C-x k") 'kill-this-buffer)
+        (global-set-key (kbd "C-x w") 'delete-trailing-whitespace)
         (global-set-key "\C-X\C-j" 'dired-jump)  ; <2015-05-05 Tue>
       #+END_SRC
+
+      #+RESULTS:
+      : dired-jump
 
 **** f8 open file or URL at point
 
@@ -712,48 +716,6 @@ Disk space is cheap. Save lots.
 #+RESULTS:
 : bh/verify-refile-target
 
-*** Agenda
-    #+begin_src emacs-lisp
-    (global-set-key "\C-ca" 'org-agenda)
-    #+end_src
-**** Agenda TODO Items
-***** DONE Figure out how to stop C-c C-[ from adding to init.el
-      I want to keep private information out of init.el.
-      org-agenda-file-to-front adds files there.  I want them in a
-      separate file.
-
-      I added this to init.el
-      #+begin_example
-      ; because junk I don't want to share in git keeps showing up here
-      (setq custom-file "~/secrets/emacs-custom.el")
-      (load custom-file)
-
-      #+end_example
-
-***** TODO Set up agenda time summary and formatting the way I like it
-      - See
-        http://emacs.stackexchange.com/questions/13793/how-to-add-a-column-in-org-mode-agenda-clockreport-to-show-percentage-of-time-fo
-        for How to add a column in org-mode agenda clockreport to show
-        percentage of time for each group of activities?
-      - See http://comments.gmane.org/gmane.emacs.orgmode/77120 to
-        have percentages sum correctly when total is larger than a
-        day.
-
-#+begin_src emacs-lisp
-(setq org-time-clocksum-format "%d:%02d")
-(setq org-agenda-clockreport-parameter-plist
-      (quote (:link t :maxlevel 2 :fileskip0 t :stepskip0 t :narrow 35  :formula %)))
-
-; http://emacs.stackexchange.com/questions/8093/how-can-i-get-the-tags-for-a-headline-in-a-clock-report-formula
-; see ALLTAGS
-; not quite sure what I want here.
-
-;      (quote (:link t :maxlevel 2 :fileskip0 t :stepskip0 t :narrow 35  :properties ("ALLTAGS") :formula %)))
-#+end_src
-
-#+RESULTS:
-| :link | t | :maxlevel | 2 | :fileskip0 | t | :stepskip0 | t | :narrow | 35 | :formula | % |
-
 ** Navigation
    #+begin_src emacs-lisp
      (global-set-key (kbd "<f3>") 'other-window)
@@ -852,6 +814,63 @@ Version 2015-01-26"
 
 #+RESULTS:
 : xah-open-in-external-app
+
+** Planning
+*** Org Agenda Configs
+#+begin_src emacs-lisp
+  (global-set-key "\C-ca" 'org-agenda)
+
+
+  ;; View of current week with only DONE items
+  ;; https://emacs.stackexchange.com/questions/8150/show-done-items-in-current-calendar-week
+  ;; (add-to-list 'org-agenda-custom-commands
+  ;;              '("W" "Weekly review"
+  ;;                agenda ""
+  ;;                ((org-agenda-span 'week)
+  ;;                 (org-agenda-start-on-weekday 0)
+  ;;                 (org-agenda-start-with-log-mode t)
+  ;;                 (org-agenda-skip-function
+  ;;                  '(org-agenda-skip-entry-if 'nottodo 'done))
+  ;;                 )))
+
+#+end_src
+**** Agenda TODO Items
+***** DONE Figure out how to stop C-c C-[ from adding to init.el
+      I want to keep private information out of init.el.
+      org-agenda-file-to-front adds files there.  I want them in a
+      separate file.
+
+      I added this to init.el
+      #+begin_example
+      ; because junk I don't want to share in git keeps showing up here
+      (setq custom-file "~/secrets/emacs-custom.el")
+      (load custom-file)
+
+      #+end_example
+
+***** TODO Set up agenda time summary and formatting the way I like it
+      - See
+        http://emacs.stackexchange.com/questions/13793/how-to-add-a-column-in-org-mode-agenda-clockreport-to-show-percentage-of-time-fo
+        for How to add a column in org-mode agenda clockreport to show
+        percentage of time for each group of activities?
+      - See http://comments.gmane.org/gmane.emacs.orgmode/77120 to
+        have percentages sum correctly when total is larger than a
+        day.
+
+#+begin_src emacs-lisp
+(setq org-time-clocksum-format "%d:%02d")
+(setq org-agenda-clockreport-parameter-plist
+      (quote (:link t :maxlevel 2 :fileskip0 t :stepskip0 t :narrow 35  :formula %)))
+
+; http://emacs.stackexchange.com/questions/8093/how-can-i-get-the-tags-for-a-headline-in-a-clock-report-formula
+; see ALLTAGS
+; not quite sure what I want here.
+
+;      (quote (:link t :maxlevel 2 :fileskip0 t :stepskip0 t :narrow 35  :properties ("ALLTAGS") :formula %)))
+#+end_src
+
+#+RESULTS:
+| :link | t | :maxlevel | 2 | :fileskip0 | t | :stepskip0 | t | :narrow | 35 | :formula | % |
 
 ** Reading
 *** Set up to pull some RSS and Atom feeds
@@ -1097,7 +1116,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
  #+begin_src emacs-lisp :results silent
    (setq org-structure-template-alist
          '(("s" "#+begin_src ?\n\n#+end_src" "<src lang=\"?\">\n\n</src>")
-           ("S" "#+begin_src shell  :results output :eval never-export :exports both\nexec 2>&1;date;set -e; set -u; # set -x\n\necho hello world?\n#+end_src" "<src lang=\"?\">\n\n</src>")
+           ("S" "#+begin_src shell  :results output :exports both\nexec 2>&1;date;set -e; set -u; # set -x\n\necho hello world?\n#+end_src" "<src lang=\"?\">\n\n</src>")
            ("W" "* What\n  ?\n* Why  \n\n* Who  \n\n* When  \n\n* Where  \n\n* How  \n\n")
            ("m" "#+TITLE: Meeting about \n#+DATE:\n#+AUTHOR: George Jones\n#+EMAIL: gmj@pobox.com\n\n* Attending\n  ?\n* Goals  \n\n* Agenda  \n\n* Discussion  \n\n* Action Items \n\n")
            ("e" "#+begin_example\n?\n#+end_example" "<example>\n?\n</example>")
@@ -1188,11 +1207,29 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 
 
 (setq org-confirm-babel-evaluate nil)
-;(setq org-export-babel-evaluate t) ; obsolete? <2017-08-16>
-(setq org-export-babel-evaluate nil)
-(setq org-export-use-babel t); new?  Not defined as of Org 9.0.9
 
-(setq org-confirm-babel-evaluate nil)
+
+(setq org-export-babel-evaluate t)
+
+;; Make
+;;
+;;   :results output :exports code
+;;
+;; and
+;;
+;;  :results output :exports results
+;;
+;; behave as expected in different org versions.
+
+(if (version< org-version "9.1.0")
+    (progn
+      (setq org-export-babel-evaluate t)
+      (setq org-babel-default-header-args
+            (cons '(:eval . "never-export")
+                  (assq-delete-all :eval org-babel-default-header-args)))
+      )
+  (setq org-export-use-babel t))
+
 ;(setq org-babel-sh-command "bash")
 
 ; Don't re-run a code block unless it changed.
@@ -1343,11 +1380,13 @@ complicated than they are. Let's turn them off by default.
 #+END_SRC
 *** Notmuch for reading mail
 
-;  #+begin_src emacs-lisp
+  #+begin_src emacs-lisp
+    (autoload 'notmuch "notmuch" "Notmuch mail" t)
 
-   (require 'notmuch)  ; default in /usr/local/share/emacs/site-lisp/
+   ;(require 'notmuch)  ; default in /usr/local/share/emacs/site-lisp/
    (require 'org-notmuch)  ; in org-plus-contrib
-;  #+end_src
+
+  #+end_src
 
   #+RESULTS:
   : org-notmuch
