@@ -824,15 +824,15 @@ Version 2015-01-26"
 
   ;; View of current week with only DONE items
   ;; https://emacs.stackexchange.com/questions/8150/show-done-items-in-current-calendar-week
-  ;; (add-to-list 'org-agenda-custom-commands
-  ;;              '("W" "Weekly review"
-  ;;                agenda ""
-  ;;                ((org-agenda-span 'week)
-  ;;                 (org-agenda-start-on-weekday 0)
-  ;;                 (org-agenda-start-with-log-mode t)
-  ;;                 (org-agenda-skip-function
-  ;;                  '(org-agenda-skip-entry-if 'nottodo 'done))
-  ;;                 )))
+  (add-to-list 'org-agenda-custom-commands
+               '("W" "Weekly review"
+                 agenda ""
+                 ((org-agenda-span 'week)
+                  (org-agenda-start-on-weekday 0)
+                  (org-agenda-start-with-log-mode t)
+                  (org-agenda-skip-function
+                   '(org-agenda-skip-entry-if 'nottodo 'done))
+                  )))
 
 #+end_src
 **** Agenda TODO Items
@@ -1328,6 +1328,12 @@ complicated than they are. Let's turn them off by default.
                       'do-org-show-all-inline-images)
 
     #+end_src
+*** Markdown export
+    #+begin_src emacs-lisp
+(eval-after-load "org"
+  '(require 'ox-md nil t))
+    #+end_src
+
 ** Programming
 *** General
     #+begin_src emacs-lisp
