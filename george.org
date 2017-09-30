@@ -517,25 +517,26 @@
 
 *** My alias
     #+BEGIN_SRC emacs-lisp :exports code
-      (defalias 'ib 'ispell-buffer)
-      (defalias 'nm 'notmuch)
-      (defalias 'mbo 'menu-bar-open) ; why use the mouse if it's not necessary?
-      (defalias 'ms 'magit-status)
-      (defalias 'of 'xah-open-file-at-cursor)
-      (defalias 'w 'eww) ; Because sometimes, you just want to open that URL as mostly text...
+(defalias 'ib 'ispell-buffer)
+(defalias 'nm 'notmuch)
+(defalias 'mbo 'menu-bar-open) ; why use the mouse if it's not necessary?
+(defalias 'ms 'magit-status)
+(defalias 'of 'xah-open-file-at-cursor)
+(defalias 'w 'eww) ; Because sometimes, you just want to open that URL as mostly text...
+(defalias 'slack 'slack-select-rooms)
 
-      (defalias 'pscp 'password-store-copy)
-      (defalias 'psed 'password-store-edit)
-      (defalias 'psge 'password-store-generate)
-      (defalias 'psin 'password-store-insert)
-      (defalias 'psrm 'password-store-remove)
-      (defalias 'psmv 'password-store-rename)
-      (defalias 'psur 'password-store-url)
+(defalias 'pscp 'password-store-copy)
+(defalias 'psed 'password-store-edit)
+(defalias 'psge 'password-store-generate)
+(defalias 'psin 'password-store-insert)
+(defalias 'psrm 'password-store-remove)
+(defalias 'psmv 'password-store-rename)
+(defalias 'psur 'password-store-url)
 
     #+END_SRC
 
     #+RESULTS:
-    : w
+    : psur
 
 
 *** IDO Mode
