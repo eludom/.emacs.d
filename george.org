@@ -1246,7 +1246,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 
 #+BEGIN_SRC emacs-lisp :exports code
 
-(require 'org-mime)
+;(require 'org-mime)
 (setq org-mime-library 'mml)
 (add-hook 'message-mode-hook
           (lambda ()
