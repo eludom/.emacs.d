@@ -517,25 +517,26 @@
 
 *** My alias
     #+BEGIN_SRC emacs-lisp :exports code
-      (defalias 'ib 'ispell-buffer)
-      (defalias 'nm 'notmuch)
-      (defalias 'mbo 'menu-bar-open) ; why use the mouse if it's not necessary?
-      (defalias 'ms 'magit-status)
-      (defalias 'of 'xah-open-file-at-cursor)
-      (defalias 'w 'eww) ; Because sometimes, you just want to open that URL as mostly text...
+(defalias 'ib 'ispell-buffer)
+(defalias 'nm 'notmuch)
+(defalias 'mbo 'menu-bar-open) ; why use the mouse if it's not necessary?
+(defalias 'ms 'magit-status)
+(defalias 'of 'xah-open-file-at-cursor)
+(defalias 'w 'eww) ; Because sometimes, you just want to open that URL as mostly text...
+(defalias 'slack 'slack-select-rooms)
 
-      (defalias 'pscp 'password-store-copy)
-      (defalias 'psed 'password-store-edit)
-      (defalias 'psge 'password-store-generate)
-      (defalias 'psin 'password-store-insert)
-      (defalias 'psrm 'password-store-remove)
-      (defalias 'psmv 'password-store-rename)
-      (defalias 'psur 'password-store-url)
+(defalias 'pscp 'password-store-copy)
+(defalias 'psed 'password-store-edit)
+(defalias 'psge 'password-store-generate)
+(defalias 'psin 'password-store-insert)
+(defalias 'psrm 'password-store-remove)
+(defalias 'psmv 'password-store-rename)
+(defalias 'psur 'password-store-url)
 
     #+END_SRC
 
     #+RESULTS:
-    : w
+    : psur
 
 
 *** IDO Mode
@@ -823,15 +824,15 @@ Version 2015-01-26"
 
   ;; View of current week with only DONE items
   ;; https://emacs.stackexchange.com/questions/8150/show-done-items-in-current-calendar-week
-  ;; (add-to-list 'org-agenda-custom-commands
-  ;;              '("W" "Weekly review"
-  ;;                agenda ""
-  ;;                ((org-agenda-span 'week)
-  ;;                 (org-agenda-start-on-weekday 0)
-  ;;                 (org-agenda-start-with-log-mode t)
-  ;;                 (org-agenda-skip-function
-  ;;                  '(org-agenda-skip-entry-if 'nottodo 'done))
-  ;;                 )))
+  (add-to-list 'org-agenda-custom-commands
+               '("W" "Weekly review"
+                 agenda ""
+                 ((org-agenda-span 'week)
+                  (org-agenda-start-on-weekday 0)
+                  (org-agenda-start-with-log-mode t)
+                  (org-agenda-skip-function
+                   '(org-agenda-skip-entry-if 'nottodo 'done))
+                  )))
 
 #+end_src
 **** Agenda TODO Items
@@ -1327,6 +1328,12 @@ complicated than they are. Let's turn them off by default.
                       'do-org-show-all-inline-images)
 
     #+end_src
+*** Markdown export
+    #+begin_src emacs-lisp
+(eval-after-load "org"
+  '(require 'ox-md nil t))
+    #+end_src
+
 ** Programming
 *** General
     #+begin_src emacs-lisp
