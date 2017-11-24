@@ -1453,10 +1453,10 @@ complicated than they are. Let's turn them off by default.
     ; xah-fly-keys testing
     ;
 
-    ;; (require 'xah-fly-keys)
-    ;; (xah-fly-set-layout "qwerty")
-    ;; (xah-fly-keys 0)
-    ;; (global-set-key (kbd "<home>") 'xah-fly-insert-mode-activate)
+    (require 'xah-fly-keys)
+    (xah-fly-keys-set-layout "qwerty")
+    (xah-fly-keys 1)
+    (global-set-key (kbd "<home>") 'xah-fly-insert-mode-activate)
 
   #+end_src
 
