@@ -395,8 +395,8 @@
 
 ** load which-key - where did I put that key-binding ?
   #+begin_src emacs-lisp
-;    (require 'which-key)
-;    (which-key-mode)
+(require 'which-key)
+    (which-key-mode)
   #+end_src
 
 *** Load up various external code snippits
