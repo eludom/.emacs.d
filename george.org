@@ -931,7 +931,7 @@ Version 2015-01-26"
     http://ergoemacs.org/emacs/xah-lookup.html
 
     #+begin_src emacs-lisp :exports code
-      (require 'xah-lookup)
+      ;;(require 'xah-lookup)
     #+end_src
 
 ** Writing
@@ -1203,7 +1203,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 
 #+BEGIN_SRC emacs-lisp :exports code
 (org-babel-do-load-languages
-    'org-babel-load-languages '((python . t) (ipython . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
+    'org-babel-load-languages '((python . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
 
 
 
@@ -1362,13 +1362,13 @@ complicated than they are. Let's turn them off by default.
     See https://github.com/gregsexton/ob-ipython for ob-ipython setup.
 
     #+begin_src emacs-lisp
-      (require 'ob-ipython)
-      (global-set-key "\C-h\C-i" 'ob-ipython-inspect)
-      ;; display/update images in the buffer after I evaluate
-      (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+      ;; (require 'ob-ipython)
+      ;; (global-set-key "\C-h\C-i" 'ob-ipython-inspect)
+      ;; ;; display/update images in the buffer after I evaluate
+      ;;(add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)"
 
       (require 'ox-latex)
-      (add-to-list 'org-latex-minted-langs '(ipython "python"))
+      ;(add-to-list 'org-latex-minted-langs '(ipython "python"))
 
       (add-hook 'python-mode-hook 'turn-on-orgstruct)
       (add-hook 'python-mode-hook 'turn-on-orgstruct++)
