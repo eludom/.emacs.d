@@ -1154,7 +1154,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
    ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, and org-protocol
    (setq org-capture-templates
       (quote (("t" "todo" entry (file "~/Org/refile.org")
-               "* TODO %?\n  %U\n  %a\n" :clock-in t :clock-resume t)
+               "* TODO %?\n  %U\n  %a\n" :clock-in nil :clock-resume nil)
                ("d" "daily todo" entry (file+datetree "~/Org/daily.org")
                "* TODO %?\n  %U\n  %a\n")
               ("s" "Schedule" entry (file+datetree "~/Org/schedule.org")
