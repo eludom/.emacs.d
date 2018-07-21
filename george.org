@@ -670,14 +670,14 @@ Disk space is cheap. Save lots.
   (display-time-mode 0)
   (defun gmj-insert-date (arg)
     "Insert current date and time in buffer
-  With no argument, insert <YYYY-MM-DD>
+  With no argument, insert YYYY-MM-DD
   With one arg, insert YYYYMMDDHHMM
   With two args, insert Tue Aug 23 07:38:56 2016
   "
     (interactive "p")
       (progn
         (if (= arg 1)
-            (insert (format-time-string "<%Y-%m-%d>"))
+            (insert (format-time-string "%Y-%m-%d"))
           (if (> arg 4)
               (insert-string (current-time-string))
             (insert (format-time-string "%Y%m%d%H%M"))))))
