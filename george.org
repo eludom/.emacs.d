@@ -1214,13 +1214,10 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 
 #+BEGIN_SRC emacs-lisp :exports code
 (org-babel-do-load-languages
-    'org-babel-load-languages '((python . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
-
-
-
+    'org-babel-load-languages '((ipython t) (python . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
+;; (org-babel-do-load-languages
+;;     'org-babel-load-languages '((python . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
 (setq org-confirm-babel-evaluate nil)
-
-
 (setq org-export-babel-evaluate t)
 
 ;; Make
@@ -1368,28 +1365,15 @@ complicated than they are. Let's turn them off by default.
     #+end_src
 
     #+end_src
-*** Python
-
-    See https://github.com/gregsexton/ob-ipython for ob-ipython setup.
-
-    #+begin_src emacs-lisp
-      ;; (require 'ob-ipython)
-      ;; (global-set-key "\C-h\C-i" 'ob-ipython-inspect)
-      ;; ;; display/update images in the buffer after I evaluate
-      ;;(add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)"
-
-      (require 'ox-latex)
-      ;(add-to-list 'org-latex-minted-langs '(ipython "python"))
-
-      (add-hook 'python-mode-hook 'turn-on-orgstruct)
-      (add-hook 'python-mode-hook 'turn-on-orgstruct++)
-    #+end_src
 *** Go
     #+begin_src emacs-lisp
       (add-to-list 'auto-mode-alist '("\\.go$" . go-mode))
       (add-to-list 'auto-mode-alist '("\\.g$" . go-mode)) ; fool the build system but still syntax highight
     #+end_src
-
+*** Python
+    #+begin_src emacs-lisp
+    (setq python-shell-interpreter "python3")
+    #+end_src
 ** Email Config
 *** Message mode for sending mail
 #+BEGIN_SRC emacs-lisp
