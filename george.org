@@ -1157,7 +1157,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
       (quote (("t" "todo" entry (file "~/Org/refile.org")
                "* TODO %?\n  %U\n  %a\n" :clock-in nil :clock-resume nil)
                ("d" "daily todo" entry (file+datetree "~/Org/daily.org")
-               "* TODO %?\n  %U\n  %a\n")
+               "* TODO %?\n  SCHEDULED: %t\n  %U\n")
               ("s" "Schedule" entry (file+datetree "~/Org/schedule.org")
                "*  %?\n%(format-time-string \"<%Y-%m-%d %H:00-%H:00>\")\n")
               ("f" "emacsFoo" entry (file+datetree "~/Org/emacsFoo.org")
