@@ -1214,7 +1214,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 
 #+BEGIN_SRC emacs-lisp :exports code
 (org-babel-do-load-languages
-    'org-babel-load-languages '((ipython t) (python . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
+    'org-babel-load-languages '( (python . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
 ;; (org-babel-do-load-languages
 ;;     'org-babel-load-languages '((python . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
 (setq org-confirm-babel-evaluate nil)
@@ -1511,7 +1511,7 @@ complicated than they are. Let's turn them off by default.
    #+RESULTS:
 * All done, YOW !!!
   #+BEGIN_SRC emacs-lisp :exports both
-  (message (yow))
+  ;(message (yow))
 
   #+END_SRC
 
