@@ -34,7 +34,7 @@
 
     http://emacs.stackexchange.com/questions/28441/org-mode-9-unable-to-eval-code-blocks
 
-    - resolved :: reinstall org-plus-contrib from melpa, set path to it 
+    - resolved :: reinstall org-plus-contrib from melpa, set path to it
 ** emacs - functions to write
 *** DONE write function to prompt for string, do show-binding and then occur on the string
     :LOGBOOK:
@@ -57,7 +57,11 @@
     :END:
     [2016-09-10 Sat 08:35]
     [[file:/usr/local/share/emacs/25.1.50/lisp/url/url-http.el.gz::(defun%20url-http-file-exists-p%20(url)]]
-** emacs - config hacks to do 
+** emacs - packages to try
+*** TODO Install/test Atomic Chrome for Emacs
+    [2018-12-21 Fri 07:08]
+    https://github.com/alpha22jp/atomic-chrome
+** emacs - config hacks to do
 *** DONE set up emacs server so I can ssh in and connect
     :LOGBOOK:
     CLOCK: [2016-02-29 Mon 10:05]--[2016-02-29 Mon 10:05] =>  0:00
@@ -92,7 +96,7 @@
     [2016-08-30 Tue 10:08]
     - resolution ::    =(add-hook 'python-mode-hook #'linum-on)=
 *** DONE explore ways to always open files in readonly
-   - C-x C-r 
+   - C-x C-r
 *** TODO figure out how to record intermittent TODO actions (habits?)
     :LOGBOOK:
     CLOCK: [2016-11-30 Wed 07:22]--[2016-11-30 Wed 07:23] =>  0:01
@@ -110,7 +114,7 @@
     :END:
     [2016-11-16 Wed 06:42]
     [[file:~/home/public/.emacs.d/elpa/org-plus-contrib-20161102/org.el::(defun%20org-date-from-calendar%20()]]
-** emacs - backlog - emacs.d 
+** emacs - backlog - emacs.d
 *** DONE CANCELED Start syncning to trllo
     SCHEDULED: <2016-02-28 Sun>
     :LOGBOOK:
@@ -130,12 +134,12 @@
       - user name, servers, ports
 *** DONE Look at ~/authinfo                                            :gnus:
       - [X] Encrypt with gpg
-	+ just save as ~/.authinfo.gpg, select key and it does the rest.
+        + just save as ~/.authinfo.gpg, select key and it does the rest.
       - [X] Move to ~/secrets with a symlink?
 *** TODO Support reading multiple imap boxes in one session            :gnus:
       - Probably separate .gnus settings
 *** TODO Figure out how to initiate sending of mail when not in gnus already :gnus:
-      - e.g. not "m" in *Group* buffer 
+      - e.g. not "m" in *Group* buffer
 *** TODO Re-implement offline IMAP                                     :gnus:
 *** DONE Set up some search mechanism for mail                         :gnus:
 
@@ -212,7 +216,7 @@
     - [X] Basics work
     - [X] Figure out how to keep all posts local an publish tree
       + Just keep them in a single .org file and post the subtree
-	o thanks to tip from Sacha Chua
+        o thanks to tip from Sacha Chua
 *** TODO Figure out how to do quick org2blog posts
 *** IN-PROGRESS Figure out how to sync ~/Org/{contacts, diary, refile, etc.}
     - Experimenting with git
@@ -266,17 +270,17 @@
   #+AUTHOR: George M Jones
   #+EMAIL: gmj@pobox.com
   #+END_EXAMPLE
-    
-  
+
+
 **** TODO [0/2] Make new default template
      - [ ] Make new default template for meetings
      - [ ] Make new default template for what-why-who-when-where-how
 **** TODO Figure out shell ERR handling
-	I want to trap errors, output a warning, and quit.
-	The following will trap errors, output a warning and continue.
-	If I exit the trap function, I get no output in babel.
+        I want to trap errors, output a warning, and quit.
+        The following will trap errors, output a warning and continue.
+        If I exit the trap function, I get no output in babel.
 
-	Ask the org mailing list/eric shulte ?
+        Ask the org mailing list/eric shulte ?
 
   #+BEGIN_EXAMPLE
   #+begin_src sh  :results output
@@ -337,7 +341,7 @@
   #+BEGIN_EXAMPLE
   Display Completions Vertically
   It’s a lot easier to scan long path names if they’re displayed
-  vertically, instead of horizontally. Run this to achieve just that: 
+  vertically, instead of horizontally. Run this to achieve just that:
 
   This can be achieved by installing package ido-vertical-mode, which (presumably), does the following, below.
 
@@ -350,13 +354,13 @@
       (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
     (add-hook 'ido-setup-hook 'ido-define-keys)
   – timcharper, jpkotta
-  #+END_EXAMPLE   
+  #+END_EXAMPLE
 **** TODO aliaes
      #+BEGIN_EXAMPLE
-   
+
      #+END_EXAMPLE
-   
-     #+BEGIN_SRC emacs-lisp :exports code 
+
+     #+BEGIN_SRC emacs-lisp :exports code
      (defalias 'sh 'shell)
      #+END_SRC
 
@@ -375,7 +379,7 @@
 *** Things to fix
 **** TODO Tramp default shell
     Tramp default shell .. comes up /bin/bash/bin/bash, have to edit
-    out 2nd /bin/bash (IDO completion problem?)  
+    out 2nd /bin/bash (IDO completion problem?)
 **** TODO babel sh vs. shell, passing arrays as vars changed
 
      Assignment of configNames (below)  worked with "sh" c.a. org 8.2, but fails with "shell" c.a. 8.3
@@ -390,13 +394,13 @@
       | RUNFROM  | "/"                                     |
 
      #+name: backups.<2016-02-21 Sun>
-     #+begin_src sh :var names=config[,0] values=config[,1] :results output prepend :dir /sudo:: :exports both 
+     #+begin_src sh :var names=config[,0] values=config[,1] :results output prepend :dir /sudo:: :exports both
      exec 2>&1;set -e; set -u; set +x; echo '#' `date;`
 
      # pull the org variables into arrays
-     configNames=($names)  
+     configNames=($names)
      #+end_example
-**** 
+****
 *** Things to try more
     I've tried that I need to understand better
 **** TODO Dired
@@ -417,7 +421,7 @@
 **** TODO eshell
      - Weirdness with I/O redirects before
 *** Things to find out
-**** TODO Can I publish files directly to Google Drive a la sshfs? 
+**** TODO Can I publish files directly to Google Drive a la sshfs?
 
  ge** TODO Write code or config to start shell for system in current window :bindings:
        - ssh or local
@@ -442,10 +446,10 @@
        - See
          http://emacs.stackexchange.com/questions/13793/how-to-add-a-column-in-org-mode-agenda-clockreport-to-show-percentage-of-time-fo
          for How to add a column in org-mode agenda clockreport to show
-         percentage of time for each group of activities? 
+         percentage of time for each group of activities?
        - See http://comments.gmane.org/gmane.emacs.orgmode/77120 to
          have percentages sum correctly when total is larger than a
-         day. 
+         day.
 
 
 
@@ -483,9 +487,9 @@
 
    package-selected-packages
 
-   to 
+   to
 
-   (better-shell which-key xah-fly-keys guide-key password-store org-plus-contrib notmuch magit go-mode twittering-mode htmlize yaml-mode pydoc))))  
+   (better-shell which-key xah-fly-keys guide-key password-store org-plus-contrib notmuch magit go-mode twittering-mode htmlize yaml-mode pydoc))))
 
    and auto-install/load (out of init.el ?)
    #+end_example
@@ -502,7 +506,3 @@
     [[file:~/home/secret/money/mint/testExports.org]]
 *** TODO Write test cases/code for org
 * emacs - info
-
-
-
-
