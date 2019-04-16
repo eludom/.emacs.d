@@ -835,15 +835,15 @@ Version 2015-01-26"
 
   ;; View of current week with only DONE items
   ;; https://emacs.stackexchange.com/questions/8150/show-done-items-in-current-calendar-week
-  (add-to-list 'org-agenda-custom-commands
-               '("W" "Weekly review"
-                 agenda ""
-                 ((org-agenda-span 'week)
-                  (org-agenda-start-on-weekday 0)
-                  (org-agenda-start-with-log-mode t)
-                  (org-agenda-skip-function
-                   '(org-agenda-skip-entry-if 'nottodo 'done))
-                  )))
+  ;; (add-to-list 'org-agenda-custom-commands
+  ;;              '("W" "Weekly review"
+  ;;                agenda ""
+  ;;                ((org-agenda-span 'week)
+  ;;                 (org-agenda-start-on-weekday 0)
+  ;;                 (org-agenda-start-with-log-mode t)
+  ;;                 (org-agenda-skip-function
+  ;;                  '(org-agenda-skip-entry-if 'nottodo 'done))
+  ;;                 )))
 
 #+end_src
 **** Agenda TODO Items
@@ -1095,7 +1095,10 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
         (e (if mark-active (max (point) (mark)) (point-max))))
     (shell-command-on-region b e
      "python -mjson.tool" (current-buffer) t)))
-#+END_SRC emacs-lisp
+#+END_SRC
+
+#+RESULTS:
+: beautify-json
 
 
    This section contains configs rleated to org mode.  Org mode is my
@@ -1115,7 +1118,12 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 *** Agenda and tasks related
 #+BEGIN_SRC emacs-lisp :exports code
 (setq org-agenda-include-diary t)
-(setq org-todo-keywords '((sequence "TODO" "IN-PROGRESS"  "|" "DONE" "WAITING" "DELEGATED" "CANCELED")))
+;(setq org-todo-keywords '((sequence "TODO" "IN-PROGRESS"  "|" "DONE" "WAITING" "DELEGATED" "CANCELED")))
+
+(setq org-todo-keywords
+       '((sequence "TODO(t)" "IN-PROGRESS(i!)" "WAIT(w@/!)" "|" "DONE(d!)" "DELEGATED(g!)" "CANCELED(c@)")))
+
+
 #+END_SRC
 
 *** Templates
@@ -1214,7 +1222,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 
 #+BEGIN_SRC emacs-lisp :exports code
 (org-babel-do-load-languages
-    'org-babel-load-languages '((ipython t) (python . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
+    'org-babel-load-languages '((python . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
 ;; (org-babel-do-load-languages
 ;;     'org-babel-load-languages '((python . t) (rust . t) (shell . t) (lisp . t) (ditaa . t)))
 (setq org-confirm-babel-evaluate nil)
