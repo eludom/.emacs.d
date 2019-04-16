@@ -493,6 +493,10 @@
 
    and auto-install/load (out of init.el ?)
    #+end_example
+** TODO Fix twittering mode
+   [2018-07-25 Wed 06:58]
+   https://lists.gnu.org/archive/html/emacs-devel/2018-05/msg00746.html
+   using now obsolete/removed/internal function "epa--*"
 * emacs - meetings???
 * emacs - reporting
 *** TODO report bug in org9 - not honoring ":exports"

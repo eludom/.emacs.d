@@ -11,7 +11,7 @@
 
 (require 'package)
 (setq package-enable-at-startup nil)
-(package-initialize)
+;(package-initialize)
 
 ; Make sure we use the right version of org-mode:
 ;
