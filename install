@@ -2,12 +2,12 @@
 # Link everthing in '$PWD' to a dir in '~/$PWD'
 #
 # Usage:
-#   install [options]   
+#   install [options]
 #
 # options from link2home.sh. Default
 #
 #  --remove --debug --verbose
-# 
+#
 
 # Any files listed (one per line) in .install.ignore will be ignored
 
@@ -43,3 +43,6 @@ else
 fi
 
 # any directory specific post-processing (permissions, etc) goes here.
+
+# link emacs init to new config dir
+link2 -v   config-emacs-init.el $HOME/.config/emacs/init.el
