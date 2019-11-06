@@ -1450,7 +1450,7 @@ complicated than they are. Let's turn them off by default.
 
 * Experimental/Testing
 ** xah-fly-keys
-  #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
     ;
     ; xah-fly-keys testing
@@ -1461,7 +1461,7 @@ complicated than they are. Let's turn them off by default.
     (xah-fly-keys 1)
     (global-set-key (kbd "<home>") 'xah-fly-insert-mode-activate)
 
-  #+end_src
+#+end_src
 
 * Games
   :PROPERTIES:

@@ -4,6 +4,14 @@
 
 (setq debug-on-error t) ;; uncomment when there are problems
 
+; Because fly keys is now my muscle-memory default
+(require 'xah-fly-keys)
+(xah-fly-keys-set-layout "qwerty")
+(xah-fly-keys 1)
+(global-set-key (kbd "<home>") 'xah-fly-insert-mode-activate)
+
+
+
 ; https://www.emacswiki.org/emacs/ELPA
 
 ;   it could be easier just to move package-initialize to another point
