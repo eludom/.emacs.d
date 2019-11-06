@@ -97,8 +97,6 @@
 ** Prerequisites
 *** A recent version of emacs
     See [[https://raw.githubusercontent.com/eludom/HOWTO/master/emacsFromSrc.org][my instructions for building the latest emacs from xource]] (thanks to Xah lee)
-*** A recent version of org-mode
-    Use package-install to get the latest org-plus-contrib
 ** Conventions: important files and directories
 *** Important files and directories
 | What                              | Symlinked to | Why                                         |
@@ -132,15 +130,18 @@
      versions of emacs.  http://ergoemacs.org/emacs/building_emacs_on_linux.html
 
 ** Emacs initialization
+*** Org defaults
+
+We don't need to see output of code blocks here unless there are problems
+
+#+PROPERTY: header-args :results silent
+
 *** Make org-mode the default - it is fundamental
 #+begin_src emacs-lisp
 (setq-default major-mode 'org-mode)
 (setq auto-mode-alist (append '(("\\.txt$" . org-mode))
       auto-mode-alist))
 #+end_src
-
-#+RESULTS:
-: ((\.txt$ . org-mode) (\.g$ . go-mode) (\.go$ . go-mode) (\.odc\' . archive-mode) (\.odf\' . archive-mode) (\.odi\' . archive-mode) (\.otp\' . archive-mode) (\.odp\' . archive-mode) (\.otg\' . archive-mode) (\.odg\' . archive-mode) (\.ots\' . archive-mode) (\.ods\' . archive-mode) (\.odm\' . archive-mode) (\.ott\' . archive-mode) (\.odt\' . archive-mode) (\.gpr\' . gpr-mode) (/git-rebase-todo\' . git-rebase-mode) (\.gpg\(~\|\.~[0-9]+~\)?\' nil epa-file) (\.\(?:3fr\|a\(?:r[tw]\|vs\)\|bmp[23]?\|c\(?:als?\|myka?\|r[2w]\|u[rt]\)\|d\(?:c[mrx]\|ds\|jvu\|ng\|px\)\|exr\|f\(?:ax\|its\)\|gif\(?:87\)?\|hrz\|ic\(?:on\|[bo]\)\|j\(?:\(?:pe\|[np]\)g\)\|k\(?:25\|dc\)\|m\(?:iff\|ng\|rw\|s\(?:l\|vg\)\|tv\)\|nef\|o\(?:rf\|tb\)\|p\(?:bm\|c\(?:ds\|[dltx]\)\|db\|ef\|gm\|i\(?:ct\|x\)\|jpeg\|n\(?:g\(?:24\|32\|8\)\|[gm]\)\|pm\|sd\|tif\|wp\)\|r\(?:a[fs]\|gb[ao]?\|l[ae]\)\|s\(?:c[rt]\|fw\|gi\|r[2f]\|un\|vgz?\)\|t\(?:ga\|i\(?:ff\(?:64\)?\|le\|m\)\|tf\)\|uyvy\|v\(?:da\|i\(?:car\|d\|ff\)\|st\)\|w\(?:bmp\|pg\)\|x\(?:3f\|bm\|cf\|pm\|wd\|[cv]\)\|y\(?:cbcra?\|uv\)\)\' . image-mode) (\.elc\' . elisp-byte-code-mode) (\.dz\' nil jka-compr) (\.xz\' nil jka-compr) (\.lzma\' nil jka-compr) (\.lz\' nil jka-compr) (\.g?z\' nil jka-compr) (\.bz2\' nil jka-compr) (\.Z\' nil jka-compr) (\.vr[hi]?\' . vera-mode) (\(?:\.\(?:rbw?\|ru\|rake\|thor\|jbuilder\|rabl\|gemspec\|podspec\)\|/\(?:Gem\|Rake\|Cap\|Thor\|Puppet\|Berks\|Vagrant\|Guard\|Pod\)file\)\' . ruby-mode) (\.re?st\' . rst-mode) (\.pyw?\' . python-mode) (\.scss\' . scss-mode) (\.awk\' . awk-mode) (\.\(u?lpc\|pike\|pmod\(\.in\)?\)\' . pike-mode) (\.idl\' . idl-mode) (\.java\' . java-mode) (\.m\' . objc-mode) (\.ii\' . c++-mode) (\.i\' . c-mode) (\.lex\' . c-mode) (\.y\(acc\)?\' . c-mode) (\.[ch]\' . c-mode) (\.\(CC?\|HH?\)\' . c++-mode) (\.[ch]\(pp\|xx\|\+\+\)\' . c++-mode) (\.\(cc\|hh\)\' . c++-mode) (\.\(bat\|cmd\)\' . bat-mode) (\.[sx]?html?\(\.[a-zA-Z_]+\)?\' . html-mode) (\.svgz?\' . image-mode) (\.svgz?\' . xml-mode) (\.x[bp]m\' . image-mode) (\.x[bp]m\' . c-mode) (\.p[bpgn]m\' . image-mode) (\.tiff?\' . image-mode) (\.gif\' . image-mode) (\.png\' . image-mode) (\.jpe?g\' . image-mode) (\.te?xt\' . text-mode) (\.[tT]e[xX]\' . tex-mode) (\.ins\' . tex-mode) (\.ltx\' . latex-mode) (\.dtx\' . doctex-mode) (\.org\' . org-mode) (\.el\' . emacs-lisp-mode) (Project\.ede\' . emacs-lisp-mode) (\.\(scm\|stk\|ss\|sch\)\' . scheme-mode) (\.l\' . lisp-mode) (\.li?sp\' . lisp-mode) (\.[fF]\' . fortran-mode) (\.for\' . fortran-mode) (\.p\' . pascal-mode) (\.pas\' . pascal-mode) (\.\(dpr\|DPR\)\' . delphi-mode) (\.ad[abs]\' . ada-mode) (\.ad[bs].dg\' . ada-mode) (\.\([pP]\([Llm]\|erl\|od\)\|al\)\' . perl-mode) (Imakefile\' . makefile-imake-mode) (Makeppfile\(?:\.mk\)?\' . makefile-makepp-mode) (\.makepp\' . makefile-makepp-mode) (\.mk\' . makefile-gmake-mode) (\.make\' . makefile-gmake-mode) ([Mm]akefile\' . makefile-gmake-mode) (\.am\' . makefile-automake-mode) (\.texinfo\' . texinfo-mode) (\.te?xi\' . texinfo-mode) (\.[sS]\' . asm-mode) (\.asm\' . asm-mode) (\.css\' . css-mode) (\.mixal\' . mixal-mode) (\.gcov\' . compilation-mode) (/\.[a-z0-9-]*gdbinit . gdb-script-mode) (-gdb\.gdb . gdb-script-mode) ([cC]hange\.?[lL]og?\' . change-log-mode) ([cC]hange[lL]og[-.][0-9]+\' . change-log-mode) (\$CHANGE_LOG\$\.TXT . change-log-mode) (\.scm\.[0-9]*\' . scheme-mode) (\.[ckz]?sh\'\|\.shar\'\|/\.z?profile\' . sh-mode) (\.bash\' . sh-mode) (\(/\|\`\)\.\(bash_\(profile\|history\|log\(in\|out\)\)\|z?log\(in\|out\)\)\' . sh-mode) (\(/\|\`\)\.\(shrc\|[kz]shrc\|bashrc\|t?cshrc\|esrc\)\' . sh-mode) (\(/\|\`\)\.\([kz]shenv\|xinitrc\|startxrc\|xsession\)\' . sh-mode) (\.m?spec\' . sh-mode) (\.m[mes]\' . nroff-mode) (\.man\' . nroff-mode) (\.sty\' . latex-mode) (\.cl[so]\' . latex-mode) (\.bbl\' . latex-mode) (\.bib\' . bibtex-mode) (\.bst\' . bibtex-style-mode) (\.sql\' . sql-mode) (\.m[4c]\' . m4-mode) (\.mf\' . metafont-mode) (\.mp\' . metapost-mode) (\.vhdl?\' . vhdl-mode) (\.article\' . text-mode) (\.letter\' . text-mode) (\.i?tcl\' . tcl-mode) (\.exp\' . tcl-mode) (\.itk\' . tcl-mode) (\.icn\' . icon-mode) (\.sim\' . simula-mode) (\.mss\' . scribe-mode) (\.f9[05]\' . f90-mode) (\.f0[38]\' . f90-mode) (\.indent\.pro\' . fundamental-mode) (\.\(pro\|PRO\)\' . idlwave-mode) (\.srt\' . srecode-template-mode) (\.prolog\' . prolog-mode) (\.tar\' . tar-mode) (\.\(arc\|zip\|lzh\|lha\|zoo\|[jew]ar\|xpi\|rar\|7z\|ARC\|ZIP\|LZH\|LHA\|ZOO\|[JEW]AR\|XPI\|RAR\|7Z\)\' . archive-mode) (\.oxt\' . archive-mode) (\.\(deb\|[oi]pk\)\' . archive-mode) (\`/tmp/Re . text-mode) (/Message[0-9]*\' . text-mode) (\`/tmp/fol/ . text-mode) (\.oak\' . scheme-mode) (\.sgml?\' . sgml-mode) (\.x[ms]l\' . xml-mode) (\.dbk\' . xml-mode) (\.dtd\' . sgml-mode) (\.ds\(ss\)?l\' . dsssl-mode) (\.jsm?\' . javascript-mode) (\.json\' . javascript-mode) (\.[ds]?vh?\' . verilog-mode) (\.by\' . bovine-grammar-mode) (\.wy\' . wisent-grammar-mode) ([:/\]\..*\(emacs\|gnus\|viper\)\' . emacs-lisp-mode) (\`\..*emacs\' . emacs-lisp-mode) ([:/]_emacs\' . emacs-lisp-mode) (/crontab\.X*[0-9]+\' . shell-script-mode) (\.ml\' . lisp-mode) (\.ld[si]?\' . ld-script-mode) (ld\.?script\' . ld-script-mode) (\.xs\' . c-mode) (\.x[abdsru]?[cnw]?\' . ld-script-mode) (\.zone\' . dns-mode) (\.soa\' . dns-mode) (\.asd\' . lisp-mode) (\.\(asn\|mib\|smi\)\' . snmp-mode) (\.\(as\|mi\|sm\)2\' . snmpv2-mode) (\.\(diffs?\|patch\|rej\)\' . diff-mode) (\.\(dif\|pat\)\' . diff-mode) (\.[eE]?[pP][sS]\' . ps-mode) (\.\(?:PDF\|DVI\|OD[FGPST]\|DOCX?\|XLSX?\|PPTX?\|pdf\|djvu\|dvi\|od[fgpst]\|docx?\|xlsx?\|pptx?\)\' . doc-view-mode-maybe) (configure\.\(ac\|in\)\' . autoconf-mode) (\.s\(v\|iv\|ieve\)\' . sieve-mode) (BROWSE\' . ebrowse-tree-mode) (\.ebrowse\' . ebrowse-tree-mode) (#\*mail\* . mail-mode) (\.g\' . antlr-mode) (\.mod\' . m2-mode) (\.ses\' . ses-mode) (\.docbook\' . sgml-mode) (\.com\' . dcl-mode) (/config\.\(?:bat\|log\)\' . fundamental-mode) (\.\(?:[iI][nN][iI]\|[lL][sS][tT]\|[rR][eE][gG]\|[sS][yY][sS]\)\' . conf-mode) (\.\(?:desktop\|la\)\' . conf-unix-mode) (\.ppd\' . conf-ppd-mode) (java.+\.conf\' . conf-javaprop-mode) (\.properties\(?:\.[a-zA-Z0-9._-]+\)?\' . conf-javaprop-mode) (\`/etc/\(?:DIR_COLORS\|ethers\|.?fstab\|.*hosts\|lesskey\|login\.?de\(?:fs\|vperm\)\|magic\|mtab\|pam\.d/.*\|permissions\(?:\.d/.+\)?\|protocols\|rpc\|services\)\' . conf-space-mode) (\`/etc/\(?:acpid?/.+\|aliases\(?:\.d/.+\)?\|default/.+\|group-?\|hosts\..+\|inittab\|ksysguarddrc\|opera6rc\|passwd-?\|shadow-?\|sysconfig/.+\)\' . conf-mode) ([cC]hange[lL]og[-.][-0-9a-z]+\' . change-log-mode) (/\.?\(?:gitconfig\|gnokiirc\|hgrc\|kde.*rc\|mime\.types\|wgetrc\)\' . conf-mode) (/\.\(?:enigma\|gltron\|gtk\|hxplayer\|net\|neverball\|qt/.+\|realplayer\|scummvm\|sversion\|sylpheed/.+\|xmp\)rc\' . conf-mode) (/\.\(?:gdbtkinit\|grip\|orbital/.+txt\|rhosts\|tuxracer/options\)\' . conf-mode) (/\.?X\(?:default\|resource\|re\)s\> . conf-xdefaults-mode) (/X11.+app-defaults/\|\.ad\' . conf-xdefaults-mode) (/X11.+locale/.+/Compose\' . conf-colon-mode) (/X11.+locale/compose\.dir\' . conf-javaprop-mode) (\.~?[0-9]+\.[0-9][-.0-9]*~?\' nil t) (\.\(?:orig\|in\|[bB][aA][kK]\)\' nil t) ([/.]c\(?:on\)?f\(?:i?g\)?\(?:\.[a-zA-Z0-9._-]+\)?\' . conf-mode-maybe) (\.[1-9]\' . nroff-mode) (\.tgz\' . tar-mode) (\.tbz2?\' . tar-mode) (\.txz\' . tar-mode))
 
 *** Start the server
     Start the emacs serer so I can use emacsclient
@@ -150,55 +151,6 @@
     (load "server")
     (unless (server-running-p) (server-start))
     #+end_src
-
-    #+RESULTS:
-
-*** Load packages in a sane, modern way
-**** Do initial package config in in ~/.emacs.d/init.el
-     #+begin_example
-(require 'package)
-(setq package-enable-at-startup nil)
-(package-initialize)
-
-; Make sure we use the right version of org-mode:
-;
-; This has to happen here (not in george.org loaded later in this file)
-; to make sure we load the latest verson of org, not the system/default
-; version.
-
-(dolist (word  (directory-files (expand-file-name "~/.emacs.d/elpa/") t "^org-plus-contrib-*"))
-  ; may not get the right/latest version if there are multiple versions in ~/.emacs.d/elpa/
-  (if (file-exists-p word)
-      (progn
-        (setq elisp-dir word)
-        (add-to-list 'load-path word)
-        (message (format "addeded to load path: %s"  elisp-dir)))))
-
-     #+end_example
-**** Track packages we have installed in package-selected-packages
-**** Where doe we pull packages from?
-    Add the package sources we want to use
-
-    #+BEGIN_SRC emacs-lisp :exports code
-          (unless (assoc-default "melpa" package-archives)
-        (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-        (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-      ;  (package-refresh-contents)
-      )
-    #+END_SRC
-
-    #+RESULTS:
-
-
-#+BEGIN_SRC emacs-lisp
-;(desktop-save-mode 1)
-(winner-mode 1)
-#+END_SRC
-
-**** Prefer newer packages
-# #+BEGIN_SRC emacs-lisp
-  (setq load-prefer-newer t)
-# #+END_SRC
 
 *** Exit Emacs.  Don't do this casually !!!
     \C-x\C-c is just to easy to type.   And, I mean, really, who wants
@@ -215,8 +167,6 @@
 
         #+END_SRC
 
-        #+RESULTS:
-        : save-buffers-kill-terminal
 *** My keybindings from eons past
 
       Some of these may date to TECO based TOPS20 emacs, Multics emacs, FINE (Tops 10), mg or similar museum pieces.
@@ -251,91 +201,14 @@
   #+begin_src emacs-lisp
    (global-set-key (kbd "C-'") 'better-shell-shell)
    (global-set-key (kbd "C-;") 'better-shell-remote-open)
+   (global-set-key (kbd "<f5>") 'better-shell-shell) ; used to be gmj-shell.  Its in my fingers, so keep here.
   #+end_src
-
-*** OBSOLETE Define function to start a shell named *shell*<HOSTNAME> for current files
-    - better-shell makes this more-less obsolete.  <2017-01-31>
-    - Keeping here in case there is some behavior I want to copy
-      (setting shell buffer names, starting multiple shells on remote
-      hosts), it will probably go away soon.
-
-
-    #+BEGIN_SRC emacs-lisp :exports code
-      (defun gmj-shell (arg)
-        "Start a shell in a buffer named *shell*<HOSTNAME>
-
-       An attempt is made to parse HOSTNAME out of the
-      filename of tramp buffers such as /ssh:FOO@HOSTNAME:/path/path...
-
-      When preceded with 1 `universal-argument' (^u),
-      try to create *shell*<HOSTNAME#>a
-      where # in 1,2,3,4
-
-      When preceded with 2 `universal-argument' (^u^u),
-      prompt for BUFFER name and try to create *shell*<HOSTNAME#>
-
-      "
-        (interactive "p")
-        (progn
-        (message "in gmj-shell")
-
-          ;
-          ; get the hostname
-          ;
-
-          (setq hostname (system-name))
-          (if (string-prefix-p "/ssh:" (buffer-file-name))
-          (progn
-        (setq file-name (buffer-file-name))
-        (setq hostname (replace-regexp-in-string "/ssh:" "" file-name))
-        (setq hostname (replace-regexp-in-string ":.*" "" hostname))))
-
-          ;
-          ; determine the shell buffer name
-          ;
-
-
-          ; if arg is 1, just create (or jump to) *shell*<HOSTNAME>
-          (if (= arg 1)
-          (setq shell-name (format "*shell*<%s>" hostname))
-
-          ; if arg > 4, prompt for buffer name
-        (if (> arg 4)
-        (setq shell-name (concat "*shell*<" (read-string (format "shell name (%s):" "shell4foo") nil nil "shell4foo") ">"))
-
-        ; if arg is 4 (one universal arg)
-        ; try creating new numbered shell "*<shell>*<HOSTNAME#> for # in 1,2,3,4
-          (progn
-
-        (let ((x 1) (lookingForUnusedBuffer t))
-                  (while (and (<= x 4) lookingForUnusedBuffer)
-                    (setq tryThis (format "*shell*<%s-%d>" hostname x))
-                    (unless (get-buffer tryThis)
-                  (progn
-                (setq lookingForUnusedBuffer nil)
-                (setq shell-name tryThis)))
-                    (setq x (+ x 1)))))))
-          ;
-          ; Try to create the shell
-          ;
-
-          (message (concat "shell name: " shell-name))
-          (shell shell-name)))
-
-      (global-set-key (kbd "<f5>") 'gmj-shell)
-    #+END_SRC
-
-    #+RESULTS:
-    : gmj-shell
 
 *** Add USER@HOSTNAME to mode line
     #+begin_src emacs-lisp
       (let ((pos (memq 'mode-line-modes mode-line-format)))
         (setcdr pos (cons (concat (getenv "USER") "@" (getenv "HOSTNAME") " ") (cdr pos))))
     #+end_src
-
-    #+RESULTS:
-    | gmj@vi | gmj@vi | vi | mode-line-misc-info | mode-line-end-spaces |
 
 *** New Keybindings
 **** Advice from Xah Lee on bindings
@@ -373,17 +246,11 @@
         (global-set-key "\C-X\C-j" 'dired-jump)  ; <2015-05-05 Tue>
       #+END_SRC
 
-      #+RESULTS:
-      : dired-jump
-
 **** f8 open file or URL at point
 
       #+BEGIN_SRC emacs-lisp :exports code
       (global-set-key (kbd "<f8>") 'xah-open-file-at-cursor)
       #+END_SRC
-
-      #+RESULTS:
-      : xah-open-file-at-cursor
 
 **** f9 Key bindings to open shells
 
@@ -399,9 +266,6 @@
       #+BEGIN_SRC emacs-lisp :exports code
       (global-set-key (kbd "<f7>") 'xah-open-in-external-app)
       #+END_SRC
-
-      #+RESULTS:
-      : xah-open-in-external-app
 
 ** load which-key - where did I put that key-binding ?
   #+begin_src emacs-lisp
@@ -439,7 +303,6 @@
                )))
     #+END_SRC
 
-    #+RESULTS:
 *** random cusotmizations
 #+BEGIN_SRC emacs-lisp :exports code
 ;(tool-bar-mode -1)
@@ -522,9 +385,6 @@
     ;(defalias 'math-symbol-input-mode 'xmsi-mode)
         #+END_SRC
 
-    #+RESULTS:
-    : glm
-
 *** My alias
     #+BEGIN_SRC emacs-lisp :exports code
 (defalias 'ib 'ispell-buffer)
@@ -544,10 +404,6 @@
 (defalias 'psur 'password-store-url)
 
     #+END_SRC
-
-    #+RESULTS:
-    : psur
-
 
 *** IDO Mode
 
@@ -598,9 +454,6 @@ future."
 
     #+END_SRC
 
-    #+RESULTS:
-    : save-current-kbd-macro
-
 **** TO DO Items
 ***** TODO Prefix all saved macros names with "gmj-kbd-"
       - Involves messing with symbol name "name"
@@ -621,9 +474,6 @@ future."
   (define-key minibuffer-local-isearch-map (kbd "<right>") 'isearch-forward-exit-minibuffer))
     #+END_SRC
 
-    #+RESULTS:
-    : isearch-forward-exit-minibuffer
-
 *** DONE My old config snippets
 *** Other misc settings
     #+BEGIN_SRC emacs-lisp :exports code
@@ -635,9 +485,6 @@ future."
       (message (yow)))
      #+END_SRC
 
-    #+RESULTS:
-    : display-startup-echo-area-message
-
 ** General configuration
 *** Backups
 
@@ -647,9 +494,6 @@ This is one of the things people usually want to change right away. By default, 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 #+END_SRC
 
-#+RESULTS:
-: ((. . ~/.emacs.d/backups))
-
 Disk space is cheap. Save lots.
 
 #+BEGIN_SRC emacs-lisp :exports code
@@ -658,9 +502,6 @@ Disk space is cheap. Save lots.
 (setq vc-make-backup-files t)
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
 #+END_SRC
-
-#+RESULTS:
-| .* | ~/.emacs.d/auto-save-list/ | t |
 
 *** Misc functions
 #+BEGIN_SRC emacs-lisp :exports code
@@ -679,14 +520,11 @@ Disk space is cheap. Save lots.
         (if (= arg 1)
             (insert (format-time-string "%Y-%m-%d"))
           (if (> arg 4)
-              (insert-string (current-time-string))
+              (insert (current-time-string))
             (insert (format-time-string "%Y%m%d%H%M"))))))
             ; if arg > 4, prompt for buffer name
     (global-set-key "\C-X." 'gmj-insert-date)
 #+END_SRC
-
-#+RESULTS:
-: gmj-insert-date
 
 *** Refile
     Refiling.  Mostly from http://doc.norang.ca/org-mode.org
@@ -724,16 +562,10 @@ Disk space is cheap. Save lots.
   (setq org-refile-target-verify-function 'bh/verify-refile-target)
 #+end_src
 
-#+RESULTS:
-: bh/verify-refile-target
-
 ** Navigation
    #+begin_src emacs-lisp
      (global-set-key (kbd "<f3>") 'other-window)
    #+end_src
-
-   #+RESULTS:
-   : other-window
 
 *** Dired
 
@@ -774,9 +606,6 @@ From http://www.masteringemacs.org/articles/2011/03/25/working-multiple-files-di
 
 ;(setq find-ls-option '("-print0 | xargs -0 ls -ldt" . "-ldt"))
 #+END_SRC
-
-#+RESULTS:
-: -alt
 
 #+BEGIN_SRC emacs-lisp :exports code
 (defun xah-open-in-external-app ()
@@ -824,26 +653,24 @@ Version 2015-01-26"
  (define-key dired-mode-map (kbd "?") 'dired-get-size)
 #+end_src
 
-#+RESULTS:
-: xah-open-in-external-app
-
 ** Planning
 *** Org Agenda Configs
 #+begin_src emacs-lisp
   (global-set-key "\C-ca" 'org-agenda)
 
-
   ;; View of current week with only DONE items
   ;; https://emacs.stackexchange.com/questions/8150/show-done-items-in-current-calendar-week
-  ;; (add-to-list 'org-agenda-custom-commands
-  ;;              '("W" "Weekly review"
-  ;;                agenda ""
-  ;;                ((org-agenda-span 'week)
-  ;;                 (org-agenda-start-on-weekday 0)
-  ;;                 (org-agenda-start-with-log-mode t)
-  ;;                 (org-agenda-skip-function
-  ;;                  '(org-agenda-skip-entry-if 'nottodo 'done))
-  ;;                 )))
+
+  (add-to-list 'org-agenda-custom-commands
+               '("D" "Weekly DONE review"
+                 agenda ""
+                 ((org-agenda-span 'week)
+                  (org-agenda-start-on-weekday 0)
+                  ;(org-agenda-start-with-log-mode t)
+                  (org-agenda-start-with-log-mode '(closed state clock))
+                  (org-agenda-skip-function
+                   '(org-agenda-skip-entry-if 'nottodo 'done))
+                  )))
 
 #+end_src
 **** Agenda TODO Items
@@ -881,9 +708,6 @@ Version 2015-01-26"
 ;      (quote (:link t :maxlevel 2 :fileskip0 t :stepskip0 t :narrow 35  :properties ("ALLTAGS") :formula %)))
 #+end_src
 
-#+RESULTS:
-| :link | t | :maxlevel | 2 | :fileskip0 | t | :stepskip0 | t | :narrow | 35 | :formula | % |
-
 ** Reading
 *** Set up to pull some RSS and Atom feeds
     :LOGBOOK:
@@ -894,7 +718,7 @@ Version 2015-01-26"
     - This is here as an example.  The actual subscriptions are
       environment specific had have moved to private configs.
 
-      #+begin_src emacs-lisp  :exports code :tangle no
+      #+begin_src emacs-lisp  :exports code :tangle no :results output
         (setq org-feed-alist
          '(("Slashdot"
             "http://rss.slashdot.org/Slashdot/slashdot"
@@ -934,8 +758,6 @@ Version 2015-01-26"
       (setq twittering-url-show-status nil)        ; Keeps the echo area from showing all the http processes
 
     #+end_src
-
-    #+RESULTS:
 
 *** Reference
 
@@ -985,18 +807,12 @@ I unfill paragraphs a lot because Wordpress likes adding extra =<br>= tags if I 
 (global-set-key "\M-Q" 'my/unfill-paragraph)
 #+END_SRC
 
-#+RESULTS:
-: my/unfill-paragraph
-
 Also, =visual-line-mode= is so much better than =auto-fill-mode=. It doesn't actually break the text into multiple lines - it only looks that way.
 
 #+BEGIN_SRC emacs-lisp :exports code
 ;(remove-hook 'text-mode-hook #'turn-on-auto-fill)
 ;(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 #+END_SRC
-
-#+RESULTS:
-| turn-on-visual-line-mode | text-mode-hook-identify |
 
 *** Unicode
 
@@ -1017,9 +833,6 @@ Also, =visual-line-mode= is so much better than =auto-fill-mode=. It doesn't act
 #+BEGIN_SRC emacs-lisp :exports code
 (global-set-key (kbd "M-/") 'hippie-expand)
 #+END_SRC
-
-#+RESULTS:
-: hippie-expand
 
 From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el - Exclude very large buffers from dabbrev
 #+BEGIN_SRC emacs-lisp :exports code
@@ -1097,10 +910,6 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
      "python -mjson.tool" (current-buffer) t)))
 #+END_SRC
 
-#+RESULTS:
-: beautify-json
-
-
    This section contains configs rleated to org mode.  Org mode is my
    note talking system, my authoring system, time tracking, spread
    sheet, code execution environment, etc
@@ -1121,9 +930,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 ;(setq org-todo-keywords '((sequence "TODO" "IN-PROGRESS"  "|" "DONE" "WAITING" "DELEGATED" "CANCELED")))
 
 (setq org-todo-keywords
-       '((sequence "TODO(t)" "IN-PROGRESS(i!)" "WAITING(w@/!)" "|" "DONE(d!)" "DELEGATED(g!)" "CANCELED(c@)")))
-
-
+       '((sequence "TODO(t)" "IN-PROGRESS(i!)" "WAITING(w@/!)" "|" "DONE(d!)" "DELEGATED(g@)" "CANCELED(c@)" "OBE(o@)")))
 #+END_SRC
 
 *** Templates
@@ -1215,9 +1022,6 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 ;(local-set-key "\C-c\C-c" 'gmj/org-example-region)  ; <2015-05-05 Tue>
 #+end_src
 
-#+RESULTS:
-: gmj/org-example-region
-
 *** Babel settings
 
 #+BEGIN_SRC emacs-lisp :exports code
@@ -1257,8 +1061,6 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 
 #+END_SRC
 
-#+RESULTS:
-
 *** Org email and contacts settings
 
 #+BEGIN_SRC emacs-lisp :exports code
@@ -1285,7 +1087,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 
 (require 'org-contacts)
 (setq org-contacts-files '("~/Org/contacts.org"))
-(add-hook 'message-mode-hook 'turn-on-orgstruct++)
+;(add-hook 'message-mode-hook 'turn-on-orgstruct++)
 #+END_SRC
 
 
@@ -1301,9 +1103,6 @@ complicated than they are. Let's turn them off by default.
 (setq org-html-toplevel-hlevel 2)
 (setq org-export-htmlize-output-type 'css)
 #+end_src
-
-#+RESULTS:
-: css
 
 *** org2blog setup
 #+begin_src emacs-lisp
@@ -1327,9 +1126,6 @@ complicated than they are. Let's turn them off by default.
 
 
 #+END_SRC
-
-#+RESULTS:
-| sequence | TODO | IN-PROGRESS |   |   | DONE | WAITING | DELEGATED | CANCELED |
 
 *** Image display
 
@@ -1398,9 +1194,6 @@ complicated than they are. Let's turn them off by default.
 
   #+end_src
 
-  #+RESULTS:
-  : org-notmuch
-
 ;   #+begin_src emacs-lisp
 ;     (when (require 'notmuch nil 'noerror)
 ;        (message "require notmuch succeeded))
@@ -1409,8 +1202,6 @@ complicated than they are. Let's turn them off by default.
      ;(autoload 'gnus-alias-determine-identity "gnus-alias" "" t)
      ;(add-hook 'message-setup-hook 'gnus-alias-determine-identity)
    #+end_src
-
-   #+RESULTS:
 
 ** Web Browsing
 *** eww config
@@ -1449,20 +1240,6 @@ complicated than they are. Let's turn them off by default.
    #+end_src
 
 * Experimental/Testing
-** xah-fly-keys
-#+begin_src emacs-lisp
-
-    ;
-    ; xah-fly-keys testing
-    ;
-
-    (require 'xah-fly-keys)
-    (xah-fly-keys-set-layout "qwerty")
-    (xah-fly-keys 1)
-    (global-set-key (kbd "<home>") 'xah-fly-insert-mode-activate)
-
-#+end_src
-
 * Games
   :PROPERTIES:
   :dateAdded:
@@ -1516,9 +1293,8 @@ complicated than they are. Let's turn them off by default.
    ;(psychoanalyze-pinhead) ; this never ends, and fills a buffer fast....
    #+END_SRC
 
-   #+RESULTS:
 * All done, YOW !!!
-  #+BEGIN_SRC emacs-lisp :exports both
+  #+BEGIN_SRC emacs-lisp :exports both :results output
   (message (yow))
 
   #+END_SRC
