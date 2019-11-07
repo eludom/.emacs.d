@@ -23,6 +23,36 @@
     :END:
     [2016-11-20 Sun 06:40]
     - move to elisp-private or elisp-secret
+** emacs - updates
+*** TODO  Update org-struct per 9.2 release notes
+    [2019-11-06 Wed 06:31]
+
+    #+begin_example
+Version 9.2
+Incompatible changes
+Removal of OrgStruct mode mode and radio lists
+
+OrgStruct minor mode and radio lists mechanism (org-list-send-list and org-list-radio-lists-templates) are removed from the code base.
+
+Note that only radio lists have been removed, not radio tables.
+
+If you want to manipulate lists like in Org in other modes, we suggest to use orgalist.el, which you can install from GNU ELPA.
+
+If you want to use Org folding outside of Org buffers, you can have a look at the outshine package in the MELPA repository.
+Change in the structure template expansion
+
+Org 9.2 comes with a new template expansion mechanism, combining org-insert-structure-template bound to C-c C-,.
+
+If you customized the org-structure-template-alist option manually, you probably need to udpate it, see the docstring for accepted values.
+
+If you prefer using previous patterns, e.g. <s, you can activate them again by requiring Org Tempo library:
+
+(require 'org-tempo)
+
+or add it to org-modules.
+
+If you need complex templates, look at the tempo-define-template function or at solutions like Yasnippet.
+    #+end_example
 ** emacs - Debugbing
 *** DONE org9 not evaluating code blocks
     :LOGBOOK:
