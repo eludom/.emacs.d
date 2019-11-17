@@ -527,6 +527,13 @@ If you need complex templates, look at the tempo-define-template function or at 
    [2018-07-25 Wed 06:58]
    https://lists.gnu.org/archive/html/emacs-devel/2018-05/msg00746.html
    using now obsolete/removed/internal function "epa--*"
+** DONE Make Xah Fly Key cheat sheet
+   - State "DONE"       from "TODO"       [2019-11-07 Thu 06:59]
+   [2019-11-07 Thu 06:59]
+   https://github.com/eludom/.emacs.d/blob/master/xfk-cheat-sheet.pdf
+** DONE Update and sync my emacs confg on git
+   - State "DONE"       from "TODO"       [2019-11-06 Wed 07:01]
+   [2019-11-06 Wed 07:00]
 * emacs - meetings???
 * emacs - reporting
 *** TODO report bug in org9 - not honoring ":exports"

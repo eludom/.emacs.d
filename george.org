@@ -560,6 +560,14 @@ Disk space is cheap. Save lots.
     (not (member (nth 2 (org-heading-components)) org-done-keywords)))
 
   (setq org-refile-target-verify-function 'bh/verify-refile-target)
+
+  ; I often capture things in org files that are not aganda files, refile.org, etc.
+  ; This lets me put them in kno
+  (progn
+    ;; modify dired keys
+    (require 'org )
+    (define-key org-mode-map (kbd "C-c w") 'org-copy)
+    )
 #+end_src
 
 ** Navigation
@@ -911,7 +919,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 ;(setq org-todo-keywords '((sequence "TODO" "IN-PROGRESS"  "|" "DONE" "WAITING" "DELEGATED" "CANCELED")))
 
 (setq org-todo-keywords
-       '((sequence "TODO(t)" "IN-PROGRESS(i!)" "WAITING(w@/!)" "|" "DONE(d!)" "DELEGATED(g@)" "CANCELED(c@)" "OBE(o@)")))
+       '((sequence "TODO(t)" "IN-PROGRESS(i!)" "WAITING(w@/!)" "|" "DONE(d!)" "REFILED(r!)" "DELEGATED(g@)" "CANCELED(c@)" "OBE(o@)")))
 #+END_SRC
 
 *** Templates
