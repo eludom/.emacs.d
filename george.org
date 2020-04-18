@@ -521,7 +521,7 @@ Disk space is cheap. Save lots.
             (insert (format-time-string "%Y-%m-%d"))
           (if (> arg 4)
               (insert (current-time-string))
-            (insert (format-time-string "%Y%m%d%H%M"))))))
+            (insert (format-time-string "%Y%m%d"))))))
             ; if arg > 4, prompt for buffer name
     (global-set-key "\C-X." 'gmj-insert-date)
 #+END_SRC
@@ -1142,6 +1142,14 @@ complicated than they are. Let's turn them off by default.
 (eval-after-load "org"
   '(require 'ox-md nil t))
     #+end_src
+
+*** ox-hugo config
+    # https://ox-hugo.scripter.co/
+#+begin_src emacs-lisp
+(with-eval-after-load 'ox
+  (require 'ox-hugo))
+#+end_src
+
 
 ** Programming
 *** General
