@@ -547,3 +547,26 @@ If you need complex templates, look at the tempo-define-template function or at 
     [[file:~/home/secret/money/mint/testExports.org]]
 *** TODO Write test cases/code for org
 * emacs - info
+* emacs - journal (things that make me say "oh cool...")
+  I'm constantly discovering new things in Emacs.  Finding something
+  new and useful that makes me exclaim "Oh wow!" is almost a daily
+  occurrence.  Here is a log of some of them...
+** Creating a temporary buffer in emacs                                :NOTE:
+   [2020-08-14 Fri 07:13]
+   [[file:~/.emacs.d/project-emacs-dot-d.org::*emacs - journal (or a log of things that make me say "oh cool...")][emacs - journal (or a log of things that make me say "oh cool...")]]
+   In Xah fly mode "SPC i l" calls xah-new-empty-buffer.  coo.
+** Org-capture for notes/journals/tweets...                            :NOTE:
+ [2020-08-14 Fri 07:25]
+ [[file:~/.emacs.d/george.org::*Capture Templates][Capture Templates]]
+ So, org-capture "note" template allows me to capture
+ notes/journals/tweets. My config has:
+
+ #+begin_example
+   (setq org-capture-templates
+      (quote (...
+;;              ("n" "note" entry (file "~/Org/refile.org")
+;;               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("n" "note" entry (file "~/Org/refile.org")
+               "* %? :NOTE:\n%U\n%a\n")
+ #+end_example
+ I commented out the old entry because I don't use clocking for time tracking
