@@ -1,0 +1,327 @@
+326 matches for "xah" in buffer: *Help*
+    754:`xah-fly-keys' Minor Mode Bindings:
+    760:C-n             xah-new-empty-buffer
+    763:C-t             xah-pop-local-mark-ring
+    765:C-w             xah-close-current-buffer
+    768:SPC             xah-fly-leader-key-map
+    769:'               xah-cycle-hyphen-underscore-space
+    770:,               xah-next-window-or-frame
+    771:-               xah-backward-punct
+    772:.               xah-forward-right-bracket
+    773:/               xah-goto-matching-bracket
+    774:0               xah-pop-local-mark-ring
+    775:1               xah-extend-selection
+    776:2               xah-select-line
+    780:6               xah-select-block
+    781:7               xah-select-line
+    782:8               xah-extend-selection
+    783:9               xah-select-text-in-quote
+    784:;               xah-end-of-line-or-block
+    785:=               xah-forward-punct
+    789:b               xah-toggle-letter-case
+    790:c               xah-copy-line-or-region
+    791:d               xah-delete-backward-char-or-bracket-text
+    792:e               xah-backward-kill-word
+    793:f               xah-fly-insert-mode-activate
+    794:g               xah-delete-current-text-block
+    795:h               xah-beginning-of-line-or-block
+    800:m               xah-backward-left-bracket
+    803:p               xah-insert-space-before
+    804:q               xah-reformat-lines
+    805:r               xah-kill-word
+    809:v               xah-paste-or-paste-previous
+    810:w               xah-shrink-whitespaces
+    811:x               xah-cut-line-or-region
+    813:z               xah-comment-dwim
+    814:DEL             xah-fly-leader-key-map
+    817:C-S-t           xah-open-last-closed
+    818:C-SPC           xah-fly-leader-key-map
+    822:C-1             xah-next-user-buffer
+    823:C-2             xah-previous-user-buffer
+    826:C-5             xah-previous-emacs-buffer
+    827:C-6             xah-next-emacs-buffer
+    828:C-7             xah-previous-user-buffer
+    829:C-8             xah-next-user-buffer
+    831:<C-S-iso-lefttab>               xah-previous-user-buffer
+    832:<C-S-next>      xah-next-emacs-buffer
+    833:<C-S-prior>     xah-previous-emacs-buffer
+    834:<C-S-tab>       xah-previous-user-buffer
+    835:<C-f11>         xah-previous-emacs-buffer
+    836:<C-f12>         xah-next-emacs-buffer
+    837:<C-next>        xah-next-user-buffer
+    838:<C-prior>       xah-previous-user-buffer
+    839:<C-tab>         xah-next-user-buffer
+    840:<f8>            xah-fly-command-mode-activate-no-hook
+    842:<f11>           xah-previous-user-buffer
+    843:<f12>           xah-next-user-buffer
+    844:<home>          xah-fly-command-mode-activate
+    845:<menu>          xah-fly-command-mode-activate
+    847:DEL TAB         xah-fly--tab-key-map
+    849:DEL SPC         xah-fly-insert-mode-activate
+    850:DEL '           xah-show-formfeed-as-line
+    851:DEL ,           xah-fly-w-keymap
+    855:DEL 6           xah-upcase-sentence
+    860:DEL b           xah-toggle-previous-letter-case
+    861:DEL c           xah-copy-all-or-region
+    862:DEL d           xah-fly-e-keymap
+    863:DEL e           xah-fly-dot-keymap
+    867:DEL i           xah-fly-c-keymap
+    868:DEL j           xah-fly-h-keymap
+    869:DEL k           xah-fly-t-keymap
+    870:DEL l           xah-fly-n-keymap
+    873:DEL o           xah-fly-r-keymap
+    875:DEL q           xah-fill-or-unfill
+    878:DEL t           xah-show-kill-ring
+    880:DEL v           xah-paste-or-paste-previous
+    881:DEL w           xah-fly-comma-keymap
+    882:DEL x           xah-cut-all-or-region
+    883:DEL y           xah-search-current-word
+    884:DEL DEL         xah-fly-insert-mode-activate
+    886:SPC TAB         xah-fly--tab-key-map
+    888:SPC SPC         xah-fly-insert-mode-activate
+    889:SPC '           xah-show-formfeed-as-line
+    890:SPC ,           xah-fly-w-keymap
+    894:SPC 6           xah-upcase-sentence
+    899:SPC b           xah-toggle-previous-letter-case
+    900:SPC c           xah-copy-all-or-region
+    901:SPC d           xah-fly-e-keymap
+    902:SPC e           xah-fly-dot-keymap
+    906:SPC i           xah-fly-c-keymap
+    907:SPC j           xah-fly-h-keymap
+    908:SPC k           xah-fly-t-keymap
+    909:SPC l           xah-fly-n-keymap
+    912:SPC o           xah-fly-r-keymap
+    914:SPC q           xah-fill-or-unfill
+    917:SPC t           xah-show-kill-ring
+    919:SPC v           xah-paste-or-paste-previous
+    920:SPC w           xah-fly-comma-keymap
+    921:SPC x           xah-cut-all-or-region
+    922:SPC y           xah-search-current-word
+    923:SPC DEL         xah-fly-insert-mode-activate
+    925:M-SPC           xah-fly-command-mode-activate-no-hook
+    927:C-SPC TAB       xah-fly--tab-key-map
+    929:C-SPC SPC       xah-fly-insert-mode-activate
+    930:C-SPC '         xah-show-formfeed-as-line
+    931:C-SPC ,         xah-fly-w-keymap
+    935:C-SPC 6         xah-upcase-sentence
+    940:C-SPC b         xah-toggle-previous-letter-case
+    941:C-SPC c         xah-copy-all-or-region
+    942:C-SPC d         xah-fly-e-keymap
+    943:C-SPC e         xah-fly-dot-keymap
+    947:C-SPC i         xah-fly-c-keymap
+    948:C-SPC j         xah-fly-h-keymap
+    949:C-SPC k         xah-fly-t-keymap
+    950:C-SPC l         xah-fly-n-keymap
+    953:C-SPC o         xah-fly-r-keymap
+    955:C-SPC q         xah-fill-or-unfill
+    958:C-SPC t         xah-show-kill-ring
+    960:C-SPC v         xah-paste-or-paste-previous
+    961:C-SPC w         xah-fly-comma-keymap
+    962:C-SPC x         xah-cut-all-or-region
+    963:C-SPC y         xah-search-current-word
+    964:C-SPC DEL       xah-fly-insert-mode-activate
+    966:<f9> TAB        xah-fly--tab-key-map
+    968:<f9> SPC        xah-fly-insert-mode-activate
+    969:<f9> '          xah-show-formfeed-as-line
+    970:<f9> ,          xah-fly-w-keymap
+    974:<f9> 6          xah-upcase-sentence
+    979:<f9> b          xah-toggle-previous-letter-case
+    980:<f9> c          xah-copy-all-or-region
+    981:<f9> d          xah-fly-e-keymap
+    982:<f9> e          xah-fly-dot-keymap
+    986:<f9> i          xah-fly-c-keymap
+    987:<f9> j          xah-fly-h-keymap
+    988:<f9> k          xah-fly-t-keymap
+    989:<f9> l          xah-fly-n-keymap
+    992:<f9> o          xah-fly-r-keymap
+    994:<f9> q          xah-fill-or-unfill
+    997:<f9> t          xah-show-kill-ring
+    999:<f9> v          xah-paste-or-paste-previous
+   1000:<f9> w          xah-fly-comma-keymap
+   1001:<f9> x          xah-cut-all-or-region
+   1002:<f9> y          xah-search-current-word
+   1003:<f9> DEL        xah-fly-insert-mode-activate
+   1006:DEL , c         xah-run-current-file
+   1013:DEL , DEL       xah-delete-current-file
+   1016:DEL k SPC       xah-clean-whitespace
+   1017:DEL k ,         xah-next-window-or-frame
+   1018:DEL k 1         xah-append-to-register-1
+   1019:DEL k 2         xah-clear-register-1
+   1020:DEL k 3         xah-copy-to-register-1
+   1021:DEL k 4         xah-paste-from-register-1
+   1022:DEL k 7         xah-append-to-register-1
+   1023:DEL k 8         xah-clear-register-1
+   1031:DEL k j         xah-close-current-buffer
+   1034:DEL k m         xah-make-backup-and-save
+   1036:DEL k p         xah-escape-quotes
+   1049:DEL o f         xah-quote-lines
+   1050:DEL o g         xah-space-to-newline
+   1090:DEL l u         xah-toggle-read-novel-mode
+   1108:DEL j m         xah-describe-major-mode
+   1120:DEL d SPC       xah-insert-unicode
+   1121:DEL d ,         xah-insert-angle-bracket〈〉
+   1122:DEL d ;         xah-insert-string-assignment
+   1123:DEL d W         xah-insert-double-angle-bracket《》
+   1124:DEL d f         xah-insert-date
+   1125:DEL d g         xah-insert-curly-single-quote‘’
+   1126:DEL d h         xah-insert-double-curly-quote“”
+   1127:DEL d i         xah-insert-ascii-single-quote
+   1128:DEL d j         xah-insert-brace
+   1129:DEL d k         xah-insert-paren
+   1130:DEL d l         xah-insert-square-bracket
+   1131:DEL d m         xah-insert-corner-bracket「」
+   1132:DEL d n         xah-insert-black-lenticular-bracket【】
+   1133:DEL d o         xah-insert-tortoise-shell-bracket〔〕
+   1134:DEL d p         xah-insert-formfeed
+   1135:DEL d r         xah-insert-single-angle-quote‹›
+   1136:DEL d t         xah-insert-double-angle-quote«»
+   1137:DEL d u         xah-insert-ascii-double-quote
+   1138:DEL d y         xah-insert-emacs-quote
+   1143:DEL i f         xah-open-file-at-cursor
+   1144:DEL i g         xah-copy-file-path
+   1147:DEL i l         xah-new-empty-buffer
+   1148:DEL i o         xah-open-file-fast
+   1150:DEL i r         xah-open-last-closed
+   1151:DEL i s         xah-show-in-desktop
+   1152:DEL i t         xah-list-recently-closed
+   1153:DEL i w         xah-open-in-external-app
+   1154:DEL i y         xah-open-recently-closed
+   1177:SPC , c         xah-run-current-file
+   1184:SPC , DEL       xah-delete-current-file
+   1187:SPC k SPC       xah-clean-whitespace
+   1188:SPC k ,         xah-next-window-or-frame
+   1189:SPC k 1         xah-append-to-register-1
+   1190:SPC k 2         xah-clear-register-1
+   1191:SPC k 3         xah-copy-to-register-1
+   1192:SPC k 4         xah-paste-from-register-1
+   1193:SPC k 7         xah-append-to-register-1
+   1194:SPC k 8         xah-clear-register-1
+   1202:SPC k j         xah-close-current-buffer
+   1205:SPC k m         xah-make-backup-and-save
+   1207:SPC k p         xah-escape-quotes
+   1220:SPC o f         xah-quote-lines
+   1221:SPC o g         xah-space-to-newline
+   1261:SPC l u         xah-toggle-read-novel-mode
+   1279:SPC j m         xah-describe-major-mode
+   1291:SPC d SPC       xah-insert-unicode
+   1292:SPC d ,         xah-insert-angle-bracket〈〉
+   1293:SPC d ;         xah-insert-string-assignment
+   1294:SPC d W         xah-insert-double-angle-bracket《》
+   1295:SPC d f         xah-insert-date
+   1296:SPC d g         xah-insert-curly-single-quote‘’
+   1297:SPC d h         xah-insert-double-curly-quote“”
+   1298:SPC d i         xah-insert-ascii-single-quote
+   1299:SPC d j         xah-insert-brace
+   1300:SPC d k         xah-insert-paren
+   1301:SPC d l         xah-insert-square-bracket
+   1302:SPC d m         xah-insert-corner-bracket「」
+   1303:SPC d n         xah-insert-black-lenticular-bracket【】
+   1304:SPC d o         xah-insert-tortoise-shell-bracket〔〕
+   1305:SPC d p         xah-insert-formfeed
+   1306:SPC d r         xah-insert-single-angle-quote‹›
+   1307:SPC d t         xah-insert-double-angle-quote«»
+   1308:SPC d u         xah-insert-ascii-double-quote
+   1309:SPC d y         xah-insert-emacs-quote
+   1314:SPC i f         xah-open-file-at-cursor
+   1315:SPC i g         xah-copy-file-path
+   1318:SPC i l         xah-new-empty-buffer
+   1319:SPC i o         xah-open-file-fast
+   1321:SPC i r         xah-open-last-closed
+   1322:SPC i s         xah-show-in-desktop
+   1323:SPC i t         xah-list-recently-closed
+   1324:SPC i w         xah-open-in-external-app
+   1325:SPC i y         xah-open-recently-closed
+   1348:C-SPC , c       xah-run-current-file
+   1355:C-SPC , DEL     xah-delete-current-file
+   1358:C-SPC k SPC     xah-clean-whitespace
+   1359:C-SPC k ,       xah-next-window-or-frame
+   1360:C-SPC k 1       xah-append-to-register-1
+   1361:C-SPC k 2       xah-clear-register-1
+   1362:C-SPC k 3       xah-copy-to-register-1
+   1363:C-SPC k 4       xah-paste-from-register-1
+   1364:C-SPC k 7       xah-append-to-register-1
+   1365:C-SPC k 8       xah-clear-register-1
+   1373:C-SPC k j       xah-close-current-buffer
+   1376:C-SPC k m       xah-make-backup-and-save
+   1378:C-SPC k p       xah-escape-quotes
+   1391:C-SPC o f       xah-quote-lines
+   1392:C-SPC o g       xah-space-to-newline
+   1432:C-SPC l u       xah-toggle-read-novel-mode
+   1450:C-SPC j m       xah-describe-major-mode
+   1462:C-SPC d SPC     xah-insert-unicode
+   1463:C-SPC d ,       xah-insert-angle-bracket〈〉
+   1464:C-SPC d ;       xah-insert-string-assignment
+   1465:C-SPC d W       xah-insert-double-angle-bracket《》
+   1466:C-SPC d f       xah-insert-date
+   1467:C-SPC d g       xah-insert-curly-single-quote‘’
+   1468:C-SPC d h       xah-insert-double-curly-quote“”
+   1469:C-SPC d i       xah-insert-ascii-single-quote
+   1470:C-SPC d j       xah-insert-brace
+   1471:C-SPC d k       xah-insert-paren
+   1472:C-SPC d l       xah-insert-square-bracket
+   1473:C-SPC d m       xah-insert-corner-bracket「」
+   1474:C-SPC d n       xah-insert-black-lenticular-bracket【】
+   1475:C-SPC d o       xah-insert-tortoise-shell-bracket〔〕
+   1476:C-SPC d p       xah-insert-formfeed
+   1477:C-SPC d r       xah-insert-single-angle-quote‹›
+   1478:C-SPC d t       xah-insert-double-angle-quote«»
+   1479:C-SPC d u       xah-insert-ascii-double-quote
+   1480:C-SPC d y       xah-insert-emacs-quote
+   1485:C-SPC i f       xah-open-file-at-cursor
+   1486:C-SPC i g       xah-copy-file-path
+   1489:C-SPC i l       xah-new-empty-buffer
+   1490:C-SPC i o       xah-open-file-fast
+   1492:C-SPC i r       xah-open-last-closed
+   1493:C-SPC i s       xah-show-in-desktop
+   1494:C-SPC i t       xah-list-recently-closed
+   1495:C-SPC i w       xah-open-in-external-app
+   1496:C-SPC i y       xah-open-recently-closed
+   1519:<f9> , c        xah-run-current-file
+   1526:<f9> , DEL      xah-delete-current-file
+   1529:<f9> k SPC      xah-clean-whitespace
+   1530:<f9> k ,        xah-next-window-or-frame
+   1531:<f9> k 1        xah-append-to-register-1
+   1532:<f9> k 2        xah-clear-register-1
+   1533:<f9> k 3        xah-copy-to-register-1
+   1534:<f9> k 4        xah-paste-from-register-1
+   1535:<f9> k 7        xah-append-to-register-1
+   1536:<f9> k 8        xah-clear-register-1
+   1544:<f9> k j        xah-close-current-buffer
+   1547:<f9> k m        xah-make-backup-and-save
+   1549:<f9> k p        xah-escape-quotes
+   1562:<f9> o f        xah-quote-lines
+   1563:<f9> o g        xah-space-to-newline
+   1603:<f9> l u        xah-toggle-read-novel-mode
+   1621:<f9> j m        xah-describe-major-mode
+   1633:<f9> d SPC      xah-insert-unicode
+   1634:<f9> d ,        xah-insert-angle-bracket〈〉
+   1635:<f9> d ;        xah-insert-string-assignment
+   1636:<f9> d W        xah-insert-double-angle-bracket《》
+   1637:<f9> d f        xah-insert-date
+   1638:<f9> d g        xah-insert-curly-single-quote‘’
+   1639:<f9> d h        xah-insert-double-curly-quote“”
+   1640:<f9> d i        xah-insert-ascii-single-quote
+   1641:<f9> d j        xah-insert-brace
+   1642:<f9> d k        xah-insert-paren
+   1643:<f9> d l        xah-insert-square-bracket
+   1644:<f9> d m        xah-insert-corner-bracket「」
+   1645:<f9> d n        xah-insert-black-lenticular-bracket【】
+   1646:<f9> d o        xah-insert-tortoise-shell-bracket〔〕
+   1647:<f9> d p        xah-insert-formfeed
+   1648:<f9> d r        xah-insert-single-angle-quote‹›
+   1649:<f9> d t        xah-insert-double-angle-quote«»
+   1650:<f9> d u        xah-insert-ascii-double-quote
+   1651:<f9> d y        xah-insert-emacs-quote
+   1656:<f9> i f        xah-open-file-at-cursor
+   1657:<f9> i g        xah-copy-file-path
+   1660:<f9> i l        xah-new-empty-buffer
+   1661:<f9> i o        xah-open-file-fast
+   1663:<f9> i r        xah-open-last-closed
+   1664:<f9> i s        xah-show-in-desktop
+   1665:<f9> i t        xah-list-recently-closed
+   1666:<f9> i w        xah-open-in-external-app
+   1667:<f9> i y        xah-open-recently-closed
+   2027:<S-f11>         xah-previous-emacs-buffer
+   2028:<S-f12>         xah-next-emacs-buffer
+   2062:<f7>            xah-open-in-external-app
+   2366:<f6> <f6>       xah-copy-file-path

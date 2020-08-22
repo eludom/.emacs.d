@@ -1,0 +1,305 @@
+XFK key bindings 2019-11-07 with leader-key duplicates removed.
+
+`xah-fly-keys' Minor Mode Bindings:
+key             binding
+---             -------
+
+C-a             mark-whole-buffer
+C-d             pop-global-mark
+C-n             xah-new-empty-buffer
+C-o             find-file
+C-s             save-buffer
+C-t             xah-pop-local-mark-ring
+C-v             yank
+C-w             xah-close-current-buffer
+C-z             undo
+ESC             Prefix Command
+SPC             xah-fly-leader-key-map
+'               xah-cycle-hyphen-underscore-space
+,               xah-next-window-or-frame
+-               xah-backward-punct
+.               xah-forward-right-bracket
+/               xah-goto-matching-bracket
+0               xah-pop-local-mark-ring
+1               xah-extend-selection
+2               xah-select-line
+3               delete-other-windows
+4               split-window-below
+5               delete-char
+6               xah-select-block
+7               xah-select-line
+8               xah-extend-selection
+9               xah-select-text-in-quote
+;               xah-end-of-line-or-block
+=               xah-forward-punct
+[               hippie-expand
+`               other-frame
+a               helm-M-x
+b               xah-toggle-letter-case
+c               xah-copy-line-or-region
+d               xah-delete-backward-char-or-bracket-text
+e               xah-backward-kill-word
+f               xah-fly-insert-mode-activate
+g               xah-delete-current-text-block
+h               xah-beginning-of-line-or-block
+i               previous-line
+j               backward-char
+k               next-line
+l               forward-char
+m               xah-backward-left-bracket
+n               isearch-forward
+o               forward-word
+p               xah-insert-space-before
+q               xah-reformat-lines
+r               xah-kill-word
+s               open-line
+t               set-mark-command
+u               backward-word
+v               xah-paste-or-paste-previous
+w               xah-shrink-whitespaces
+x               xah-cut-line-or-region
+y               undo
+z               xah-comment-dwim
+C-S-n           make-frame-command
+C-S-s           write-file
+C-S-t           xah-open-last-closed
+C-SPC           xah-fly-leader-key-map
+C-+             text-scale-increase
+C--             text-scale-decrease
+C-0             scroll-up-command
+C-1             xah-next-user-buffer
+C-2             xah-previous-user-buffer
+C-3             previous-error
+C-4             next-error
+C-5             xah-previous-emacs-buffer
+C-6             xah-next-emacs-buffer
+C-7             xah-previous-user-buffer
+C-8             xah-next-user-buffer
+C-9             scroll-down-command
+<C-S-iso-lefttab>               xah-previous-user-buffer
+<C-S-next>      xah-next-emacs-buffer
+<C-S-prior>     xah-previous-emacs-buffer
+<C-S-tab>       xah-previous-user-buffer
+<C-f11>         xah-previous-emacs-buffer
+<C-f12>         xah-next-emacs-buffer
+<C-next>        xah-next-user-buffer
+<C-prior>       xah-previous-user-buffer
+<C-tab>         xah-next-user-buffer
+<f8>            xah-fly-command-mode-activate-no-hook
+<f9>            Prefix Command
+<f11>           xah-previous-user-buffer
+<f12>           xah-next-user-buffer
+<home>          xah-fly-command-mode-activate
+<menu>          xah-fly-command-mode-activate
+
+SPC TAB         xah-fly--tab-key-map
+SPC RET         execute-extended-command
+SPC SPC         xah-fly-insert-mode-activate
+SPC '           xah-show-formfeed-as-line
+SPC ,           xah-fly-w-keymap
+SPC 3           delete-window
+SPC 4           split-window-right
+SPC 5           balance-windows
+SPC 6           xah-upcase-sentence
+SPC 9           ispell-word
+SPC ;           save-buffer
+SPC \           toggle-input-method
+SPC a           mark-whole-buffer
+SPC b           xah-toggle-previous-letter-case
+SPC c           xah-copy-all-or-region
+SPC d           xah-fly-e-keymap
+SPC e           xah-fly-dot-keymap
+SPC f           switch-to-buffer
+SPC g           kill-line
+SPC h           beginning-of-buffer
+SPC i           xah-fly-c-keymap
+SPC j           xah-fly-h-keymap
+SPC k           xah-fly-t-keymap
+SPC l           xah-fly-n-keymap
+SPC m           dired-jump
+SPC n           end-of-buffer
+SPC o           xah-fly-r-keymap
+SPC p           recenter-top-bottom
+SPC q           xah-fill-or-unfill
+SPC r           query-replace
+SPC s           exchange-point-and-mark
+SPC t           xah-show-kill-ring
+SPC u           isearch-forward
+SPC v           xah-paste-or-paste-previous
+SPC w           xah-fly-comma-keymap
+SPC x           xah-cut-all-or-region
+SPC y           xah-search-current-word
+SPC DEL         xah-fly-insert-mode-activate
+
+M-SPC           xah-fly-command-mode-activate-no-hook
+
+SPC , ,         delete-frame
+SPC , c         xah-run-current-file
+SPC , d         eval-defun
+SPC , e         eval-buffer
+SPC , f         eval-region
+SPC , m         eval-last-sexp
+SPC , r         eval-expression
+SPC , x         save-buffers-kill-terminal
+SPC , DEL       xah-delete-current-file
+
+SPC k TAB       move-to-column
+SPC k SPC       xah-clean-whitespace
+SPC k ,         xah-next-window-or-frame
+SPC k 1         xah-append-to-register-1
+SPC k 2         xah-clear-register-1
+SPC k 3         xah-copy-to-register-1
+SPC k 4         xah-paste-from-register-1
+SPC k 7         xah-append-to-register-1
+SPC k 8         xah-clear-register-1
+SPC k c         copy-to-register
+SPC k d         list-matching-lines
+SPC k e         sort-lines
+SPC k f         delete-matching-lines
+SPC k g         delete-non-matching-lines
+SPC k h         mark-defun
+SPC k i         goto-char
+SPC k j         xah-close-current-buffer
+SPC k k         repeat
+SPC k l         repeat-complex-command
+SPC k m         xah-make-backup-and-save
+SPC k o         copy-rectangle-to-register
+SPC k p         xah-escape-quotes
+SPC k q         reverse-region
+SPC k r         query-replace-regexp
+SPC k t         delete-duplicate-lines
+SPC k v         insert-register
+SPC k w         sort-numeric-fields
+SPC k y         goto-line
+
+SPC o SPC       rectangle-mark-mode
+SPC o 3         number-to-register
+SPC o 4         increment-register
+SPC o d         call-last-kbd-macro
+SPC o e         kmacro-start-macro
+SPC o f         xah-quote-lines
+SPC o g         xah-space-to-newline
+SPC o h         delete-rectangle
+SPC o i         replace-rectangle
+SPC o l         rectangle-number-lines
+SPC o o         yank-rectangle
+SPC o p         clear-rectangle
+SPC o r         kmacro-end-macro
+SPC o s         open-rectangle
+SPC o t         delete-whitespace-rectangle
+SPC o u         kill-rectangle
+SPC o w         apply-macro-to-region-lines
+
+SPC l SPC       whitespace-mode
+SPC l ,         eww
+SPC l /         abort-recursive-edit
+SPC l 0         shell-command-on-region
+SPC l 1         set-input-method
+SPC l 2         global-hl-line-mode
+SPC l 4         global-display-line-numbers-mode
+SPC l 5         visual-line-mode
+SPC l 6         calendar
+SPC l 7         calc
+SPC l 9         shell-command
+SPC l a         text-scale-adjust
+SPC l b         save-some-buffers
+SPC l c         flyspell-buffer
+SPC l d         eshell
+SPC l e         toggle-frame-fullscreen
+SPC l f         shell
+SPC l g         make-frame-command
+SPC l h         narrow-to-page
+SPC l i         toggle-case-fold-search
+SPC l j         widen
+SPC l k         narrow-to-defun
+SPC l l         narrow-to-region
+SPC l n         toggle-debug-on-error
+SPC l p         toggle-word-wrap
+SPC l q         frame-configuration-to-register
+SPC l r         read-only-mode
+SPC l s         variable-pitch-mode
+SPC l u         xah-toggle-read-novel-mode
+SPC l v         menu-bar-open
+SPC l w         abbrev-mode
+SPC l z         window-configuration-to-register
+
+SPC j .         apropos-value
+SPC j /         describe-coding-system
+SPC j ;         describe-syntax
+SPC j K         Info-goto-emacs-key-command-node
+SPC j a         apropos-command
+SPC j c         man
+SPC j d         view-echo-area-messages
+SPC j f         elisp-index-search
+SPC j g         info
+SPC j h         apropos-documentation
+SPC j i         describe-char
+SPC j j         describe-function
+SPC j l         describe-variable
+SPC j m         xah-describe-major-mode
+SPC j n         describe-bindings
+SPC j o         apropos-variable
+SPC j p         view-lossage
+SPC j r         finder-by-keyword
+SPC j s         describe-language-environment
+SPC j u         info-lookup-symbol
+SPC j v         describe-key
+SPC j y         describe-face
+SPC j z         Info-goto-emacs-command-node
+
+SPC d RET       insert-char
+SPC d SPC       xah-insert-unicode
+SPC d ,         xah-insert-angle-bracket〈〉
+SPC d ;         xah-insert-string-assignment
+SPC d W         xah-insert-double-angle-bracket《》
+SPC d f         xah-insert-date
+SPC d g         xah-insert-curly-single-quote‘’
+SPC d h         xah-insert-double-curly-quote“”
+SPC d i         xah-insert-ascii-single-quote
+SPC d j         xah-insert-brace
+SPC d k         xah-insert-paren
+SPC d l         xah-insert-square-bracket
+SPC d m         xah-insert-corner-bracket「」
+SPC d n         xah-insert-black-lenticular-bracket【】
+SPC d o         xah-insert-tortoise-shell-bracket〔〕
+SPC d p         xah-insert-formfeed
+SPC d r         xah-insert-single-angle-quote‹›
+SPC d t         xah-insert-double-angle-quote«»
+SPC d u         xah-insert-ascii-double-quote
+SPC d y         xah-insert-emacs-quote
+
+SPC i ;         write-file
+SPC i d         ibuffer
+SPC i e         find-file
+SPC i f         xah-open-file-at-cursor
+SPC i g         xah-copy-file-path
+SPC i i         bookmark-bmenu-list
+SPC i j         recentf-open-files
+SPC i l         xah-new-empty-buffer
+SPC i o         xah-open-file-fast
+SPC i p         bookmark-set
+SPC i r         xah-open-last-closed
+SPC i s         xah-show-in-desktop
+SPC i t         xah-list-recently-closed
+SPC i w         xah-open-in-external-app
+SPC i y         xah-open-recently-closed
+
+SPC w k         xref-find-definitions
+SPC w l         xref-pop-marker-stack
+
+SPC TAB TAB     indent-for-tab-command
+SPC TAB 0       expand-jump-to-next-slot
+SPC TAB 1       abbrev-prefix-mark
+SPC TAB 2       edit-abbrevs
+SPC TAB 3       expand-abbrev
+SPC TAB 4       expand-region-abbrevs
+SPC TAB 5       unexpand-abbrev
+SPC TAB 6       add-global-abbrev
+SPC TAB 7       add-mode-abbrev
+SPC TAB 8       inverse-add-global-abbrev
+SPC TAB 9       inverse-add-mode-abbrev
+SPC TAB ;       indent-sexp
+SPC TAB ]       expand-jump-to-previous-slot
+SPC TAB g       complete-symbol
+SPC TAB o       indent-region
+SPC TAB u       indent-rigidly
