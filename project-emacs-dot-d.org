@@ -534,6 +534,18 @@ If you need complex templates, look at the tempo-define-template function or at 
 ** DONE Update and sync my emacs confg on git
    - State "DONE"       from "TODO"       [2019-11-06 Wed 07:01]
    [2019-11-06 Wed 07:00]
+** OBE Create a function/key-binding to create a temp buffer
+   - Note taken on [2020-08-16 Sun 19:24] \\
+     There's already a binding in xfk
+   - State "OBE"        from "TODO"       [2020-08-16 Sun 19:23]
+   [2020-08-10 Mon 06:35]
+** TODO figure out why GPG prompting for passwords (.e.g ~/.authinfo for IRC) is not working
+   [2020-08-19 Wed 07:21]
+** IN-PROGRESS fix gpg in emacs 28 so I can use .authinfo.gpg
+   - State "IN-PROGRESS" from "TODO"       [2020-08-22 Sat 08:44]
+    If I "gpg -d ~/.authinfo.gpg" on the command line first, it then
+     works in emacs
+   [2020-08-22 Sat 06:48]
 * emacs - meetings???
 * emacs - reporting
 *** TODO report bug in org9 - not honoring ":exports"
@@ -547,26 +559,3 @@ If you need complex templates, look at the tempo-define-template function or at 
     [[file:~/home/secret/money/mint/testExports.org]]
 *** TODO Write test cases/code for org
 * emacs - info
-* emacs - journal (things that make me say "oh cool...")
-  I'm constantly discovering new things in Emacs.  Finding something
-  new and useful that makes me exclaim "Oh wow!" is almost a daily
-  occurrence.  Here is a log of some of them...
-** Creating a temporary buffer in emacs                                :NOTE:
-   [2020-08-14 Fri 07:13]
-   [[file:~/.emacs.d/project-emacs-dot-d.org::*emacs - journal (or a log of things that make me say "oh cool...")][emacs - journal (or a log of things that make me say "oh cool...")]]
-   In Xah fly mode "SPC i l" calls xah-new-empty-buffer.  coo.
-** Org-capture for notes/journals/tweets...                            :NOTE:
- [2020-08-14 Fri 07:25]
- [[file:~/.emacs.d/george.org::*Capture Templates][Capture Templates]]
- So, org-capture "note" template allows me to capture
- notes/journals/tweets. My config has:
-
- #+begin_example
-   (setq org-capture-templates
-      (quote (...
-;;              ("n" "note" entry (file "~/Org/refile.org")
-;;               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("n" "note" entry (file "~/Org/refile.org")
-               "* %? :NOTE:\n%U\n%a\n")
- #+end_example
- I commented out the old entry because I don't use clocking for time tracking
