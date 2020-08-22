@@ -919,7 +919,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 ;(setq org-todo-keywords '((sequence "TODO" "IN-PROGRESS"  "|" "DONE" "WAITING" "DELEGATED" "CANCELED")))
 
 (setq org-todo-keywords
-       '((sequence "TODO(t)" "IN-PROGRESS(i!)" "WAITING(w@/!)" "|" "DONE(d!)" "REFILED(r!)" "DELEGATED(g@)" "CANCELED(c@)" "OBE(o@)")))
+       '((sequence "TODO(t)" "IN-PROGRESS(i!)" "WAITING(w@/!)" "|" "DONE(d@)" "REFILED(r!)" "DELEGATED(g@)" "CANCELED(c@)" "OBE(o@)")))
 #+END_SRC
 
 *** Templates
