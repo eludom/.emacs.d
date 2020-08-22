@@ -1193,58 +1193,55 @@ complicated than they are. Let's turn them off by default.
 #+END_SRC
 *** Notmuch for reading mail
 
-  #+begin_src emacs-lisp
-    ;; (autoload 'notmuch "notmuch" "Notmuch mail" t)
+#   #+begin_src emacs-lisp
+#   (autoload 'notmuch "notmuch" "Notmuch mail" t)
 
-   ;; ;(require 'notmuch)  ; default in /usr/local/share/emacs/site-lisp/
-   ;; (require 'org-notmuch)  ; in org-plus-contrib
+#   (require 'notmuch)  ; default in /usr/local/share/emacs/site-lisp/
+#   (require 'org-notmuch)  ; in org-plus-contrib
 
-  # #+end_src
+#   (when (require 'notmuch nil 'noerror)
+#   (message "require notmuch succeeded))
+#   (when (require 'org-notmuch nil 'noerror)
+#   (message "require notmuch succeeded))
+#   (autoload 'gnus-alias-determine-identity "gnus-alias" "" t)
+#   (add-hook 'message-setup-hook 'gnus-alias-determine-identity)
+#    #+end_src
 
-;   #+begin_src emacs-lisp
-;     (when (require 'notmuch nil 'noerror)
-;        (message "require notmuch succeeded))
-;     (when (require 'org-notmuch nil 'noerror)
-;        (message "require notmuch succeeded))
-     ;(autoload 'gnus-alias-determine-identity "gnus-alias" "" t)
-     ;(add-hook 'message-setup-hook 'gnus-alias-determine-identity)
-   #+end_src
+# ** Web Browsing
+# *** eww config
+#     #+begin_src emacs-lisp
+#     (setq eww-search-prefix "https://www.google.com/search?q=")
+#      ;
+#      ; https://emacs.stackexchange.com/questions/24472/simple-method-for-creating-multiple-eww-buffers
+#      ;
 
-** Web Browsing
-*** eww config
-    #+begin_src emacs-lisp
-    (setq eww-search-prefix "https://www.google.com/search?q=")
-     ;
-     ; https://emacs.stackexchange.com/questions/24472/simple-method-for-creating-multiple-eww-buffers
-     ;
+#       (defun xah-rename-eww-hook ()
+#          "Rename eww browser's buffer so sites open in new page."
+#         (rename-buffer "eww" t))
+#        (add-hook 'eww-mode-hook #'xah-rename-eww-hook)
 
-      (defun xah-rename-eww-hook ()
-         "Rename eww browser's buffer so sites open in new page."
-        (rename-buffer "eww" t))
-       (add-hook 'eww-mode-hook #'xah-rename-eww-hook)
+#        ; Defines "s" for "split" and "Q" for "quit""
+#        ;
+#        ; (xah-rename-eww-hook (lambda nil (local-set-key (kbd "s") (quote my/eww-split-right)) (local-set-key (kbd "Q") (quote my/eww-quitAndSingleWin))))
+#        ;
 
-       ; Defines "s" for "split" and "Q" for "quit""
-       ;
-       ; (xah-rename-eww-hook (lambda nil (local-set-key (kbd "s") (quote my/eww-split-right)) (local-set-key (kbd "Q") (quote my/eww-quitAndSingleWin))))
-       ;
+#        ; TO DO
+#        ;  Create "my/eww-rename-current-buffer" to rename buffer to temp name or name of page to allow multiple eww windows open at one time
 
-       ; TO DO
-       ;  Create "my/eww-rename-current-buffer" to rename buffer to temp name or name of page to allow multiple eww windows open at one time
+#      #+end_src
 
-     #+end_src
+# *** Setup browser(s) for links
+#    Set default browswer.  See http://stackoverflow.com/questions/4506249/how-to-make-emacs-org-mode-open-links-to-sites-in-google-chrome
+#    Can still run eww by hand (or via alias) to open most links.
 
-*** Setup browser(s) for links
-   Set default browswer.  See http://stackoverflow.com/questions/4506249/how-to-make-emacs-org-mode-open-links-to-sites-in-google-chrome
-   Can still run eww by hand (or via alias) to open most links.
+#    For now, default to google-chrome. eww may be a good choice too.
 
-   For now, default to google-chrome. eww may be a good choice too.
+#    #+begin_src emacs-lisp
 
-   #+begin_src emacs-lisp
+#    (setq browse-url-browser-function 'eww-browse-url
+#      browse-url-generic-program "google-chrome")
 
-   (setq browse-url-browser-function 'eww-browse-url
-     browse-url-generic-program "google-chrome")
-
-   #+end_src
+#    #+end_src
 
 * Stuff that has to load late
 *** Org Agenda Configs
