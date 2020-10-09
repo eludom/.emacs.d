@@ -486,6 +486,15 @@ future."
      #+END_SRC
 
 ** General configuration
+*** Encryption
+    gpg should prompt for passwords without a GUI
+
+    https://www.reddit.com/r/emacs/comments/68xtx1/reliable_way_of_setting_up_gpg_password_input_in/
+
+    #+begin_src emacs-lisp
+    (setq epa-pinentry-mode 'loopback)
+    #+end_src
+
 *** Backups
 
 This is one of the things people usually want to change right away. By default, Emacs saves backup files in the current directory. These are the files ending in =~= that are cluttering up your directory lists. The following code stashes them all in =~/.emacs.d/backups=, where I can find them with =C-x C-f= (=find-file=) if I really need to.
