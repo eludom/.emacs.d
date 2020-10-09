@@ -130,17 +130,32 @@
      versions of emacs.  http://ergoemacs.org/emacs/building_emacs_on_linux.html
 
 ** Emacs initialization
-*** Org defaults
+*** Org Mode Configs
+**** Org defaults
 
-We don't need to see output of code blocks here unless there are problems
+ We don't need to see output of code blocks here unless there are problems
 
-#+PROPERTY: header-args :results silent
+ #+PROPERTY: header-args :results silent
 
-*** Make org-mode the default - it is fundamental
-#+begin_src emacs-lisp
+**** Make org-mode the default - it is fundamental
+ #+begin_src emacs-lisp
 (setq-default major-mode 'org-mode)
 (setq auto-mode-alist (append '(("\\.txt$" . org-mode))
       auto-mode-alist))
+ #+end_src
+
+**** Org mode random tweaks
+***** Allow highlighting of single characters within Org mode
+      [2020-08-28 Fri]
+      I want ~*b*old~ to *b*old the first character in org mode export
+
+      Answer here: https://stackoverflow.com/questions/1218238/how-to-make-part-of-a-word-bold-in-org-mode
+
+      Code here:
+#+begin_src emacs-lisp
+(setcar org-emphasis-regexp-components " \t('\"{[:alpha:]")
+(setcar (nthcdr 1 org-emphasis-regexp-components) "[:alpha:]- \t.,:!?;'\")}\\")
+(org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
 #+end_src
 
 *** Start the server
