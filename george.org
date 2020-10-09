@@ -752,8 +752,23 @@ Version 2015-01-26"
 
     http://ergoemacs.org/emacs/xah-lookup.html
 
+
     #+begin_src emacs-lisp :exports code
-      ;;(require 'xah-lookup)
+    (require 'eww)
+    (setq xah-lookup-browser-function 'eww) ; must come before loading xah-lookup
+    (require 'xah-lookup)
+
+    (when (boundp 'xah-fly-h-keymap)
+    (define-key xah-fly-h-keymap (kbd "1") 'xah-lookup-etymology)
+    (define-key xah-fly-h-keymap (kbd "2") 'xah-lookup-word-dict-org)
+    (define-key xah-fly-h-keymap (kbd "3") 'xah-lookup-web)
+    (define-key xah-fly-h-keymap (kbd "4") 'xah-lookup-word-definition)
+    (define-key xah-fly-h-keymap (kbd "5") 'xah-lookup-wikipedia)
+    (define-key xah-fly-h-keymap (kbd "6") 'xah-lookup-wiktionary)
+    (define-key xah-fly-h-keymap (kbd "7") 'xah-lookup-all-dictionaries)
+    (define-key xah-fly-h-keymap (kbd "9") 'xah-lookup-word-definition)
+    ;;
+    )
     #+end_src
 
 ** Writing
