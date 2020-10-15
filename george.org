@@ -282,7 +282,7 @@
       (global-set-key (kbd "<f7>") 'xah-open-in-external-app)
       #+END_SRC
 
-** load which-key - where did I put that key-binding ?
+*** load which-key - where did I put that key-binding ?
   #+begin_src emacs-lisp
 (require 'which-key)
     (which-key-mode)
@@ -548,6 +548,13 @@ Disk space is cheap. Save lots.
             (insert (format-time-string "%Y%m%d"))))))
             ; if arg > 4, prompt for buffer name
     (global-set-key "\C-X." 'gmj-insert-date)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :exports code
+ (defun transparency (value)
+   "Sets the transparency of the frame window. 0=transparent/100=opaque"
+   (interactive "nTransparency Value 0 - 100 opaque:")
+   (set-frame-parameter (selected-frame) 'alpha value))
 #+END_SRC
 
 *** Refile
