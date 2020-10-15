@@ -546,6 +546,20 @@ If you need complex templates, look at the tempo-define-template function or at 
     If I "gpg -d ~/.authinfo.gpg" on the command line first, it then
      works in emacs
    [2020-08-22 Sat 06:48]
+** DONE fix "ms" abbrev to be "magit-status" not notmuch               :NOTE:
+   - State "DONE"       from "TODO"       [2020-08-23 Sun 20:06] \\
+     Helm last prefix use used, you can order, change
+ [2020-08-16 Sun 18:59]
+ [[file:~/.emacs.d/george.org::*Abbrevs][Abbrevs]]
+** DONE make tmp buffer an .org file
+   - State "DONE"       from "TODO"       [2020-08-22 Sat 16:12] \\
+     Just had to set initial-major-mode variable to org-mode
+** IN-PROGRESS Figure out how to use org-mode for contacts
+   SCHEDULED: <2020-09-22 Tue>
+   - State "IN-PROGRESS" from "TODO"       [2020-09-24 Thu 07:04]
+   [2020-09-21 Mon 07:07]
+   https://www.reddit.com/r/emacs/comments/76s9dl/orgmode_for_contacts/
+   - look at https://emacs.stackexchange.com/questions/12120/insert-entries-and-link-to-entries-from-org-contacts
 * emacs - meetings???
 * emacs - reporting
 *** TODO report bug in org9 - not honoring ":exports"
