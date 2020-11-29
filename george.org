@@ -930,7 +930,7 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
 ;
 ; See http://www.emacswiki.org/TimeStamp
 ;(setq time-stamp-pattern  "8/Time-stamp:[ \t]+\\\\?[\"<]+%:y-%02m-%02d %02H:%02M:%02S %u\\\\?[\">]")
-(setq time-stamp-pattern  "8/DATE:[ \t]+\\\\?[\"<]+%:y-%02m-%02d %02H:%02M:%02S %:a\\\\?[\">]")
+(setq time-stamp-pattern  "8/[Dd][Aa][Tt][Ee]:[ \t]+\\\\?[\"<]+%:y-%02m-%02d %02H:%02M:%02S %:a\\\\?[\">]")
 (add-hook 'before-save-hook 'time-stamp)
 #+END_SRC
 *** JSON formatting
