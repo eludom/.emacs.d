@@ -1013,13 +1013,21 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
    ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, and org-protocol
    (setq org-capture-templates
       (quote (("t" "todo" entry (file "~/Org/refile.org")
-               "* TODO %?\n  %U\n" :clock-in nil :clock-resume nil)
+               "* TODO %?\n  %U\n  %a\n" :clock-in nil :clock-resume nil)
                ("d" "daily todo" entry (file+datetree "~/Org/daily.org")
                "* TODO %?\n  %U\n")
               ("s" "Schedule" entry (file+datetree "~/Org/schedule.org")
                "*  %?\n%(format-time-string \"<%Y-%m-%d %H:00-%H:00>\")\n")
               ("f" "emacsFoo" entry (file+datetree "~/Org/emacsFoo.org")
                "* %?\n     %U\n")
+
+              ("k" "Kontacts Notmuch" entry (file "~/Org/contacts.org")
+               "* %:fromname
+  :PROPERTIES:
+  :EMAIL: %:fromaddress
+  :DATE: %(format-time-string \"<%Y-%m-%d>\")
+  :END:"
+               )
               ("r" "respond" entry (file "~/Org/refile.org")
                "* TODO Respond to %:from on %:subject\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
 ;;              ("n" "note" entry (file "~/Org/refile.org")
@@ -1045,16 +1053,8 @@ From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el -
   :EMAIL: %(org-contacts-template-email)
   :END:"))
 
-(add-to-list 'org-capture-templates
-             '("m" "Meeting" entry (file "~/Org/refile.org")
-             "* MEETING with %?FOO about BAR on %t	:MEETING:
-  %U
-  %a
-"  :clock-in t :clock-resume t))
 
  #+end_src
-
-
 
 #+begin_src emacs-lisp
 (defun gmj/org-example-region (start end)
