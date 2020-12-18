@@ -1239,19 +1239,15 @@ complicated than they are. Let's turn them off by default.
 #+END_SRC
 *** Notmuch for reading mail
 
-#   #+begin_src emacs-lisp
-#   (autoload 'notmuch "notmuch" "Notmuch mail" t)
+   #+begin_src emacs-lisp
+   (require 'ol-notmuch)  ; in org-plus-contrib, used for org-capture
 
-#   (require 'notmuch)  ; default in /usr/local/share/emacs/site-lisp/
-#   (require 'org-notmuch)  ; in org-plus-contrib
+;; #   (autoload 'notmuch "notmuch" "Notmuch mail" t)
+;; #   (require 'notmuch)  ; default in /usr/local/share/emacs/site-lisp/
+;; #   (autoload 'gnus-alias-determine-identity "gnus-alias" "" t)
+;; #   (add-hook 'message-setup-hook 'gnus-alias-determine-identity)
 
-#   (when (require 'notmuch nil 'noerror)
-#   (message "require notmuch succeeded))
-#   (when (require 'org-notmuch nil 'noerror)
-#   (message "require notmuch succeeded))
-#   (autoload 'gnus-alias-determine-identity "gnus-alias" "" t)
-#   (add-hook 'message-setup-hook 'gnus-alias-determine-identity)
-#    #+end_src
+    #+end_src
 
 # ** Web Browsing
 # *** eww config
