@@ -381,6 +381,7 @@
     (defalias 'elm 'emacs-lisp-mode)
     (defalias 'om 'org-mode)
     (defalias 'gm 'go-mode)
+    (defalias 'lim 'lisp-interaction-mode)
     ;(defalias 'ssm 'shell-script-mode)
     ;(defalias 'html6-mode 'xah-html6-mode)
 
